@@ -57,15 +57,16 @@ Analisi di vendite con colonne separate per ogni mese:
 ### NoSQL (Not Only SQL)
 - Pensato per scalabilità e flessibilità.
 - Tipologie:
-    - Document-oriented: Archivia dati in documenti JSON o BSON (es. MongoDB, CouchDB).
-    - Key-Value Store: Struttura chiave-valore (es. Redis, DynamoDB).
-    - Wide-Column Store: Variante del database colonnare (es. Apache HBase, ScyllaDB).
-    - Graph Database: Gestisce dati con nodi e connessioni (es. Neo4j).
+    - **Document-oriented**: Archivia dati in documenti JSON o BSON (es. MongoDB, CouchDB).
+    - **Key-Value Store**: Struttura chiave-valore (es. Redis, DynamoDB).
+    - **Wide-Column Store**: Variante del database colonnare (es. Apache HBase, ScyllaDB).
+    - **Graph Database**: Gestisce dati con nodi e connessioni (es. Neo4j).
 
 Esempio: database documentale MongoDB che memorizza profili utente:
-
+    ```json
     {
         "nome": "Mario",
         "cognome": "Rossi",
         "email": "mario.rossi@example.com"
     }
+    ```
