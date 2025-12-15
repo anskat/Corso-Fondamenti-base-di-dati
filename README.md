@@ -2,9 +2,9 @@
 
 ## Indice argomenti
 
-1. [Cos’è un database](Teoria/cos-e-database.md)
-2. [Strutture Dati e Modelli di Database](Teoria/strutture-dati.md)
-3. [DBMS e RDBMS](Teoria/dbms-rdbms.md)
+1. [Cos’è un database](Teoria/01-cos-e-database.md)
+2. [Strutture Dati e Modelli di Database](Teoria/02-strutture-dati.md)
+3. [DBMS e RDBMS](Teoria/03-dbms-rdbms.md)
 4. Il Modello RELAZIONALE
 5. Normalizzazione
 6. Tipi di dato
