@@ -6,9 +6,9 @@
 Sono strutturati in modo tale da consentire la gestione efficiente dei dati, permettendo operazioni come **inserimento**, **aggiornamento**, **ricerca** e **cancellazione** delle informazioni.
 
 - In informatica, il termine **database** indica una **struttura organizzata di dati**.
-I database (o più brevemente, DB) sono archivi dove le applicazioni memorizzano i dati in modo **persistente** 1 per poterli successivamente leggere, modificare o eliminare.
+I database (o più brevemente, DB) sono archivi dove le applicazioni memorizzano i dati in modo **persistente** [^1] per poterli successivamente leggere, modificare o eliminare.
 
-> 1) In ambito informatico, la persistenza si riferisce alla capacità di un dato di essere conservato oltre la durata di esecuzione di un singolo programma, garantendo che i dati siano ancora disponibili in seguito.
+[^1]: In ambito informatico, la persistenza si riferisce alla capacità di un dato di essere conservato oltre la durata di esecuzione di un singolo programma, garantendo che i dati siano ancora disponibili in seguito.
 
 ---
 
