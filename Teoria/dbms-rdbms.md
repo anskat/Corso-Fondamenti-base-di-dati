@@ -81,7 +81,7 @@ Funzionalità peculiari:
 
 ---
 
-## Charset
+## Charset e Collation
 
 I **character set** (insiemi di caratteri) sono i diversi sistemi attraverso i quali i caratteri alfanumerici, i segni di punteggiatura e tutti i simboli rappresentabili su un computer vengono memorizzati in un valore binario.In ogni set di caratteri, ad un valore binario corrisponde un carattere ben preciso.
 
@@ -92,6 +92,8 @@ Ad ogni set di caratteri sono associate una o più **collation**, che rappresent
 In MySQL 8 il set di caratteri consigliato e predefinito è **utf8mb4** (UTF-8 vero (4 byte), oggi default).
 
 La collation consigliata è **utf8mb4_0900_ai_ci** (accent-insensitive e case-insensitive)...
+
+### Esempio
 
 Supponiamo di avere un alfabeto di quattro lettere: *A*, *B*, *a*, *b*.
 
