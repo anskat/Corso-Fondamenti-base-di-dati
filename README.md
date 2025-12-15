@@ -4,7 +4,7 @@
 
 1. [Cos’è un database](Teoria/cos-e-database.md)
 2. [Strutture Dati e Modelli di Database](Teoria/strutture-dati.md)
-3. DBMS e RDBMS
+3. [DBMS e RDBMS](Teoria/dbms-rdbms.md)
 4. Il Modello RELAZIONALE
 5. Normalizzazione
 6. Tipi di dato
