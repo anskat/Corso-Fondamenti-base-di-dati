@@ -23,3 +23,11 @@ Un dato è un'unità elementare di informazione, che può essere un numero, unap
 > Ad esempio, una stringa di caratteri come "Maria", oppure un numero come "30", sono dati grezzi.
 Da soli,però, non raccontano molto.
 Per renderli significativi dobbiamo inserirli in un contesto strutturato, ad esempio: "Maria ha 30 anni."
+
+---
+
+## Database file-server, client-server
+
+| Database file-server | Database client-server |
+|--------------------|----------------------|
+| Sono semplici file, a cui possono facilmente accedere i programmi che li usano per inserire, visualizzare, modificare o cancellare i dati in essi contenuti.<br>• il sistema accede fisicamente al file;<br>• più il file è di grandi dimensioni maggiore il tempo di accesso;<br>• accesso contemporaneo da più utenti rallenta notevolmente il db;<br>• MS Access, FileMaker, … | Rappresentano un servizio che mette a disposizione il software per interagire con i dati.<br>Viene gestito e manutenuto dai DBA (Database Administrator).<br>• Microsoft SQL Server (RDBMS)<br>• Oracle (RDBMS)<br>• MySQL (RDBMS)<br>• DB2 (RDBMS)<br>• PostgreSQL (ORDBMS)<br>• MongoDB (NoSQL)<br>• Neo4j (NoSQL)<br>• … |
