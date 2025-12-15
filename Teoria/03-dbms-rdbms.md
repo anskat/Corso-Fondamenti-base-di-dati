@@ -12,14 +12,14 @@
 
 ### Cosa fa un DBMS?
 
-| Funzione      | Descrizione |
-| ----------- | ----------- |
+| Funzione           | Descrizione |
+| :---               | :---        |
 | Gestione dati      | Crea, legge, modifica, elimina       |
-| Sicurezza   | Controllo accessi, permessi        |
-| Integrità   | Regole sui dati, relazioni        |
-| Concorrenza   | Accessi simultanei        |
-| Persistenza   | Salvataggio stabile nel tempo        |
-| Architettura   | Funziona come server in ambienti client-server        |
+| Sicurezza          | Controllo accessi, permessi        |
+| Integrità          | Regole sui dati, relazioni        |
+| Concorrenza        | Accessi simultanei        |
+| Persistenza        | Salvataggio stabile nel tempo        |
+| Architettura       | Funziona come server in ambienti client-server        |
 
 Il DBMS è l’intermediario tra i programmi e i dati, garantendo coerenza, sicurezza e prestazioni.
 
