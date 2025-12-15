@@ -38,3 +38,24 @@ Per renderli significativi dobbiamo inserirli in un contesto strutturato, ad ese
 # Esempio di richiesta dati attraverso un form via https
 
 ![richiesta dati](/assets/images/client-server.png)
+
+---
+
+## VANTAGGI DATABASE CLIENT-SERVER
+
+1. I clients **non accedono fisicamente al file** sul database, inviano solamente la loro query al motore del database ed il
+    server restituisce solamente i dati richiesti.
+
+2. **Velocità**: al crescere delle dimensioni del database il tempo di una query rimane identico, perché attraverso la LAN
+    viaggiano e continueranno a viaggiare solamente la richiesta (query) ed i dati restituiti, la dimensione del database
+    diventa alla fine irrilevante per il client.
+
+3. Il motore del database è in grado di gestire tutte le **connessioni simultanee** da parte degli utenti, ed utilizzare al
+    meglio le prestazioni dell'hardware.
+
+4. **Sicurezza**. Se su un sistema file-server potrebbe succedere che in determinate situazioni il file arrivi ad essere corrotto
+    (termine tecnico), questo non deve potere succedere, mai e per nessuna ragione, su un sistema client-server.
+
+5. La sicurezza viene garantita anche grazie alle funzioni che i db client-server normalmente offrono. Tutte le tabelle di un
+    sistema gestionale aziendale sono tra loro collegate, la mancanza della gestione delle relazioni può portare a grossi
+    problemi circa l' **integrità dei dati**.
