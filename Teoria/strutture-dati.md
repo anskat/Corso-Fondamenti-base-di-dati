@@ -39,7 +39,6 @@ Esempio: sensori di temperatura che registrano la temperatura ogni ora:
         timestamp: "2025-02-21T12:00:00Z",
         temperatura: 22.5
     }
-    ```
 
 ---
 
@@ -72,4 +71,3 @@ Esempio: database documentale MongoDB che memorizza profili utente:
         "cognome": "Rossi",
         "email": "mario.rossi@example.com"
     }
-    ```
