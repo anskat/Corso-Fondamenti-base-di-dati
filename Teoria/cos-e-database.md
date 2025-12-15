@@ -35,7 +35,7 @@ Per renderli significativi dobbiamo inserirli in un contesto strutturato, ad ese
 ---
 
 ## Client-server
-# Esempio di richiesta dati attraverso un form via https
+### Esempio di richiesta dati attraverso un form via https
 
 ![richiesta dati](/assets/images/client-server.png)
 
