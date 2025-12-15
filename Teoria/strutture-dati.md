@@ -10,7 +10,7 @@ Nei database, le strutture dati vengono implementate attraverso diversi modelli 
 
 ## Modelli di database più diffusi
 
-# Relazionale (RDBMS - Relational Database Management System)
+### Relazionale (RDBMS - Relational Database Management System)
 
 - Organizza i dati in tabelle (righe e colonne).
 - Relazioni tra le tabelle tramite chiavi primarie ed esterne.
@@ -23,7 +23,7 @@ Esempi: *MySQL*, *PostgreSQL*, *Oracle*, *SQL Server*
 
 ---
 
-# Time Series Database
+### Time Series Database
 
 Le serie temporali sono una struttura in cui i dati vengono organizzati in base a un intervallo di tempo. Vengono utilizzate per tracciare cambiamenti e osservare tendenze nel tempo.
 
@@ -37,4 +37,35 @@ Esempio: sensori di temperatura che registrano la temperatura ogni ora:
     {
         timestamp: "2025-02-21T12:00:00Z",
         temperatura: 22.5
+    }
+
+---
+
+### Database Colonnare
+
+- Memorizza i dati per colonne anziché per righe.
+- Vantaggioso per analisi su grandi volumi di dati.
+
+Esempi: *Apache Cassandra*, *Google Bigtable*, *Amazon Redshift*.
+
+Analisi di vendite con colonne separate per ogni mese:
+    
+    Prodotto | Gennaio | Febbraio | Marzo
+
+---
+
+### NoSQL (Not Only SQL)
+- Pensato per scalabilità e flessibilità.
+- Tipologie:
+    - Document-oriented: Archivia dati in documenti JSON o BSON (es. MongoDB, CouchDB).
+    - Key-Value Store: Struttura chiave-valore (es. Redis, DynamoDB).
+    - Wide-Column Store: Variante del database colonnare (es. Apache HBase, ScyllaDB).
+    - Graph Database: Gestisce dati con nodi e connessioni (es. Neo4j).
+
+Esempio: database documentale MongoDB che memorizza profili utente:
+
+    {
+        "nome": "Mario",
+        "cognome": "Rossi",
+        "email": "mario.rossi@example.com"
     }
