@@ -38,6 +38,9 @@
 
 ## Fasi della progettazione
 
-| 1. Modello CONCETTUALE                                        | 2. Modello LOGICO                                                 | 3. Modello FISICO                                       |
-| Rappresenta i dati e le loro relazioni a un livello astratto, | Traduce il modello concettuale in una struttura più dettagliata   | Rappresenta la struttura effettiva del                  |
-| senza preoccuparsi di dettagli tecnici o implementativi       | e aderente alle regole di un particolare tipo di database.        | database come verrà implementata su un determinato DBMS |
+## Fasi della progettazione
+
+| 1. Modello CONCETTUALE                                       | 2. Modello LOGICO                                                | 3. Modello FISICO                                       |
+|---------------------------------------------------------------|-----------------------------------------------------------------|---------------------------------------------------------|
+| Rappresenta i dati e le loro relazioni a un livello astratto, | Traduce il modello concettuale in una struttura più dettagliata | Rappresenta la struttura effettiva del database come verrà implementata su un determinato DBMS |
+| senza preoccuparsi di dettagli tecnici o implementativi       | e aderente alle regole di un particolare tipo di database.      |                                                         |
