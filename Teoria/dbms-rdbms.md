@@ -28,9 +28,13 @@ Il DBMS è l’intermediario tra i programmi e i dati, garantendo coerenza, sicu
 ### Componenti principali di un DBMS
 
 **Motore di archiviazione** → gestisce come i dati sono salvati (es. InnoDB, MyISAM)
+
 **Motore delle query** → interpreta ed esegue le istruzioni SQL
+
 **Gestore delle transazioni** → garantisce che i dati siano consistenti
+
 **Controllo degli accessi** → gestisce utenti, ruoli e permessi
+
 **Catalogo (metadati)** → contiene le informazioni sulla struttura del database
 
 ---
