@@ -34,10 +34,12 @@ Esempi: *InfluxDB*, Time*scaleDB, Open*TSDB.
 
 Esempio: sensori di temperatura che registrano la temperatura ogni ora:
 
+    ```json
     {
         timestamp: "2025-02-21T12:00:00Z",
         temperatura: 22.5
     }
+    ```
 
 ---
 
@@ -63,6 +65,7 @@ Analisi di vendite con colonne separate per ogni mese:
     - **Graph Database**: Gestisce dati con nodi e connessioni (es. Neo4j).
 
 Esempio: database documentale MongoDB che memorizza profili utente:
+
     ```json
     {
         "nome": "Mario",
