@@ -52,3 +52,30 @@ Quindi i numeri vanno da -999.9999 a 999.9999.
 1 La sintassi FLOAT(p) è supportata ma ignorata: non influisce realmente sul tipo
 
 2 https://dev.mysql.com/doc/refman/8.4/en/precision-math-decimal-characteristics.html
+
+---
+
+### Dati stringa
+
+**Tipo e lunghezza massima consentita**
+
+| Tipo | Lunghezza massima |
+|------|-------------------|
+| CHAR(n) | 255 caratteri |
+| VARCHAR(n) | 65.535 byte(1) |
+| BINARY(b) | 255 byte |
+| VARBINARY(b) | 65.535 byte |
+| TINYTEXT | 255 caratteri |
+| TINYBLOB | 255 byte |
+| TEXT | 65.535 caratteri |
+| BLOB | 65.535 byte |
+| MEDIUMTEXT | 16.777.215 caratteri |
+| MEDIUMBLOB | 16.777.215 byte |
+| LONGTEXT | 4.294.967.295 caratteri |
+| LONGBLOB | 4.294.967.295 byte |
+| ENUM('value1','value2',...) | ENUM usa 1 o 2 byte a seconda del numero di valori |
+| SET('value1','value2',...) | 64 valori distinti |
+
+
+1 Il limite è 65.535 byte perché dipende dal tipo di codifica adottata.
+Con utf8mb4 il massimo è ~16383 caratteri
