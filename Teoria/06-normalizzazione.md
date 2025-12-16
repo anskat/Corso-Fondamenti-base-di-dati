@@ -65,5 +65,5 @@ Soluzione: scomposizione in due tabelle
 | id_corso   | Corso 	    | id_insegnante              |
 | ---- | ---------- | ---------------    |
 | 1	   | Matematica 	    | 1         |
-| 1	   | Fisica 	    | 1             |
-| 2	   | Biologia 	| 2           |
+| 2	   | Fisica 	    | 1             |
+| 3	   | Biologia 	| 2           |
