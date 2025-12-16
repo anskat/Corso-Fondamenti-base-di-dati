@@ -13,17 +13,57 @@ Si dice che una database è in 1NF (prima forma normale) se per ogni tabella/rel
 
 ---
 
-| Id   | Nome 	    | Corsi              |
+| id   | Nome 	    | Corso              |
 | ---- | ---------- | ---------------    |
 | 1	   | Maria 	    | Matematica, Fisica |
 | 2	   | Giovanni 	| Biologia           |
 
 Questa tabella NON è in 1NF in quanto, ogni colonna deve assumere un solo valore, ovvero non può essere una matrice o un’array di valori.
 
-| Id   | Nome 	    | Corsi              |
+| id   | Nome 	    | Corso              |
 | ---- | ---------- | ---------------    |
 | 1	   | Maria 	    | Matematica         |
 | 1	   | Maria 	    | Fisica             |
 | 2	   | Giovanni 	| Biologia           |
 
 In questo caso la normalizzazione consiste nel riportare le celle che originariamente erano raggruppate in una unica colonna in più righe replicando gli altri valori 
+
+### La seconda forma normale (2NF)
+
+Perché una base dati possa essere in 2NF è necessario che:
+
+- si trovi già in 1NF;
+- tutti gli attributi non chiave dipendano dall'intera chiave primaria (e non solo da una parte di essa).
+
+La 2NF elimina le dipendenze parziali e quindi riduce la ridondanza.
+
+NOTA: La 2NF si applica solo se la PK è composta da più attributi.
+Se la PK è semplice, 2NF = 1NF automaticamente.
+
+Ora la tabella precedente che rispetta la 1FN non rispetta però la seconda forma normale.
+
+| id   | Nome 	    | Corso              |
+| ---- | ---------- | ---------------    |
+| 1	   | Maria 	    | Matematica         |
+| 1	   | Maria 	    | Fisica             |
+| 2	   | Giovanni 	| Biologia           |
+
+La chiave primaria è la combinazione (Id, Corso).
+
+L'attributo "Nome" dipende solo da Id, non da tutto l'insieme (Id, Corso).
+
+Quindi c'è una dipendenza parziale ⇒ violazione della 2NF.
+
+Soluzione: scomposizione in due tabelle
+
+| id_insegnante   | Nome 	    |
+| ---- | ---------- |
+| 1	   | Maria 	    |
+| 2	   | Giovanni   |
+
+
+| id_corso   | Corso 	    | id_insegnante              |
+| ---- | ---------- | ---------------    |
+| 1	   | Matematica 	    | 1         |
+| 1	   | Fisica 	    | 1             |
+| 2	   | Biologia 	| 2           |
