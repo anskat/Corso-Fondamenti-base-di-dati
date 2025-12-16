@@ -79,3 +79,7 @@ Per avviare o arrestare il servizio, apri le *Preferenze di Sistema* e clicca su
 2. Digita:
    ```text
    services.msc
+
+3. Premi Invio per aprire la finestra dei servizi.
+4. Cerca il servizio MySQL (il nome dipende dalla versione installata, ad esempio MySQL80).
+5. Fai clic con il tasto destro sul servizio e scegli Avvia, Interrompi o Riavvia secondo necessità.
