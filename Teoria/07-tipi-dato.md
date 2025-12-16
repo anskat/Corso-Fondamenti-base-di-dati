@@ -3,8 +3,9 @@
 In una tabella per ciascuna colonna possiamo definire diversi tipi di dato (dominio):
 
 - [Dati numerici: interi](#dati-numerici-interi)
-- String (stringa)
-- Date , Time (data e ora)
+- [Tipi di numeri in virgola mobile](#tipi-di-numeri-in-virgola-mobile)
+- [String (stringa)](#dati-stringa)
+- [Date , Time (data e ora)](#datetime)
 - [JSON](#JSON)
 
 ---
