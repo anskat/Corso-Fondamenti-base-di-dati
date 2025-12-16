@@ -134,7 +134,7 @@ Collegamenti logici che uniscono due o più entità nella realtà descritta dal 
 **Relazione 1,N (uno a molti)**
 
 ![relazione1-N](/assets/images/relazione1-N.png)
-
+ 
 - Ad ogni classe appartiene più di un alunno
 - Un alunno appartiene ad una singola classe
 
