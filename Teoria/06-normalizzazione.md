@@ -11,13 +11,14 @@ Si dice che una database è in 1NF (prima forma normale) se per ogni tabella/rel
 - esiste una chiave primaria (ossia esiste un attributo o un insieme di attributi che identificano in modo univoco ogni tupla della relazione)
 - l'ordine delle righe è irrilevante (non è portatore di informazioni)
 
+Tabella da normalizzare
 
 | id   | Nome 	    | Corso              |
 | ---- | ---------- | ---------------    |
 | 1	   | Maria 	    | Matematica, Fisica |
 | 2	   | Giovanni 	| Biologia           |
 
-Questa tabella NON è in 1NF in quanto, ogni colonna deve assumere un solo valore, ovvero non può essere una matrice o un’array di valori.
+La tabella sopra NON è in 1NF in quanto, ogni colonna deve assumere un solo valore, ovvero non può essere una matrice o un’array di valori.
 
 | id   | Nome 	    | Corso              |
 | ---- | ---------- | ---------------    |
@@ -55,7 +56,7 @@ L'attributo "Nome" dipende solo da Id, non da tutto l'insieme (Id, Corso).
 
 Quindi c'è una dipendenza parziale ⇒ violazione della 2NF.
 
-Soluzione: scomposizione in due tabelle
+**Soluzione**: scomposizione in due tabelle
 
 | id_insegnante   | Nome 	    |
 | ---- | ---------- |
@@ -69,7 +70,7 @@ Soluzione: scomposizione in due tabelle
 | 2	   | Fisica 	    | 1             |
 | 3	   | Biologia 	| 2           |
 
-Altro esempio: si supponga di avere a che fare con il database di una scuola con una chiave primaria composta dai campi "Codice Matricola" e "Codice Esame”:
+*Altro esempio*: si supponga di avere a che fare con il database di una scuola con una chiave primaria composta dai campi *Codice Matricola* e *Codice Esame*:
 
 | ● Codice Matricola	| ● Codice Esame	| Nome Matricola	| Voto Esame |
 | ---- | ---------- | ---------------    | ---------------    |
@@ -80,7 +81,7 @@ Altro esempio: si supponga di avere a che fare con il database di una scuola con
 
 Il database qui sopra si trova in 1NF ma non in 2NF
 
-Perché il campo "Nome Matricola" non dipende dall'intera chiave ma solo da una parte di essa ("Codice Matricola").
+Perché il campo *Nome Matricola* non dipende dall'intera chiave ma solo da una parte di essa (*Codice Matricola*).
 
 Per rendere il nostro database in 2NF dovremo scomporlo in due tabelle:
 
