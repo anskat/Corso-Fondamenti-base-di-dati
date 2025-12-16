@@ -56,7 +56,7 @@ In questo caso RDBMS MySQL
 
 Codice MySQL di esempio (per una comprensione completa vedere la sezione SQL - DDL e Tipi di Dati)
 
-    ```sql
+```sql
     CREATE TABLE IF NOT EXISTS Docenti (
         id int AUTO_INCREMENT,
         nome varchar(50) NOT NULL,
@@ -96,4 +96,4 @@ Codice MySQL di esempio (per una comprensione completa vedere la sezione SQL - D
         data_isc timestamp NULL DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (studente_id, corso_id)
     );
-    ```
+```
