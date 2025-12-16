@@ -156,3 +156,5 @@ WHERE condition(s);
 Attraverso ```SELECT``` vengono selezionati dei campi (attributi) da una o più tabelle e restituiti all'utente sotto forma di una *nuova tabella* (resultset)
 
 Attraverso la clausola ```WHERE``` è possibile filtrare il resultset sulla base di alcune regole.
+
+Per efettuare le interrogazioni si usano vari tipio di *opertori*, affrontati nella sezione specifica.
