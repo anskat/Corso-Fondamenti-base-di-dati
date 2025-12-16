@@ -46,9 +46,9 @@
 
 ## Progettazione: modello relazionale
 
-### Diagramma E-R, simboli
+## Diagramma E-R, simboli
 
-#### Entità
+### Entità
 
 Concetto fondamentale, generale, per la realtà che si sta modellando.
 
@@ -60,7 +60,7 @@ Rappresenta **classi di oggetti** (fatti, cose, persone, ...) che hanno **propri
 
 ---
 
-#### Attributo
+### Attributo
 
 **Caratteristiche specifiche di un’entità**, utili (o necessarie) nella realtà da modellare
 
@@ -92,7 +92,7 @@ Esempi di campo chiave: *matricola*, *codice fiscale*, etc.
 
 ---
 
-#### Istanze di un’Entità
+### Istanze di un’Entità
 
 Specifici dati, oggetti appartenenti ad un’entità.
 
@@ -108,10 +108,24 @@ Possiamo considerare le entità come insiemi all’interno dei quali sono conten
 
 ---
 
-#### Relazioni (Associazioni)
+### Relazioni (Associazioni)
 
 Collegamenti logici che uniscono due o più entità nella realtà descritta dal database
 
 - identificata da un rombo collegato alle due entità
 
 ![relazione](/assets/images/relazione.png)
+
+---
+
+### Esempi di relazioni
+
+#### Cinema/teatro
+
+**Relazione 1,1 (uno a uno)**
+
+![relazione1-1](/assets/images/relazione1-1.png)
+
+- Uno spettatore occupa un singolo posto
+
+- Ogni singolo posto può essere occupato solo da uno spettatore
