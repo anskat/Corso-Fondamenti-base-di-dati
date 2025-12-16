@@ -18,7 +18,7 @@ Tabella da normalizzare
 | 1	   | Maria 	    | Matematica, Fisica |
 | 2	   | Giovanni 	| Biologia           |
 
-La tabella sopra NON è in 1NF in quanto, ogni colonna deve assumere un solo valore, ovvero non può essere una matrice o un’array di valori.
+La tabella sopra NON rispetta la **1NF** in quanto, ogni colonna deve assumere un solo valore, ovvero non può essere una matrice o un’array di valori.
 
 | id   | Nome 	    | Corso              |
 | ---- | ---------- | ---------------    |
@@ -37,12 +37,12 @@ Perché una base dati possa essere in 2NF è necessario che:
 - si trovi già in 1NF;
 - tutti gli attributi non chiave dipendano dall'intera chiave primaria (e non solo da una parte di essa).
 
-La 2NF elimina le dipendenze parziali e quindi riduce la ridondanza.
+La **2NF** elimina le dipendenze parziali e quindi riduce la ridondanza.
 
 NOTA: La 2NF si applica solo se la PK è composta da più attributi.
 Se la PK è semplice, 2NF = 1NF automaticamente.
 
-Ora la tabella precedente che rispetta la 1FN non rispetta però la seconda forma normale.
+Ora la tabella precedente che rispetta la **1FN** non rispetta però la **2FN**.
 
 | id   | Nome 	    | Corso              |
 | ---- | ---------- | ---------------    |
@@ -52,7 +52,7 @@ Ora la tabella precedente che rispetta la 1FN non rispetta però la seconda form
 
 La chiave primaria è la combinazione (Id, Corso).
 
-L'attributo "Nome" dipende solo da Id, non da tutto l'insieme (Id, Corso).
+L'attributo *Nome* dipende solo da *id*, non da tutto l'insieme: id, Corso
 
 Quindi c'è una dipendenza parziale ⇒ violazione della 2NF.
 
@@ -79,9 +79,9 @@ Quindi c'è una dipendenza parziale ⇒ violazione della 2NF.
 | 1235	| L02	| Verdi Mario	| 8 |
 
 
-Il database qui sopra si trova in 1NF ma non in 2NF
+Il database qui sopra si trova in **1NF** ma non in **2NF**
 
-Perché il campo *Nome Matricola* non dipende dall'intera chiave ma solo da una parte di essa (*Codice Matricola*).
+Perché il campo *Nome Matricola* non dipende dall'intera chiave ma solo da una parte di essa: *Codice Matricola*
 
 Per rendere il nostro database in 2NF dovremo scomporlo in due tabelle:
 
@@ -100,3 +100,32 @@ Per rendere il nostro database in 2NF dovremo scomporlo in due tabelle:
 ---
 
 ### La terza forma normale (3NF)
+
+Un database è in 3NF se:
+
+- è già in 2NF (e quindi, necessariamente, anche 1NF);
+- tutti gli attributi non chiave dipendono direttamente dalla chiave, quindi non ci sono attributi "non chiave" che dipendono da altri attributi "non chiave".
+
+In sintesi: un attributo non chiave non deve dipendere da un altro attributo non chiave.
+
+Supponiamo di avere una base dati di una palestra in cui il codice fiscale dell'iscritto al corso frequentato è associato all'insegnante di riferimento.
+
+Si supponga che il nostro DB abbia un'unica chiave primaria *Codice Fiscale* e sia così strutturato:
+
+| ● Codice Fiscale	|   Codice Corso	| Insegnante |
+| ----              | ---------- | ---------------    
+| LBRRSS79Y12T344A	| BB01		| Marco |
+| GNNBNCT84A11L61B	| BB01		| Marco |
+| LBRMNN79E64A112A	| BB01		| Marco |
+| GLSTMT59U66P109B	| AE02		| Federica |
+
+Il nostro database non è in 3NF in quanto il campo *insegnante* non dipende dalla chiave primaria, ma dal campo *Codice Corso* (che non è chiave).
+
+Per normalizzare questa tabella in modo che rispetti la **3NF** dovremo scomporla in due tabelle:
+
+| ● Codice Corso	| Insegnante | 
+| ---------------   | ---------------   |
+| BB01		| Marco |
+| BB01		| Marco | 
+| BB01		| Marco | 
+| AE02		| Federica | 
