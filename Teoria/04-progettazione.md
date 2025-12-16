@@ -127,5 +127,30 @@ Collegamenti logici che uniscono due o più entità nella realtà descritta dal 
 ![relazione1-1](/assets/images/relazione1-1.png)
 
 - Uno spettatore occupa un singolo posto
-
 - Ogni singolo posto può essere occupato solo da uno spettatore
+
+#### Liceo/Scuola superiore
+
+**Relazione 1,N (uno a molti)**
+
+![relazione1-N](/assets/images/relazione1-N.png)
+
+- Ad ogni classe appartiene più di un alunno
+- Un alunno appartiene ad una singola classe
+
+**Relazione N,N (molti a molti)**
+
+![relazioneN-N](/assets/images/relazioneN-N.png)
+
+- Uno studente frequenta più corsi
+- Ogni corso è frequentato da molti studenti
+
+---
+
+### Cardinalità delle relazioni
+
+La relazione R che lega due entità E1 ed E2 può essere classificata in base alla sua cardinalità (quante istanze delle due entità sono coinvolte nella relazione):
+
+- 1,1 (uno a uno) se ad un elemento di E1 può corrispondere un solo elemento di E2
+- 1,N (uno a molti) se ad un elemento di E1 possono corrispondere più di un elemento di E2 , ad un elemento di E2 può corrispondere un solo elemento di E1
+- N,N (molti a molti) se ad ogni elemento di E1 possono corrispondere molti elementi di E2 e viceversa
