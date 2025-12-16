@@ -2,14 +2,14 @@
 
 In una tabella per ciascuna colonna possiamo definire diversi tipi di dato (dominio):
 
-- Numerics (numeri interi e a virgola mobile){#numerics}
+- [Vai ai tipi di dati numerici](#Dati numerici: interi)
 - String (stringa)
 - Date , Time (data e ora)
-- JSON
+- [JSON](#JSON)
 
 ---
 
-### Dati numerici: interi{#numerics}
+### Dati numerici: interi
 
 | Tipo | Intervallo di valori | Solo se positivi (UNSIGNED) |
 |------|----------------------|-----------------------------|
