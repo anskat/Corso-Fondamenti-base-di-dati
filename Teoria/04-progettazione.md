@@ -59,6 +59,8 @@ Rappresenta **classi di oggetti** (fatti, cose, persone, ...) che hanno **propri
 | STUDENTE      |
 | :----:        |
 
+---
+
 #### Attributo
 
 **Caratteristiche specifiche di un’entità**, utili (o necessarie) nella realtà da modellare
@@ -66,5 +68,5 @@ Rappresenta **classi di oggetti** (fatti, cose, persone, ...) che hanno **propri
 - identificata da un cerchio collegato all’entità
 
     nome
-    `:white_circle:`
+    : white_circle :
         |
