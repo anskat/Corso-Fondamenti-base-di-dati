@@ -123,9 +123,15 @@ Il nostro database non è in 3NF in quanto il campo *insegnante* non dipende dal
 
 Per normalizzare questa tabella in modo che rispetti la **3NF** dovremo scomporla in due tabelle:
 
+| ● Codice Fiscale	|   Codice Corso	|
+| ----              | ---------- |   
+| LBRRSS79Y12T344A	| BB01		|
+| GNNBNCT84A11L61B	| BB01		|
+| LBRMNN79E64A112A	| BB01		|
+| GLSTMT59U66P109B	| AE02		|
+
+
 | ● Codice Corso	| Insegnante | 
 | ---------------   | ---------------   |
-| BB01		| Marco |
-| BB01		| Marco | 
 | BB01		| Marco | 
 | AE02		| Federica | 
