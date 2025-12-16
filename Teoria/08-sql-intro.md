@@ -114,8 +114,14 @@ Gestiscono le transazioni nel database
 ```sql
 -- rende definitive le operazioni sul database 
 COMMIT;
+```
+
+```sql
 -- ripristina i dati eliminando le modifiche temporanee
 ROLLBACK;
+```
+
+```sql
 -- crea un punto di salvataggio
 SAVEPOINT save_point_name(…); 
 ```
