@@ -10,6 +10,7 @@ In una tabella per ciascuna colonna possiamo definire diversi tipi di dato (domi
 - [Attributi per interi](#attributi)
 - [Attributi per i campi di tipo stringa](#attributi-per-i-campi-di-tipo-stringa)
 - [Attributi universali](#attributi-universali)
+- [Attributi/Indici](#attributiindici)
 
 ---
 
@@ -255,7 +256,7 @@ BINARY
 
 ### Attributi universali
 
-Possono essere utilizzati tanto con campi numerici quanto con campi di tipo stringa.
+Possono essere utilizzati sia con campi numerici sia con campi di tipo stringa.
 
 - ```DEFAULT``` - Può essere utilizzato con tutti i tipi di dati ad eccezione di TEXT e BLOB. Serve per indicare un valore di default per il campo qualora questo venga lasciato vuoto.
 - ```NULL``` / ```NOT NULL``` - Può essere utilizzato con tutti i tipi di campi e serve per definire se un dato campo può avere un valore NULL oppure no.
@@ -264,3 +265,9 @@ Vincoli
 
 - ```CHECK (expression)``` - consente di imporre un vincolo al dato da inserire.
 - ```FOREIGN KEY``` - consente di imporre un vincolo riferito alla chiave esterna.
+
+### Attributi/Indici
+
+- ```UNIQUE``` - Con UNIQUE si imposta una regola di unicità, questo significa che nessun dato contenuto nella colonna può essere ripetuto: ogni dato deve, quindi, essere unico e se si cerca di inserire un dato duplicato si riceve un errore. Può essere nullo.
+- ```PRIMARY KEY``` - Può essere utilizzato con tutti i tipi di dati (numerici e stringa) ed è una sorta di variante di UNIQUE che consente di creare un indice primario sulla tabella (campo chiave).
+- ```INDEX``` o ```KEY``` (colonne) - E' utilizzato per creare un'indice nella tabella ai fini di migliorare le performances di accesso ai dati.
