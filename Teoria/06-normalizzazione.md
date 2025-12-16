@@ -19,3 +19,9 @@ Si dice che una database è in 1NF (prima forma normale) se per ogni tabella/rel
 | 2	   | Giovanni 	| Biologia           |
 
 Questa tabella NON è in 1NF in quanto, ogni colonna deve assumere un solo valore, ovvero non può essere una matrice o un’array di valori.
+
+
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
