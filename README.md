@@ -7,10 +7,9 @@
 3. [DBMS e RDBMS](Teoria/03-dbms-rdbms.md)
 4. [Progettazione](Teoria/04-progettazione.md)
 5. [Il Modello RELAZIONALE](Teoria/05-modello-relazionale.md)
-5. [Normalizzazione](Teoria/06-normalizzazione.md)
-6. [Tipi di dato](Teoria/07-tipi-dato.md)
-7. Indici
-8. SQL - introduzione
+6. [Normalizzazione](Teoria/06-normalizzazione.md)
+7. [Tipi di dato](Teoria/07-tipi-dato.md)
+8. [SQL - introduzione](Teoria/08-sql-intro.md)
 9. Installazione MySQL
 10. Accesso DBMS (DBA)
 11. DDL: 1 parte
