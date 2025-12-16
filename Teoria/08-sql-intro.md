@@ -24,7 +24,6 @@ Creazione utente:
 
 Concessione privilegi:
 
-sql```
-GRANT ALL
-ON nomedb.*
-TO 'user'@'host';
+```GRANT ALL```
+```ON nomedb.*```
+```TO 'user'@'host';```
