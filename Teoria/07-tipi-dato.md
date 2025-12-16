@@ -83,11 +83,36 @@ Con *utf8mb4* (default in MySQL) il massimo è **~16383** caratteri.
 
 I tipi **CHAR** e **VARCHAR** sono sicuramente i tipi più utilizzati.
 
-La differenza tra questi due tipi è data dal fatto che CHAR ha *lunghezza fissa*, VARCHAR ha *lunghezza variabile*.
+La differenza tra questi due tipi è data dal fatto che ```CHAR(n)``` ha *lunghezza fissa*, ```VARCHAR(n)``` ha *lunghezza variabile*.
 
-Questo significa che in una colonna ```CHAR(10)``` tutti i valori memorizzati occuperanno lo spazio massimo anche se costituiti da 3 soli caratteri.
+Questo significa che in una colonna ```CHAR(10)``` tutti i valori memorizzati occuperanno lo spazio di 10 caratteri anche se verranno inseriti solo 3 caratteri.
 
 I tipi **TEXT** e **BLOB** (Binary Large OBject) consentono di memorizzare grandi quantità di dati:
 
 - TEXT è utilizzato per dati di tipo testuale, 
 - BLOB è utilizzato per ospitare dati binary (ad esempio il sorgente di un’immagine)
+
+**BINARY** **e VARBINARY**
+
+I tipi *BINARY* e *VARBINARY* sono simili a CHAR e VARCHAR, tranne per il fatto che *memorizzano stringhe binarie* anziché stringhe non binarie: memorizzano stringhe di byte anziché stringhe di caratteri.
+
+Per questi campi il *set di caratteri* e la *collation*, il confronto e l'ordinamento si basano sui valori numerici dei byte memorizzati.
+
+**TEXT** vs **VARCHAR()**
+
+TEXT
+
+- dimensione massima fissa di 65535 caratteri (non è possibile limitare la dimensione massima)
+- prende 2 + c byte di spazio su disco, dove c è la lunghezza della stringa memorizzata.
+- indice: può essere indicizzato solo con un prefix index.
+
+VARCHAR (M)
+
+- dimensione massima variabile di byte M
+- M deve essere compreso tra 1 e 65535
+- prende 1 + c byte (per M ≤ 255) o 2 + c (per 256 ≤ M ≤ 65535) byte di spazio su disco dove c è la lunghezza della stringa memorizzata
+- può essere parte di un indice
+
+Se è necessario memorizzare stringhe più lunghe di circa 64 KB, utilizzare MEDIUMTEXT o LONGTEXT.
+
+VARCHAR non supporta la memorizzazione di valori così grandi.
