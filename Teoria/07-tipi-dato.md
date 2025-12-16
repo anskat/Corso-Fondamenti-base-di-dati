@@ -50,4 +50,5 @@ Per esempio, se dichiari una colonna come FLOAT(7,4), puoi memorizzare fino a 7 
 Quindi i numeri vanno da -999.9999 a 999.9999.
 
 1 La sintassi FLOAT(p) è supportata ma ignorata: non influisce realmente sul tipo
+
 2 https://dev.mysql.com/doc/refman/8.4/en/precision-math-decimal-characteristics.html
