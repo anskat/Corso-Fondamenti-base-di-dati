@@ -152,3 +152,54 @@ Di seguito una tabella riepilogativa
 | YEAR | YYYY | un anno compreso fra 1901 e 2155, oppure 0000 |
 | TIMESTAMP | YYYY-MM-DD HH:MM:SS | '1970-01-01 00:00:01' UTC a '2038-01-19 03:14:07' UTC |
 
+I campi di tipo DATETIME contengono sia la data che l’orario.
+
+I valori all'interno di questi campi possono essere inseriti sia sotto forma di stringhe che di numeri.
+
+Sia **DATETIME** sia **TIMESTAMP** possono memorizzare in automatico la data.
+
+Per ottenere ciò in fase di definizione del campo bisogna impostare il valore di default di memorizzazione (es):
+
+```ins TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP```
+
+```data DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP```
+
+**DATETIME o TIMESTAMP?**
+
+*TIMESTAMP*
+
+Il tipo TIMESTAMP memorizza data e ora utilizzando il fuso orario del server per le conversioni automatiche da e verso UTC.
+
+Quando memorizzi un valore in una colonna TIMESTAMP, MySQL lo converte automaticamente nel fuso orario UTC (Coordinated Universal Time) e lo memorizza in quel formato. Quando lo leggi, il valore viene riconvertito nel fuso orario del server o in quello del client (se configurato).
+
+Questo rende il TIMESTAMP utile quando devi mostrare gli stessi dati di data e ora a utenti in fusi orari diversi, poiché MySQL gestisce automaticamente la conversione da e verso UTC.
+
+TIMESTAMP copre solo il range di date da 1970-01-01 00:00:01 UTC fino a 2038-01-19 03:14:07 UTC.
+
+Se hai bisogno di memorizzare date al di fuori di questo intervallo, non è adatto.
+
+*DATETIME*
+
+Il tipo DATETIME memorizza la data e l'ora così come sono, senza conversioni di fuso orario. Il valore viene memorizzato esattamente come viene inserito, senza alcuna considerazione del fuso orario del server o del client.
+
+Questo significa che DATETIME è utile quando vuoi che la data e l'ora restino fisse, indipendentemente dal fuso orario dell'utente o del server.
+
+È una buona scelta se i dati di data e ora devono essere gli stessi per tutti, ovunque si trovino.
+
+DATETIME ha un range molto più ampio, da 1000-01-01 00:00:00 a 9999-12-31 23:59:59, quindi può essere usato per date molto più lontane nel passato o nel futuro rispetto a TIMESTAMP.
+
+---
+
+### JSON
+
+MySQL supporta JSON nativo come tipo di dati per gli oggetti nella notazione JSON.
+
+Rende facile l'archiviazione, l'interrogazione e il recupero di documenti di tipo JSON piuttosto che archiviarli come stringhe di testo o BLOB binari (vedi MariaDB).
+
+Per fare ciò mette a disposizione una serie di funzioni(1)
+
+Sintassi per la definizione di un attributo di tipo JSON
+
+```columnName JSON```
+
+(1) https://dev.mysql.com/doc/refman/8.0/en/json-function-reference.html
