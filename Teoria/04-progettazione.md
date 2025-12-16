@@ -66,4 +66,52 @@ Rappresenta **classi di oggetti** (fatti, cose, persone, ...) che hanno **propri
 
 - identificata da un cerchio collegato all’entità
 
-![entità](/assets/images/attributo.png)
+![attributo](/assets/images/attributo.png)
+
+---
+
+L’insieme di attributi che garantisce **l’univocità** delle istanze di un’entità è detta:
+
+**Chiave Primaria**
+
+È indicata come: PRIMARY KEY o PK
+
+- Identificata graficamente con un cerchio pieno, collegato all’entità e relativo nome attributo sottolineato
+
+![chiave](/assets/images/chiave.png)
+
+**Caratteristiche**
+
+L’insieme dei campi i cui valori identificano univocamente un record all’interno di una tabella è detto Chiave Primaria.
+
+Quando la chiave primaria è composta da un solo campo, si parla di campo chiave.
+
+Quando non è possibile trovare un campo chiave tra gli attributi di una entità, si definisce un campo univoco di tipo numerico che si auto-incrementa (contatore): ID (identifier).
+
+Esempi di campo chiave: *matricola*, *codice fiscale*, etc.
+
+---
+
+#### Istanze di un’Entità
+
+Specifici dati, oggetti appartenenti ad un’entità.
+
+- non sono rappresentate nel Diagramma E-Rma si intendono contenute in ogni entità:
+
+- Carlo Rossi, via Verdi è *un’istanza* dell’**entità** *STUDENTE* (**attributi**: *Nome*, *Cognome*, *Indirizzo*) 
+
+![istanza](/assets/images/istanza.png)
+
+Possiamo considerare le entità come insiemi all’interno dei quali sono contenuti oggetti (le istanze) ciascuno con specifiche caratteristiche (valore degli attributi).
+
+![istanza-insieme](/assets/images/istanza-insieme.png)
+
+---
+
+#### Relazioni (Associazioni)
+
+Collegamenti logici che uniscono due o più entità nella realtà descritta dal database
+
+- identificata da un rombo collegato alle due entità
+
+![relazione](/assets/images/relazione.png)
