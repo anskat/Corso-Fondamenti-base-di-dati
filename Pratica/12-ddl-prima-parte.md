@@ -36,6 +36,7 @@ COLLATE utf8_general_ci;
 ```
 
 Specificando questi valori è possibile "sovrascrivere" quelli impostati di default a livello server.
+
 Per visualizzare come è stato creato il database
 
 ```sql
