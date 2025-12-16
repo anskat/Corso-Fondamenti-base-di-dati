@@ -68,6 +68,7 @@ Rappresenta **classi di oggetti** (fatti, cose, persone, ...) che hanno **propri
 - identificata da un cerchio collegato all’entità
 
     nome
-    
+
     : white_circle :
+    
         |
