@@ -24,3 +24,30 @@ E' importante precisare che se all'interno di un campo di tipo numerico si cerca
 
 ---
 
+### Tipi di numeri in virgola mobile (valore approssimativo)
+
+| Tipo | Tipo (sintassi)1 | Tipo (sintassi deprecata)2 | Spazio |
+|------|------------------|-----------------------------|--------|
+| FLOAT | FLOAT[(p)], con p compreso tra 0 e 23 | FLOAT, FLOAT(M,D)* | 4 byte |
+| DOUBLE | FLOAT[(p)], con p compreso tra 24 e 53 | DOUBLE, DOUBLE(M,D)* | 8 byte |
+| DECIMAL | DECIMAL(M,D) |  | Dipende da M* |
+
+
+Nel caso di FLOAT, puoi specificare opzionalmente la precisione, usando una sintassi tipo FLOAT(p), dove "p" è la precisione in bit.
+
+Se la precisione è tra 0 e 23, la colonna sarà considerata di tipo FLOAT e userà 4 byte.
+
+Se la precisione è tra 24 e 53, sarà considerata di tipo DOUBLE e userà 8 byte.
+
+MySQL permette anche una sintassi non standard, del tipo FLOAT(M,D) (o DOUBLE(M,D)).
+
+M è il numero totale di cifre che puoi memorizzare (prima e dopo il punto decimale).
+
+D è il numero di cifre dopo il punto decimale.
+
+Per esempio, se dichiari una colonna come FLOAT(7,4), puoi memorizzare fino a 7 cifre in totale, con 4 cifre dopo il punto decimale.
+
+Quindi i numeri vanno da -999.9999 a 999.9999.
+
+1 La sintassi FLOAT(p) è supportata ma ignorata: non influisce realmente sul tipo
+2 https://dev.mysql.com/doc/refman/8.4/en/precision-math-decimal-characteristics.html
