@@ -222,4 +222,5 @@ Può essere applicato a tutti i tipi numerici interi.
 Se per esempio si dichiara un campo INT ZEROFILL e si desidera memorizzare il valore "1234", esso verrà visualizzato come “00000001234” con M(11) - sempre UNSIGNED.
 
 1 A partire da MySQL 8.0.17 è deprecato per FLOAT, DOUBLE e DECIMAL;
+
 2 A partire da MySQL 8.0.17 è deprecato; vedi documentazione mysql
