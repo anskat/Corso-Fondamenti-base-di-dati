@@ -2,7 +2,7 @@
 
 In una tabella per ciascuna colonna possiamo definire diversi tipi di dato (dominio):
 
-- [Vai ai tipi di dati numerici](#Dati numerici: interi)
+- [Dati%20numerici:%20interi](#Dati numerici: interi)
 - String (stringa)
 - Date , Time (data e ora)
 - [JSON](#JSON)
