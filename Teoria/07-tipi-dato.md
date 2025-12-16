@@ -7,8 +7,10 @@ In una tabella per ciascuna colonna possiamo definire diversi tipi di dato (domi
 - [String (stringa)](#dati-stringa)
 - [Date , Time (data e ora)](#datetime)
 - [JSON](#JSON)
-
 - [Attributi per interi](#attributi)
+- [Attributi per i campi di tipo stringa](#attributi-per-i-campi-di-tipo-stringa)
+- [Attributi universali](#attributi-universali)
+
 ---
 
 ### Dati numerici: interi
@@ -249,3 +251,16 @@ BINARY
 - ```CHAR(n) BINARY``` e ```VARCHAR(n) BINARY``` differiscono dal tipo di dato ```BINARY``` e ```VARBINARY``` per la codifica e la collation utilizzata(1)
 
 1 https://dev.mysql.com/doc/refman/8.0/en/binary-varbinary.html
+
+
+### Attributi universali
+
+Possono essere utilizzati tanto con campi numerici quanto con campi di tipo stringa.
+
+- ```DEFAULT``` - Può essere utilizzato con tutti i tipi di dati ad eccezione di TEXT e BLOB. Serve per indicare un valore di default per il campo qualora questo venga lasciato vuoto.
+- ```NULL``` / ```NOT NULL``` - Può essere utilizzato con tutti i tipi di campi e serve per definire se un dato campo può avere un valore NULL oppure no.
+
+Vincoli
+
+- ```CHECK (expression)``` - consente di imporre un vincolo al dato da inserire.
+- ```FOREIGN KEY``` - consente di imporre un vincolo riferito alla chiave esterna.
