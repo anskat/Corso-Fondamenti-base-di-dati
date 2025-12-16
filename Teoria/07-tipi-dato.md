@@ -239,3 +239,13 @@ Le seguenti regole vengono applicate quando si utilizza l'attributo ```AUTO_INCR
 - La colonna ```AUTO_INCREMENT``` deve avere un vincolo ```NOT NULL```.
 
 *Quando si imposta l'attributo AUTO_INCREMENT in una colonna, MySQL aggiunge automaticamente il vincolo NOT NULL alla colonna implicitamente*.
+
+### Attributi per i campi di tipo stringa
+
+BINARY
+
+- L’unico vincolo/opzione che può essere utilizzato per i campi destinati ad ospitare dati stringa è ```BINARY``` il quale può essere utilizzato con ```CHAR(n)``` o ```VARCHAR(n)``` qualora questi campi siano destinati ad ospitare dati binari (pur non rendendosi necessario utilizzare un campo della famiglia BLOB)
+
+- ```CHAR(n) BINARY``` e ```VARCHAR(n) BINARY``` differiscono dal tipo di dato ```BINARY``` e ```VARBINARY``` per la codifica e la collation utilizzata(1)
+
+1 https://dev.mysql.com/doc/refman/8.0/en/binary-varbinary.html
