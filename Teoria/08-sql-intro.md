@@ -11,3 +11,20 @@ E’ lo standard tra i sistemi relazionali: viene usato in tutti i prodotti DBMS
 - DML (Data manipulation language): permette di modificare i dati contenuti nel db, con le operazioni di inserimento, variazione e cancellazione
 - TCL (Transaction Control Language): istruzioni per gestire le transazioni nel database
 - Query Language: permette di porre interrogazioni al db
+
+--- 
+
+#### DCL
+
+Gestire il controllo degli accessi e i permessi per gli utenti.
+
+Creazione utente:
+
+```CREATE USER 'user'@'host' IDENTIFIED BY 'password';```
+
+Concessione privilegi:
+
+sql```
+GRANT ALL
+ON nomedb.*
+TO 'user'@'host';
