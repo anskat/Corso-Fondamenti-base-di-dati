@@ -56,14 +56,106 @@ Per dare all'utente permessi completi utilizzare la parola chiave
 GRANT ALL
 ```
 
-```database.*``` : nome del database sul quale l'utente potrà eseguire le istruzioni consentite.
+Specifica del database e delle tabelle
 
-Per tutte le tabelle del db: .* .
-Si può specificare il nome di una o più tabelle.
-Per tutti i database: *.*  .
+namedatabase.*
+→ indica il database sul quale l’utente può eseguire le istruzioni consentite su tutte le tabelle
 
-nameuser : specifica il nome dell'utente al quale vogliamo assegnare i permessi.
+namedatabase.tabella
+→ indica una singola tabella
 
-host : specifica il/gli host da cui è ammessa la connessione.
+*.*
+→ assegna i permessi su tutti i database
 
-Se voglio indicare più IP devo usare la wild card %: 130.192.200.%
+Specifica dell’utente
+
+nameuser
+Nome dell’utente al quale si vogliono assegnare i permessi.
+
+host
+Specifica da quali host (macchine) è ammessa la connessione:
+
+localhost → solo dalla macchina locale
+
+% → da qualsiasi host
+
+130.192.200.% → da tutti gli host della sottorete indicata
+
+Esempio:
+
+```sql
+GRANT SELECT, INSERT
+ON namedatabase.*
+TO 'nameuser'@'130.192.200.%';
+```
+
+### Istruzione `REVOKE`
+
+Rimuove permessi e/o privilegi precedentemente assegnati a un utente.
+
+```sql
+REVOKE istruzioni_revocate
+ON databaseName.*
+FROM 'user'@'host';
+```
+
+Per REVOKE valgono le stesse regole viste per GRANT riguardo:
+
+database e tabelle (database.*, database.tabella, *.*)
+
+utente e host ('user'@'host')
+
+Revoca di tutti i privilegi
+
+Per eliminare tutti i privilegi assegnati a un utente:
+
+```sql
+REVOKE ALL PRIVILEGES, GRANT OPTION
+FROM 'user'@'host';
+```
+
+Questa istruzione rimuove:
+
+tutti i privilegi sull’accesso ai database
+
+la possibilità di concedere permessi ad altri utenti (GRANT OPTION)
+
+⚠️ Nota: la revoca ha effetto immediato sulle nuove connessioni.
+Le sessioni già aperte potrebbero richiedere una riconnessione.
+
+### Cambiare/aggiornare la password MySQL degli utenti
+
+Per cambiare una normale password utente devi digitare:
+
+```sql
+-- Cambia password per l’utente (da root):
+ALTER USER 'userName'@'host' IDENTIFIED BY 'newpass';
+```
+
+```sql
+-- Cambiare la propria password:
+ALTER USER USER() IDENTIFIED BY 'newpass';
+```
+
+### Verificare i permessi utente
+
+Verificare i privilegi di uno specifico utente:
+
+```sql
+SHOW GRANTS FOR 'user'@'localhost';
+```
+
+Verificare i privilegi dell'utente attualmente loggato a MySQL:
+
+Eliminare un utente da MySQL
+
+```sql
+DROP USER 'user'@'localhost';
+```
+questo comando rimuove l'utente e i suoi permessi.
+
+Visualizzare elenco utenti mysql (solo utente root)
+
+```sql
+SELECT user, host FROM mysql.user;
+```
