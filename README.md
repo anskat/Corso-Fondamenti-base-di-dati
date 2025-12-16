@@ -8,7 +8,7 @@
 4. [Progettazione](Teoria/04-progettazione.md)
 5. [Il Modello RELAZIONALE](Teoria/05-modello-relazionale.md)
 5. [Normalizzazione](Teoria/06-normalizzazione.md)
-6. Tipi di dato
+6. [Tipi di dato](Teoria/07-tipi-dato.md)
 7. Indici
 8. SQL - introduzione
 9. Installazione MySQL
