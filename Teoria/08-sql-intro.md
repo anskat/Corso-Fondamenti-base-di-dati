@@ -24,6 +24,7 @@ Creazione utente:
 
 Concessione privilegi:
 
-```GRANT ALL
+```
+GRANT ALL
 ON nomedb.*
 TO 'user'@'host';```
