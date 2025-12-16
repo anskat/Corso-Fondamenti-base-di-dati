@@ -13,8 +13,8 @@
 9. [Strumenti utilizzati](Installazione-mysql-e-strumenti-utilizzati/09-strumenti.md)
 10. [Installazione MySQL](Installazione-mysql-e-strumenti-utilizzati/10-installazione.md)
 11. [Accesso DBMS (DBA)](Pratica/11-accesso.md)
-11. [DDL: 1 parte](Pratica/12-ddl-prima-parte-md)
-12. DCL: Data Control Language
+12. [DDL: 1 parte](Pratica/12-ddl-prima-parte.md)
+13. [DCL: Data Control Language](Pratica/13-dcl.md)
 13. Accesso DBMS (user)
 14. DDL: 2 parte
 15. DML
