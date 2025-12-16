@@ -72,9 +72,10 @@ Soluzione: scomposizione in due tabelle
 Altro esempio: si supponga di avere a che fare con il database di una scuola con una chiave primaria composta dai campi "Codice Matricola" e "Codice Esame”:
 
 | ● Codice Matricola	| ● Codice Esame	| Nome Matricola	| Voto Esame |
-| 1234	| M01	| Rossi Alberto	| 6
-| 1234	| L02	| Rossi Alberto	| 7
-| 1235	| L02	| Verdi Mario	| 8
+| ---- | ---------- | ---------------    | ---------------    |
+| 1234	| M01	| Rossi Alberto	| 6 |
+| 1234	| L02	| Rossi Alberto	| 7 |
+| 1235	| L02	| Verdi Mario	| 8 |
 
 
 Il database qui sopra si trova in 1NF ma non in 2NF
@@ -84,11 +85,13 @@ Perché il campo "Nome Matricola" non dipende dall'intera chiave ma solo da una 
 Per rendere il nostro database in 2NF dovremo scomporlo in due tabelle:
 
 | ● Codice Matricola	| ● Codice Esame	| Voto Esame |
-| 1234	| M01		| 6
-| 1234	| L02		| 7
-| 1235	| L02		| 8
+| ---- | ---------- | ---------------    
+| 1234	| M01		| 6 |
+| 1234	| L02		| 7 |
+| 1235	| L02		| 8 |
 
 | ● Codice Matricola	| Nome Matricola	|
+| ---- | ---------- |
 | 1234	|  Rossi Alberto	|
 | 1234	|  Rossi Alberto	|
 | 1235	|  Verdi Mario	| 
