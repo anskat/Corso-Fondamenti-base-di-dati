@@ -85,7 +85,7 @@ I tipi **CHAR** e **VARCHAR** sono sicuramente i tipi più utilizzati.
 
 La differenza tra questi due tipi è data dal fatto che CHAR ha *lunghezza fissa*, VARCHAR ha *lunghezza variabile*.
 
-Questo significa che in una colonna sql```CHAR(10)``` tutti i valori memorizzati occuperanno lo spazio massimo anche se costituiti da 3 soli caratteri.
+Questo significa che in una colonna ```CHAR(10)``` tutti i valori memorizzati occuperanno lo spazio massimo anche se costituiti da 3 soli caratteri.
 
 I tipi **TEXT** e **BLOB** (Binary Large OBject) consentono di memorizzare grandi quantità di dati:
 
