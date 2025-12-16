@@ -20,8 +20,10 @@ Si dice che una database è in 1NF (prima forma normale) se per ogni tabella/rel
 
 Questa tabella NON è in 1NF in quanto, ogni colonna deve assumere un solo valore, ovvero non può essere una matrice o un’array di valori.
 
+| Id   | Nome 	    | Corsi              |
+| ---- | ---------- | ---------------    |
+| 1	   | Maria 	    | Matematica         |
+| 1	   | Maria 	    | Fisica             |
+| 2	   | Giovanni 	| Biologia           |
 
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
+In questo caso la normalizzazione consiste nel riportare le celle che originariamente erano raggruppate in una unica colonna in più righe replicando gli altri valori 
