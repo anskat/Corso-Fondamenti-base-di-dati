@@ -258,8 +258,9 @@ BINARY
 
 Possono essere utilizzati sia con campi numerici sia con campi di tipo stringa.
 
-- ```DEFAULT``` - Può essere utilizzato con tutti i tipi di dati ad eccezione di TEXT e BLOB. Serve per indicare un valore di default per il campo qualora questo venga lasciato vuoto.
+- ```DEFAULT``` - Può essere utilizzato con tutti i tipi di dati ad eccezione di TEXT e BLOB. Serve per indicare un valore di default per il campo qualora questo non venga compilato.
 - ```NULL``` / ```NOT NULL``` - Può essere utilizzato con tutti i tipi di campi e serve per definire se un dato campo può avere un valore NULL oppure no.
+- ```COMMENT``` - Aggiunge un commento descrittivo sull'uso del campo.
 
 Vincoli
 
