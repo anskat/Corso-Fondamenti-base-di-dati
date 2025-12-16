@@ -11,8 +11,8 @@
 7. [Tipi di dato](Teoria/07-tipi-dato.md)
 8. [SQL - introduzione](Teoria/08-sql-intro.md)
 9. [Strumenti utilizzati](Installazione-mysql-e-strumenti-utilizzati/09-strumenti.md)
-11. [Installazione MySQL](Installazione-mysql-e-strumenti-utilizzati/10-installazione.md)
-10. Accesso DBMS (DBA)
+10. [Installazione MySQL](Installazione-mysql-e-strumenti-utilizzati/10-installazione.md)
+11. [Accesso DBMS (DBA)](Pratica/11-accesso.md)
 11. DDL: 1 parte
 12. DCL
 13. Accesso DBMS (user)
