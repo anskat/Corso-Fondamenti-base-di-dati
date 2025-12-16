@@ -17,7 +17,7 @@ Il client mysql verrà installato nella cartella
 | Linux            | `/usr/bin/mysql` (se installato da pacchetto) |
 
 
-### Avvio del servizio MySQL
+### Avvio e arresto del servizio MySQL
 
 MySQL viene eseguito come **servizio** (Windows) o come **daemon** (Linux/macOS).
 
@@ -64,3 +64,18 @@ mysqladmin: connect to server at 'localhost' failed
 error: 'Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)'
 Check that mysqld is running and that the socket: '/tmp/mysql.sock' exists!
 ```
+
+#### Avvio e arresto del servizio (senza terminale)
+
+##### macOS
+
+Su macOS è disponibile un controllo nelle **Preferenze di Sistema** per gestire il servizio di MySQL.
+
+Per avviare o arrestare il servizio, apri le *Preferenze di Sistema* e clicca sul pulsante corrispondente al *servizio MySQL*.
+
+##### Windows
+
+1. Apri la finestra **Esegui** premendo `Win + R`.  
+2. Digita:
+   ```text
+   services.msc
