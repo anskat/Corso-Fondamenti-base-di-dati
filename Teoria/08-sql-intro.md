@@ -31,3 +31,51 @@ GRANT ALL
 ON nomedb.*
 TO 'user'@'host';
 ```
+
+---
+
+#### DDL
+
+Permette di definire il databse e creare o modificare altre strutture come tabelle, indici...
+```sql
+-- crea un nuovo database
+CREATE DATABASE databaseName;
+``` 
+
+```sql
+-- cancella il database
+DROP DATABASE databaseName;
+``` 
+
+```sql
+-- crea una nuova tabella nel DB
+CREATE TABLE studenti(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(30),
+    cognome VARCHAR(30),
+    eta TINYINT UNSIGNED CHECK(eta >= 18),
+    data_iscrizione DATE COMMENT 'Data di iscrizione',
+    INDEX idx_cognome(cognome)
+);
+```
+
+```sql
+-- modifica la struttura di una tabella
+ALTER TABLE studenti
+MODIFY cognome VARCHAR(50);
+```
+
+```sql
+-- cancella una tabella dal DB
+DROP TABLE studenti;
+```
+
+```sql
+-- crea successivamente un indice su una tabella già creata
+CREATE INDEX idx_cognome ON studenti(cognome); 
+```
+
+```sql
+-- elimina l’indice specificato 
+ALTER TABLE studenti DROP INDEX idx_cognome;
+```
