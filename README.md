@@ -6,7 +6,7 @@
 2. [Strutture Dati e Modelli di Database](Teoria/02-strutture-dati.md)
 3. [DBMS e RDBMS](Teoria/03-dbms-rdbms.md)
 4. [Progettazione](Teoria/04-progettazione.md)
-5. Il Modello RELAZIONALE
+5. [Il Modello RELAZIONALE](Teoria/05-modello-relazionale.md)
 5. Normalizzazione
 6. Tipi di dato
 7. Indici
