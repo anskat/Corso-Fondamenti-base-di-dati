@@ -77,5 +77,17 @@ Quindi i numeri vanno da -999.9999 a 999.9999.
 | SET('value1','value2',...) | 64 valori distinti |
 
 
-1 Il limite è 65.535 byte perché dipende dal tipo di codifica adottata.
-Con utf8mb4 il massimo è ~16383 caratteri
+1 Il limite è *65.535 byte* perché dipende dal tipo di codifica adottata.
+
+Con *utf8mb4* (default in MySQL) il massimo è **~16383** caratteri.
+
+I tipi **CHAR** e **VARCHAR** sono sicuramente i tipi più utilizzati.
+
+La differenza tra questi due tipi è data dal fatto che CHAR ha *lunghezza fissa*, VARCHAR ha *lunghezza variabile*.
+
+Questo significa che in una colonna sql```CHAR(10)``` tutti i valori memorizzati occuperanno lo spazio massimo anche se costituiti da 3 soli caratteri.
+
+I tipi **TEXT** e **BLOB** (Binary Large OBject) consentono di memorizzare grandi quantità di dati:
+
+- TEXT è utilizzato per dati di tipo testuale, 
+- BLOB è utilizzato per ospitare dati binary (ad esempio il sorgente di un’immagine)
