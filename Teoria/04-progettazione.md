@@ -129,6 +129,21 @@ Collegamenti logici che uniscono due o più entità nella realtà descritta dal 
 - Uno spettatore occupa un singolo posto
 - Ogni singolo posto può essere occupato solo da uno spettatore
 
+#### Liceo/Scuola superiore
+
+**Relazione 1,N (uno a molti)**
+
+![relazione1-N](/assets/images/relazione1-N.png)
+ 
+- Ad ogni classe appartiene più di un alunno
+- Un alunno appartiene ad una singola classe
+
+**Relazione N,N (molti a molti)**
+
+![relazioneN-N](/assets/images/relazioneN-N.png)
+
+- Uno studente frequenta più corsi
+- Ogni corso è frequentato da molti studenti
 
 ---
 
