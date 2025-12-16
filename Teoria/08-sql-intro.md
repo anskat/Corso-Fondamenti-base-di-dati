@@ -123,8 +123,25 @@ ROLLBACK;
 
 ```sql
 -- crea un punto di salvataggio
-SAVEPOINT save_point_name(…); 
+SAVEPOINT save_point_name; 
 ```
+
+Esempio:
+```sql
+START TRANSACTION;
+
+INSERT INTO studenti (nome, cognome) VALUES ('Mario', 'Rossi');
+
+SAVEPOINT save1;  -- punto di salvataggio
+
+UPDATE studenti SET eta = 20 WHERE id = 1;
+
+-- se vuoi annullare fino al savepoint
+ROLLBACK TO SAVEPOINT save1;
+
+COMMIT;
+```
+
 
 ### Query Language
 
