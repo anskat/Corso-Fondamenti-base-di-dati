@@ -25,7 +25,7 @@ E' importante precisare che se all'interno di un campo di tipo numerico si cerca
 
 ---
 
-### Tipi di numeri in virgola mobile (valore approssimativo)
+### Tipi di numeri in virgola mobile
 
 | Tipo | Tipo (sintassi)1 | Tipo (sintassi deprecata)2 | Spazio |
 |------|------------------|-----------------------------|--------|
