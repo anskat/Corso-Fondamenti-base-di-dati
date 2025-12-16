@@ -8,6 +8,7 @@ In una tabella per ciascuna colonna possiamo definire diversi tipi di dato (domi
 - [Date , Time (data e ora)](#datetime)
 - [JSON](#JSON)
 
+- [Attributi per interi](#attributi)
 ---
 
 ### Dati numerici: interi
@@ -204,3 +205,21 @@ Sintassi per la definizione di un attributo di tipo JSON
 ```columnName JSON```
 
 (1) https://dev.mysql.com/doc/refman/8.0/en/json-function-reference.html
+
+---
+
+### Attributi
+
+*Per i campi numerici*
+
+Si tratta di un istruzione ulteriore che viene passata al DBMS in fase di creazione (o modifica) di una colonna di tabella.
+
+- **AUTO_INCREMENT** - Aumenta automaticamente il valore di una colonna aggiungendo 1 al valore massimo già registrato nella tabella.
+E' opportuno utilizzarlo in combinazione con NOT NULL.
+Può essere applicato a tutti i tipi numerici interi.
+- **UNSIGNED**(1) - un campo contrassegnato con UNSIGNED non accetta valori negativi.
+- **ZEROFILL**(2) - viene utilizzato per memorizzare i numeri con degli zeri davanti nel caso in cui la lunghezza sia inferiore a quella massima prevista.
+Se per esempio si dichiara un campo INT ZEROFILL e si desidera memorizzare il valore "1234", esso verrà visualizzato come “00000001234” con M(11) - sempre UNSIGNED.
+
+1 A partire da MySQL 8.0.17 è deprecato per FLOAT, DOUBLE e DECIMAL;
+2 A partire da MySQL 8.0.17 è deprecato; vedi documentazione mysql
