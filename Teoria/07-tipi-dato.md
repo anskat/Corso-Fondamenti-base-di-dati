@@ -141,6 +141,7 @@ Come per ENUM i valori sono fissi e disposti dopo la dichiarazione SET; tuttavia
 ### DateTime
 
 Tali tipi di dati sono molto utili quando si ha a che fare con informazioni riguardanti la data e l'orario.
+
 Di seguito una tabella riepilogativa
 
 | Tipo | Formato | Intervallo |
