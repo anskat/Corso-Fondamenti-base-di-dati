@@ -20,7 +20,9 @@ Gestire il controllo degli accessi e i permessi per gli utenti.
 
 Creazione utente:
 
-```CREATE USER 'user'@'host' IDENTIFIED BY 'password';```
+```sql
+CREATE USER 'user'@'host' IDENTIFIED BY 'password';
+```
 
 Concessione privilegi:
 
