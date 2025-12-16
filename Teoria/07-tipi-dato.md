@@ -234,7 +234,7 @@ Impostare l'attributo ```AUTO_INCREMENT``` in una colonna, tipicamente una colon
 Le seguenti regole vengono applicate quando si utilizza l'attributo ```AUTO_INCREMENT```:
 
 - Ciascuna tabella ha solo una colonna ```AUTO_INCREMENT``` il cui tipo di dati è *intero*.
-- La colonna AUTO_INCREMENT deve essere indicizzata, il che significa che può essere: 
+- La colonna ```AUTO_INCREMENT``` deve essere indicizzata, il che significa che può essere: 
     - ```PRIMARY KEY``` o ```UNIQUE```
 - La colonna ```AUTO_INCREMENT``` deve avere un vincolo ```NOT NULL```.
 
