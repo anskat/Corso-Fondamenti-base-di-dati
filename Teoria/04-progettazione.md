@@ -69,6 +69,6 @@ Rappresenta **classi di oggetti** (fatti, cose, persone, ...) che hanno **propri
 
     nome
 
-    : white_circle :
-    
+    :white_circle:
+
         |
