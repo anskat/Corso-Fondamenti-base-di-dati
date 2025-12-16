@@ -24,7 +24,8 @@ Creazione utente:
 
 Concessione privilegi:
 
-```
+```sql
 GRANT ALL
 ON nomedb.*
-TO 'user'@'host';```
+TO 'user'@'host';
+```
