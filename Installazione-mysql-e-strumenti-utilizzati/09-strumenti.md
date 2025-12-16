@@ -6,7 +6,7 @@
 Alternative con GUI
 
 - [MySQLWorkbench](https://dev.mysql.com/downloads/): ambiente grafico per interagire con il database;
-- DBeaver: ambiente grafico per interagire con il database;
-- Visual Studio Code con estensione *MySQL Shell for VS Code*;
+- [DBeaver](https://dbeaver.io/download/): ambiente grafico per interagire con il database;
+- [Visual Studio Code](https://code.visualstudio.com/download) con estensione *MySQL Shell for VS Code*;
 
 Documentazione ufficiale MySQL: https://dev.mysql.com/doc/refman/8.4/en
