@@ -11,7 +11,6 @@ Si dice che una database è in 1NF (prima forma normale) se per ogni tabella/rel
 - esiste una chiave primaria (ossia esiste un attributo o un insieme di attributi che identificano in modo univoco ogni tupla della relazione)
 - l'ordine delle righe è irrilevante (non è portatore di informazioni)
 
----
 
 | id   | Nome 	    | Corso              |
 | ---- | ---------- | ---------------    |
@@ -27,6 +26,8 @@ Questa tabella NON è in 1NF in quanto, ogni colonna deve assumere un solo valor
 | 2	   | Giovanni 	| Biologia           |
 
 In questo caso la normalizzazione consiste nel riportare le celle che originariamente erano raggruppate in una unica colonna in più righe replicando gli altri valori 
+
+---
 
 ### La seconda forma normale (2NF)
 
@@ -67,3 +68,31 @@ Soluzione: scomposizione in due tabelle
 | 1	   | Matematica 	    | 1         |
 | 2	   | Fisica 	    | 1             |
 | 3	   | Biologia 	| 2           |
+
+Altro esempio: si supponga di avere a che fare con il database di una scuola con una chiave primaria composta dai campi "Codice Matricola" e "Codice Esame”:
+
+| ● Codice Matricola	| ● Codice Esame	| Nome Matricola	| Voto Esame |
+| 1234	| M01	| Rossi Alberto	| 6
+| 1234	| L02	| Rossi Alberto	| 7
+| 1235	| L02	| Verdi Mario	| 8
+
+
+Il database qui sopra si trova in 1NF ma non in 2NF
+
+Perché il campo "Nome Matricola" non dipende dall'intera chiave ma solo da una parte di essa ("Codice Matricola").
+
+Per rendere il nostro database in 2NF dovremo scomporlo in due tabelle:
+
+| ● Codice Matricola	| ● Codice Esame	| Voto Esame |
+| 1234	| M01		| 6
+| 1234	| L02		| 7
+| 1235	| L02		| 8
+
+| ● Codice Matricola	| Nome Matricola	|
+| 1234	|  Rossi Alberto	|
+| 1234	|  Rossi Alberto	|
+| 1235	|  Verdi Mario	| 
+
+---
+
+### La terza forma normale (3NF)
