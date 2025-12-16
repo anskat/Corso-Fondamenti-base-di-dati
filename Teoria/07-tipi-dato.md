@@ -237,4 +237,5 @@ Le seguenti regole vengono applicate quando si utilizza l'attributo AUTO_INCREME
 - La colonna AUTO_INCREMENT deve essere indicizzata, il che significa che può essere: 
     - PRIMARY KEY o UNIQUE.
 - La colonna AUTO_INCREMENT deve avere un vincolo NOT NULL.
+
 *Quando si imposta l'attributo AUTO_INCREMENT in una colonna, MySQL aggiunge automaticamente il vincolo NOT NULL alla colonna implicitamente*.
