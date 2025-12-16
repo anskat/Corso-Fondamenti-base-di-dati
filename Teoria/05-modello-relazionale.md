@@ -32,6 +32,8 @@ Disegnare una base dati per la gestione dell'acquisto di corsi offerti da una pi
 
 ### Modello Concettuale
 
+**Definizione**: rappresenta i dati e le loro relazioni a un livello astratto, senza preoccuparsi di dettagli tecnici o implementativi.
+
 #### Diagramma Entity-Relationship
 
 ![diagrammaE-R](/assets/images/diagrammaE-R.png)
@@ -40,4 +42,58 @@ Disegnare una base dati per la gestione dell'acquisto di corsi offerti da una pi
 
 #### Modello logico
 
+**Definizione**: traduce il modello concettuale in una struttura più dettagliata e aderente alle regole di un particolare tipo di database (es. relazionale).
+
 ![diagrammaE-R](/assets/images/modello-logico.png)
+
+---
+
+#### Modello fisico
+
+**Definizione**: rappresenta la struttura effettiva del database come verrà implementata su un determinato DBMS.
+
+In questo caso RDBMS MySQL
+
+Codice MySQL di esempio (per una comprensione completa vedere la sezione SQL - DDL e Tipi di Dati)
+
+    ```sql
+    CREATE TABLE IF NOT EXISTS Docenti (
+        id int AUTO_INCREMENT,
+        nome varchar(50) NOT NULL,
+        cognome varchar(50) NOT NULL,
+        email varchar(100) NOT NULL,
+        PRIMARY KEY (id),
+        UNIQUE KEY email (email)
+    );
+
+    CREATE TABLE IF NOT EXISTS Corsi (
+        id int AUTO_INCREMENT,
+        titolo varchar(100) NOT NULL,
+        prezzo decimal(6,2) NOT NULL,
+        docente_id tinyint unsigned,
+        PRIMARY KEY (id)
+    );
+
+    CREATE TABLE IF NOT EXISTS Studenti (
+        id int AUTO_INCREMENT,
+        nome varchar(50) NOT NULL,
+        cognome varchar(50) NOT NULL,
+        genere enum('m','f', 'nb'),
+        indirizzo varchar(100),
+        citta varchar(30),
+        provincia char(2) DEFAULT 'To',
+        regione varchar(30) DEFAULT 'Piemonte',
+        email varchar(100) NOT NULL UNIQUE,
+        data_nascita date,
+        data_reg timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id)
+    );
+
+    CREATE TABLE IF NOT EXISTS Iscrizioni (
+        studente_id int NOT NULL,
+        corso_id int NOT NULL,
+        prezzo decimal(6,2) NOT NULL,
+        data_isc timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (studente_id, corso_id)
+    );
+    ```
