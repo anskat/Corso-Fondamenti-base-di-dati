@@ -272,3 +272,12 @@ Vincoli
 - ```UNIQUE``` - Con UNIQUE si imposta una regola di unicità, questo significa che nessun dato contenuto nella colonna può essere ripetuto: ogni dato deve, quindi, essere unico e se si cerca di inserire un dato duplicato si riceve un errore. Può essere nullo.
 - ```PRIMARY KEY``` - Può essere utilizzato con tutti i tipi di dati (numerici e stringa) ed è una sorta di variante di UNIQUE che consente di creare un indice primario sulla tabella (campo chiave).
 - ```INDEX``` o ```KEY``` (colonne) - E' utilizzato per creare un'indice nella tabella ai fini di migliorare le performances di accesso ai dati.
+
+#### Cenni sull'uso degli indici
+*introduzione al concetto, verranno trattati in modo approfondito in altra sezione*
+
+- Servono ad ottimizzare le performance del database.
+
+- Un indice è una struttura dati ausiliaria che consente di recuperare più velocemente i dati di una tabella, evitandone la lettura dell’intero contenuto (full table scan), tramite una selezione più mirata.
+
+- devono essere usati consapevolmente per non ottenere l’effetto contrario ovvero rallentare il db.
