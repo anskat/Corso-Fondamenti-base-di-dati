@@ -35,6 +35,8 @@ Nelle installazioni locali, durante le esercitazioni, si utilizza normalmente lo
 
 ⚠️ La password va scritta in chiaro nel comando SQL, ma MySQL la memorizza in forma crittografata.
 
+---
+
 ### Istruzione `GRANT``
 
 Assegna i permessi e/o privilegi a un utente.
@@ -88,6 +90,7 @@ GRANT SELECT, INSERT
 ON namedatabase.*
 TO 'nameuser'@'130.192.200.%';
 ```
+---
 
 ### Istruzione `REVOKE`
 
@@ -123,6 +126,8 @@ la possibilità di concedere permessi ad altri utenti (GRANT OPTION)
 ⚠️ Nota: la revoca ha effetto immediato sulle nuove connessioni.
 Le sessioni già aperte potrebbero richiedere una riconnessione.
 
+---
+
 ### Cambiare/aggiornare la password MySQL degli utenti
 
 Per cambiare una normale password utente devi digitare:
@@ -136,6 +141,7 @@ ALTER USER 'userName'@'host' IDENTIFIED BY 'newpass';
 -- Cambiare la propria password:
 ALTER USER USER() IDENTIFIED BY 'newpass';
 ```
+---
 
 ### Verificare i permessi utente
 
