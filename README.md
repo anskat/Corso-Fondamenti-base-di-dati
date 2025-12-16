@@ -10,7 +10,8 @@
 6. [Normalizzazione](Teoria/06-normalizzazione.md)
 7. [Tipi di dato](Teoria/07-tipi-dato.md)
 8. [SQL - introduzione](Teoria/08-sql-intro.md)
-9. [Installazione MySQL e Strumenti utilizzati](Installazione-mysql-e-strumenti-utilizzati/09-strumenti.md)
+9. [Strumenti utilizzati](Installazione-mysql-e-strumenti-utilizzati/09-strumenti.md)
+11. [Installazione MySQL](Installazione-mysql-e-strumenti-utilizzati/10-installazione.md)
 10. Accesso DBMS (DBA)
 11. DDL: 1 parte
 12. DCL
