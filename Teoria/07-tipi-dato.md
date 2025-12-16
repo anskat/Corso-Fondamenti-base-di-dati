@@ -114,5 +114,40 @@ VARCHAR (M)
 - può essere parte di un indice
 
 Se è necessario memorizzare stringhe più lunghe di circa 64 KB, utilizzare MEDIUMTEXT o LONGTEXT.
-
 VARCHAR non supporta la memorizzazione di valori così grandi.
+
+**Tipi ENUM e SET**
+
+I tipi ENUM e SET sono un tipo di dato di testo in cui le colonne possono avere solo dei valori predefiniti.
+
+ENUM: Tipo di dato ENUMerazione.
+
+Contiene un insieme di valori prefissati tra cui scegliere: si può inserire solamente uno dei valori previsti.
+
+I valori sono inseriti tra parentesi(elenco separato da virgola) dopo la dichiarazione ENUM.
+
+```genere ENUM('F','M','NB')```
+
+La colonna genere accetterà solamente i valori F , M o NB. Se proviamo a mettere un valore diverso con il comando INSERT, MYSQL restituirà errore.
+
+SET: è una estensione di ENUM.
+
+```interessi SET('a','b','c','d')```
+
+Come per ENUM i valori sono fissi e disposti dopo la dichiarazione SET; tuttavia, le colonne SET possono assumere più di un valore tra quelli previsti.
+
+---
+
+### DateTime
+
+Tali tipi di dati sono molto utili quando si ha a che fare con informazioni riguardanti la data e l'orario.
+Di seguito una tabella riepilogativa
+
+| Tipo | Formato | Intervallo |
+|------|---------|------------|
+| DATETIME | YYYY-MM-DD HH:MM:SS | '1000-01-01 00:00:00' a '9999-12-31 23:59:59' |
+| DATE | YYYY-MM-DD | '1000-01-01' a '9999-12-31' |
+| TIME | HH:MM:SS | '-838:59:59' a '838:59:59' |
+| YEAR | YYYY | un anno compreso fra 1901 e 2155, oppure 0000 |
+| TIMESTAMP | YYYY-MM-DD HH:MM:SS | '1970-01-01 00:00:01' UTC a '2038-01-19 03:14:07' UTC |
+
