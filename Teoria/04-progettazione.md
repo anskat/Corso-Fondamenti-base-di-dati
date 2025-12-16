@@ -56,8 +56,7 @@ Rappresenta **classi di oggetti** (fatti, cose, persone, ...) che hanno **propri
 
 - Identificata da un rettangolo
 
-| STUDENTE      |
-| :----:        |
+![entità](/assets/images/entita.png)
 
 ---
 
@@ -67,9 +66,4 @@ Rappresenta **classi di oggetti** (fatti, cose, persone, ...) che hanno **propri
 
 - identificata da un cerchio collegato all’entità
 
-    nome
-    :white_circle:
-    
-            |
-   | STUDENTE      |
-   | :----:        |
+![entità](/assets/images/attributo.png)
