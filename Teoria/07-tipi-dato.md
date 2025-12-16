@@ -224,3 +224,17 @@ Se per esempio si dichiara un campo INT ZEROFILL e si desidera memorizzare il va
 1 A partire da MySQL 8.0.17 è deprecato per FLOAT, DOUBLE e DECIMAL;
 
 2 A partire da MySQL 8.0.17 è deprecato; vedi documentazione mysql
+
+**AUTO_INCREMENT (sequence)**
+
+In MySQL, una sequenza è un elenco di interi generati nell'ordine crescente, vale a dire 1,2,3…
+
+Impostare l'attributo AUTO_INCREMENT in una colonna, tipicamente una colonna chiave primaria, crea automaticamente una sequenza in MySQL.
+
+Le seguenti regole vengono applicate quando si utilizza l'attributo AUTO_INCREMENT:
+
+- Ciascuna tabella ha solo una colonna AUTO_INCREMENT il cui tipo di dati è "intero".
+- La colonna AUTO_INCREMENT deve essere indicizzata, il che significa che può essere: 
+    - PRIMARY KEY o UNIQUE.
+- La colonna AUTO_INCREMENT deve avere un vincolo NOT NULL.
+*Quando si imposta l'attributo AUTO_INCREMENT in una colonna, MySQL aggiunge automaticamente il vincolo NOT NULL alla colonna implicitamente*.
