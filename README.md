@@ -16,8 +16,8 @@
 11. [Accesso DBMS (DBA)](Pratica/11-accesso.md)
 12. [DDL: 1 parte](Pratica/12-ddl-prima-parte.md)
 13. [DCL: Data Control Language](Pratica/13-dcl.md)
-13. Accesso DBMS (user)
-14. DDL: 2 parte
+14. [Accesso DBMS (user)](Pratica/14-accesso-user.md)
+15. [DDL: 2 parte](Pratica/15-ddl-seconda-parte.md)
 15. DML
 16. Query
 17. Integrità referenziale
