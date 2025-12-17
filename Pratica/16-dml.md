@@ -191,17 +191,17 @@ SET field1 = value1, field2 = value2
 WHERE field3 = value3;
 ```
 
-- Dopo UPDATE si indica la tabella interessata
-- Con SET si specificano le colonne da modificare e i valori da assegnare
-- Con WHERE (opzionale) si stabiliscono le condizioni per selezionare i record da aggiornare
+- Dopo `UPDATE` si indica la tabella interessata
+- Con `SET` si specificano le colonne da modificare e i valori da assegnare
+- Con `WHERE` (opzionale) si stabiliscono le condizioni per selezionare i record da aggiornare
 
-ATTENZIONE: se WHERE viene omesso, tutti i record della tabella saranno aggiornati per le colonne indicate.
+ATTENZIONE: se `WHERE` viene omesso, tutti i record della tabella saranno aggiornati per le colonne indicate.
 
-Per aggiornare più campi simultaneamente, separare le coppie colonna = valore con una virgola.
+- Per aggiornare più campi simultaneamente, separare le coppie colonna = valore con una virgola.
 
-Quando si inseriscono i dati in una tabella rammentate sempre come sono state definite le colonne per evitare errori di inserimento.
+- Quando si inseriscono i dati in una tabella rammentate sempre come sono state definite le colonne per evitare errori di inserimento.
 
-Se si inserisce un valore troppo lungo, o non compreso dalla definizione della colonna, MySQL restituisce un errore(1) e non effettua alcuna modifica.
+Se si inserisce un valore troppo lungo, o non compreso dalla definizione della colonna, MySQL restituisce un errore e non effettua alcuna modifica.
 
 ```sql
 UPDATE studenti
@@ -221,14 +221,13 @@ MySQL restituirà un errore, perché 's' non è un valore ammesso:
 ERROR 1265 (01000): Data truncated for column 'genere' at row 1
 ```
 
-In questo caso stiamo tentando di inserire un valore non ammesso.
+Questo comportamento dipende dalla modalità SQL in uso `@@sql_mode`.
 
-Questo comportamento dipende dalla modalità SQL in uso (@@sql_mode).
 Di default MySQL lavora in strict mode.
 
 #### SQL Mode: STRICT MODE
 
-Il server MySQL può funzionare in diverse modalità SQL, configurabili tramite la variabile di sistema sql_mode.
+Il server MySQL può funzionare in diverse modalità SQL, configurabili tramite la variabile di sistema `sql_mode`.
 
 - I DBA possono impostare la modalità globale per il server
 - Ogni applicazione può impostare la modalità della sessione per rispettare requisiti specifici
@@ -288,7 +287,7 @@ FROM studenti
 WHERE genere = 'm';
 ```
 
-ATTENZIONE: se WHERE viene omesso, **tutti i record della tabella saranno elimiati**.
+ATTENZIONE: se `WHERE` viene omesso, **tutti i record della tabella saranno elimiati**.
 
 #### Eliminare tutti i record della tabella
 
@@ -302,16 +301,16 @@ TRUNCATE [TABLE] tableName;
 
 - `TRUNCATE` fa parte delle istruzioni DDL.
 
-Se si utilizza DELETE senza WHERE, tutti i record vengono eliminati uno per uno:
+Se si utilizza `DELETE` senza `WHERE`, tutti i record vengono eliminati uno per uno:
 
 ```sql
 DELETE FROM tableName;
 ```
 
 - Questo metodo è meno efficiente su tabelle grandi perché dipende dal numero di righe.
-- Inoltre, usando DELETE, il valore di eventuali campi AUTO_INCREMENT non viene azzerato.
+- Inoltre, usando `DELETE`, il valore di eventuali campi `AUTO_INCREMENT` non viene azzerato.
 
-Per azzerare manualmente un campo AUTO_INCREMENT:
+Per azzerare manualmente un campo `AUTO_INCREMENT`:
  
 ```sql
 ALTER TABLE tableName AUTO_INCREMENT = 1;
