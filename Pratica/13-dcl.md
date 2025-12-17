@@ -143,22 +143,26 @@ ALTER USER USER() IDENTIFIED BY 'newpass';
 
 ### Verificare i permessi utente
 
-Verificare i privilegi di uno specifico utente:
+*Verificare i privilegi di uno specifico utente*
 
 ```sql
 SHOW GRANTS FOR 'user'@'localhost';
 ```
 
-Verificare i privilegi dell'utente attualmente loggato a MySQL:
+*Verificare i privilegi dell'utente attualmente loggato a MySQL*
 
-Eliminare un utente da MySQL
+```sql
+SHOW GRANTS FOR CURRENT_USER;
+```
+
+*Eliminare un utente da MySQL*
 
 ```sql
 DROP USER 'user'@'localhost';
 ```
 questo comando rimuove l'utente e i suoi permessi.
 
-Visualizzare elenco utenti mysql (solo utente root)
+*Visualizzare elenco utenti mysql (solo utente root)*
 
 ```sql
 SELECT user, host FROM mysql.user;
