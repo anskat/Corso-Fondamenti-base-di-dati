@@ -47,7 +47,7 @@ https://dev.mysql.com/doc/refman/8.4/en/create-table.html
 
 ---
 
-Esempio di creazione di una tabella denominata studente, con il campo id come chiave primaria.
+Esempio di creazione di una tabella denominata *studente*, con il campo `id` come chiave primaria.
 
 
 ```sql
