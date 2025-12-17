@@ -104,11 +104,11 @@ FROM 'user'@'host';
 
 Per REVOKE valgono le stesse regole viste per GRANT riguardo:
 
-database e tabelle (database.*, database.tabella, *.*)
+- database e tabelle (database.*, database.tabella, *.*)
 
-utente e host ('user'@'host')
+- utente e host ('user'@'host')
 
-Revoca di tutti i privilegi
+**Revoca di tutti i privilegi**
 
 Per eliminare tutti i privilegi assegnati a un utente:
 
@@ -119,11 +119,11 @@ FROM 'user'@'host';
 
 Questa istruzione rimuove:
 
-tutti i privilegi sull’accesso ai database
+- tutti i privilegi sull’accesso ai database
 
-la possibilità di concedere permessi ad altri utenti (GRANT OPTION)
+- la possibilità di concedere permessi ad altri utenti (GRANT OPTION)
 
-⚠️ Nota: la revoca ha effetto immediato sulle nuove connessioni.
+La revoca ha effetto immediato sulle nuove connessioni.
 Le sessioni già aperte potrebbero richiedere una riconnessione.
 
 ---
