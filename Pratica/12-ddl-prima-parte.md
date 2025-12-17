@@ -37,6 +37,8 @@ Per configurare correttamente l’accesso sono necessari:
 - **Host (macchina di origine)**  
   da cui l’utente è autorizzato a connettersi al DBMS
 
+---
+
 ### Creare un database
 
 Una volta effettuato l'accesso possiamo eseguire l’istruzione CREATE DATABASE (CREATE SCHEMA) seguita dal nome del database da creare.
@@ -102,3 +104,5 @@ Se si usa l’istruzione opzionale IF EXISTS si evita di ricevere l’errore qua
 ```sql
 DROP DATABASE IF EXISTS databaseName;
 ```
+
+[Vai alla sezione successiva per la creazione dell'utente e l'assegnazione dei privilegi necessari.](Pratica/13-dcl.md)
