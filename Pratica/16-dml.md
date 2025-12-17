@@ -312,7 +312,7 @@ DELETE FROM tableName;
 - Inoltre, usando DELETE, il valore di eventuali campi AUTO_INCREMENT non viene azzerato.
 
 Per azzerare manualmente un campo AUTO_INCREMENT:
-
+ 
 ```sql
 ALTER TABLE tableName AUTO_INCREMENT = 1;
 ```
