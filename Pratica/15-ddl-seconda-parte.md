@@ -67,4 +67,30 @@ CREATE TABLE IF NOT EXISTS studenti(
     PRIMARY KEY(id)
 );
 ```
+---
 
+Verificare se e come è stata creata la tabella:
+
+- Per verificare se la nostra tabella è stata creata si usa l’istruzione che mostra le tabelle presenti:
+
+```sql
+SHOW TABLES;
+```
+
+- Per verificare che la struttura della tabella sia corretta:
+
+```sql
+SHOW CREATE TABLE tableName;
+```
+
+- Per visualizzare come è stata creata una tabella:
+
+Rinominare una tabella:
+
+```sql
+ALTER TABLE tableName RENAME newtableName;
+```
+
+```sql
+RENAME TABLE tableName TO newtableName;
+```
