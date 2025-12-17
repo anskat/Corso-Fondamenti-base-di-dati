@@ -13,7 +13,7 @@ Quando si crea una tabella è necessario definire:
 
 ---
 
-### Sintassi generale
+#### Sintassi generale
 
 ```sql
 CREATE TABLE [IF NOT EXISTS] nome_tabella (
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS studenti(
 ```
 ---
 
-### Verificare le tabelle
+#### Verificare le tabelle
 
 - Mostrare le tabelle esistenti
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS studenti(
 SHOW TABLES;
 ```
 
-### Visualizzare la definizione della tabella
+#### Visualizzare la definizione della tabella
 
 ```sql
 SHOW CREATE TABLE tableName;
@@ -85,7 +85,7 @@ SHOW CREATE TABLE tableName;
 
 - Per visualizzare come è stata creata una tabella:
 
-### Rinominare una tabella:
+#### Rinominare una tabella:
 Due possibili sintassi:
 
 ```sql
@@ -95,7 +95,7 @@ RENAME TABLE tableName TO newtableName;
 
 ---
 
-### Informazioni sulle colonne
+#### Informazioni sulle colonne
 
 Per conoscere la struttura della tabella con più o meno informazioni (valore dell'auto_increment, data di creazione, collation)
 
@@ -109,7 +109,7 @@ SHOW INDEX FROM tableName; -- mostra gli indici della tabella
 
 ---
 
-### Modificare le tabelle
+#### Modificare le tabelle
 
 L'istruzione `ALTER TABLE` viene utilizzata per aggiungere, eliminare o modificare le colonne di una tabella esistente.
 
@@ -195,9 +195,9 @@ Nota: se il campo è una **chiave primaria**, **non includere datatype duplicato
 
 ---
 
-## Gestione della PRIMARY KEY
+#### Gestione della PRIMARY KEY
 
-### Aggiungere una PRIMARY KEY a una tabella esistente
+##### Aggiungere una PRIMARY KEY a una tabella esistente
 
 Se la tabella **non ha ancora una chiave primaria**, è possibile aggiungerla a uno o più campi già esistenti:
 
@@ -209,7 +209,7 @@ ADD PRIMARY KEY (field1 [, field2, ...]);
 > È possibile definire una chiave primaria composta specificando più campi.
 
 
-### Aggiungere una PRIMARY KEY creando un nuovo campo
+##### Aggiungere una PRIMARY KEY creando un nuovo campo
 
 È possibile aggiungere un nuovo campo dedicato (tipicamente id) e impostarlo come chiave primaria:
 
@@ -245,11 +245,11 @@ DROP PRIMARY KEY;
 
 --- 
 
-## Duplicare tabelle
+### Duplicare tabelle
 
 Se è necessario duplicare una tabella, è possibile utilizzare l’istruzione `CREATE TABLE` combinata con la clausola `LIKE`.
 
-### Duplicare la struttura di una tabella
+#### Duplicare la struttura di una tabella
 
 ```sql
 CREATE TABLE tableNameCopy LIKE tableName;
@@ -258,7 +258,7 @@ CREATE TABLE tableNameCopy LIKE tableName;
 Questa istruzione **duplica solo la struttura della tabella**
 (campi, tipi di dato, indici), **ma non i dati** contenuti al suo interno.
 
-### Eliminare tabelle dal database MySQL
+#### Eliminare tabelle dal database MySQL
 
 L’operazione inversa alla creazione di una tabella è la sua eliminazione.
 
@@ -271,7 +271,7 @@ DROP TABLE tableName;
 Attenzione: l’eliminazione di una tabella è un’operazione irreversibile.
 Tutti i dati contenuti nella tabella verranno persi definitivamente.
 
-### Eliminare più tabelle contemporaneamente
+#### Eliminare più tabelle contemporaneamente
 
 ```sql
 DROP TABLE tableName, tableName2, tableName3;
