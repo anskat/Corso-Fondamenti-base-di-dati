@@ -69,15 +69,15 @@ CREATE TABLE IF NOT EXISTS studenti(
 ```
 ---
 
-Verificare se e come è stata creata la tabella:
+### Verificare le tabelle
 
-- Per verificare se la nostra tabella è stata creata si usa l’istruzione che mostra le tabelle presenti:
+- Mostrare le tabelle esistenti
 
 ```sql
 SHOW TABLES;
 ```
 
-- Per verificare che la struttura della tabella sia corretta:
+### Visualizzare la definizione della tabella
 
 ```sql
 SHOW CREATE TABLE tableName;
@@ -85,12 +85,110 @@ SHOW CREATE TABLE tableName;
 
 - Per visualizzare come è stata creata una tabella:
 
-Rinominare una tabella:
+### Rinominare una tabella:
+Due possibili sintassi:
 
 ```sql
 ALTER TABLE tableName RENAME newtableName;
-```
-
-```sql
 RENAME TABLE tableName TO newtableName;
 ```
+
+---
+
+### Informazioni sulle colonne
+
+Per conoscere la struttura della tabella con più o meno informazioni (valore dell'auto_increment, data di creazione, collation)
+
+```sql
+DESCRIBE tableName;
+DESC tableName; -- equivalente a DESCRIBE
+SHOW COLUMNS FROM tableName; -- equivalente a DESCRIBE
+SHOW FULL COLUMNS FROM tableName; -- mostra anche commenti e privilegi
+SHOW INDEX FROM tableName; -- mostra gli indici della tabella
+```
+
+---
+
+### Modificare le tabelle
+
+L'istruzione `ALTER TABLE` viene utilizzata per aggiungere, eliminare o modificare le colonne di una tabella esistente.
+
+**Aggiungere colonne:**
+
+```sql
+ALTER TABLE tableName
+ADD fieldName [DATATYPE];
+```
+
+- Aggiungere una colonna in una posizione specifica:
+
+```sql
+ALTER TABLE tableName
+ADD fieldName2 DATATYPE AFTER existingField;
+```
+
+- In prima posizione:
+
+```sql
+ALTER TABLE tableName
+ADD fieldName2 DATATYPE FIRST;
+```
+
+**Modificare colonne:**
+
+- Modificare **nome e datatype**:
+
+```sql
+ALTER TABLE tableName
+CHANGE oldFieldName newFieldName [DATATYPE];
+```
+
+- Modificare **solo il datatype**:
+
+```sql
+ALTER TABLE tableName
+MODIFY fieldName [DATATYPE];
+```
+
+- Modificare **solo il nome**:
+
+```sql
+ALTER TABLE tableName
+RENAME COLUMN oldName TO newName;
+```
+
+**Eliminare colonne**
+
+```sql
+ALTER TABLE tableName
+DROP fieldName;
+```
+
+**Combinare più operazioni**
+
+```sql
+ALTER TABLE tableName
+CHANGE oldField newFieldName [DATATYPE],
+ADD fieldName3 [DATATYPE] AFTER fieldName2,
+DROP fieldName4;
+```
+
+**Spostare colonne**
+
+- Spostare una colonna in una posizione specifica:
+
+```sql
+ALTER TABLE tableName
+ADD fieldName2 [DATATYPE]
+AFTER fieldName;
+```
+
+- Spostare una colonna in prima posizione:
+
+```sql
+ALTER TABLE tableName
+MODIFY fieldName2 [DATATYPE]
+FIRST;
+```
+
+Nota: se il campo è una **chiave primaria**, **non includere datatype duplicato o AUTO_INCREMENT già definito**, altrimenti MySQL genererà un errore.
