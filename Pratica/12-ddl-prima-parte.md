@@ -105,4 +105,4 @@ Se si usa l’istruzione opzionale IF EXISTS si evita di ricevere l’errore qua
 DROP DATABASE IF EXISTS databaseName;
 ```
 
-[Vai alla sezione successiva per la creazione dell'utente e l'assegnazione dei privilegi necessari.](Pratica/13-dcl.md)
+[Vai alla sezione successiva per la creazione dell'utente e l'assegnazione dei privilegi necessari.](13-dcl.md)
