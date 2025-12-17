@@ -71,11 +71,9 @@ GRANT ALL
 
 **Specifica dell’utente**
 
-- nameuser
-Nome dell’utente al quale si vogliono assegnare i permessi.
+- nameuser: nome dell’utente al quale si vogliono assegnare i permessi.
 
-- host
-Specifica da quali host (macchine) è ammessa la connessione:
+- host: specifica da quali host (macchine) è ammessa la connessione:
 
    - localhost → solo dalla macchina locale
 
