@@ -38,3 +38,9 @@ Per visualizzare l’elenco dei *charset* disponibili e le relative *collation*:
 ```sql
 SHOW CHARACTER SET;
 ```
+
+#### Sintassi completa
+
+**Documentazione ufficiale MySQL** 
+
+https://dev.mysql.com/doc/refman/8.4/en/create-table.html
