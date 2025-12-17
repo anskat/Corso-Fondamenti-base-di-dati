@@ -129,7 +129,7 @@ FROM tableOrigine;
 
 **Esempio pratico**
 
-Supponiamo di voler popolare la tabella amici copiando i dati già presenti nella tabella studenti:
+Supponiamo di voler popolare la tabella *amici* copiando i dati già presenti nella tabella *studenti*:
 
 ```sql
 INSERT INTO amici (nome, cognome)
@@ -141,4 +141,37 @@ Note importanti:
 
 - La tabella di destinazione (amici) deve già esistere.
 - I tipi di dato dei campi selezionati devono essere compatibili con quelli della tabella di destinazione.
-- L’ordine dei campi nel SELECT deve corrispondere all’ordine dei campi specificati in INSERT.
+- L’ordine dei campi nel `SELECT` deve corrispondere all’ordine dei campi specificati in `INSERT`.
+
+---
+
+### Duplicare tabelle e contenuti
+
+Se è necessario **copiare il contenuto di una tabella in un’altra tabella**, è possibile combinare `CREATE TABLE` con `LIKE` e `INSERT ... SELECT`.
+
+---
+
+#### Duplicare struttura e dati mantenendo indici e chiavi
+
+Per duplicare **esattamente una tabella**, inclusi indici e chiavi primarie/esterne, bisogna usare due istruzioni separate:
+
+```sql
+CREATE TABLE studenti_bk LIKE studenti;
+INSERT INTO studenti_bk
+SELECT * FROM studenti;
+```
+
+`CREATE TABLE ... LIKE` duplica solo la struttura, quindi per copiare anche i dati serve l’ `INSERT ... SELECT`.
+
+**Duplicare struttura e dati con un’unica istruzione**
+
+È possibile usare un’unica istruzione `CREATE TABLE ... AS SELECT`:
+
+```sql
+CREATE TABLE studenti_bk2 AS
+SELECT * FROM studenti;
+```
+
+Nota: in questo caso gli indici e le chiavi non vengono copiati.
+
+La tabella di destinazione conterrà i dati, ma la struttura (indici, vincoli) sarà diversa.
