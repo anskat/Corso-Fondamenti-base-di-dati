@@ -1,6 +1,9 @@
 # Corso Fondamenti di Base di Dati
 *approfondimento sui database relazionali, in particolare MySQL*
 
+Il corso è in completamento.
+Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/fondamenti-base-di-dati.pdf):
+
 ## Indice argomenti
 
 1. [Cos’è un database](Teoria/01-cos-e-database.md)
