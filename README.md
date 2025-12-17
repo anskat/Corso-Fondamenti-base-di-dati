@@ -21,11 +21,11 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 13. [DCL: Data Control Language](Pratica/13-dcl.md)
 14. [Accesso DBMS (user)](Pratica/14-accesso-user.md)
 15. [DDL: 2 parte](Pratica/15-ddl-seconda-parte.md)
-15. DML
-16. Query
-17. Integrità referenziale
-18. UNION, INTERSECT e EXCEPT
-19. JOIN
+16. [DML](Pratica/16-dml.md)
+17. Query Language
+18. Integrità referenziale
+19. UNION, INTERSECT e EXCEPT
+20. JOIN
 20. Funzioni
 21. Raggruppamenti
 22. Windows Function
