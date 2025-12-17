@@ -112,3 +112,33 @@ Esempio completo:
 INSERT INTO studente
 VALUES (DEFAULT, 'fabio', 'rossi', 'fbr@gmail.com', NULL, DEFAULT);
 ```
+
+---
+
+### INSERT INTO ... SELECT
+
+L’istruzione `INSERT INTO ... SELECT` consente di **inserire automaticamente dati in una tabella copiandoli da un'altra tabella**.
+
+### Sintassi generale
+
+```sql
+INSERT INTO tableDestinazione (campo1, campo2, ...)
+SELECT campo1, campo2, ...
+FROM tableOrigine;
+```
+
+**Esempio pratico**
+
+Supponiamo di voler popolare la tabella amici copiando i dati già presenti nella tabella studenti:
+
+```sql
+INSERT INTO amici (nome, cognome)
+SELECT nome, cognome
+FROM studenti;
+```
+
+Note importanti:
+
+- La tabella di destinazione (amici) deve già esistere.
+- I tipi di dato dei campi selezionati devono essere compatibili con quelli della tabella di destinazione.
+- L’ordine dei campi nel SELECT deve corrispondere all’ordine dei campi specificati in INSERT.
