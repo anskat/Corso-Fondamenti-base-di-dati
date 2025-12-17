@@ -149,8 +149,6 @@ Note importanti:
 
 Se è necessario **copiare il contenuto di una tabella in un’altra tabella**, è possibile combinare `CREATE TABLE` con `LIKE` e `INSERT ... SELECT`.
 
----
-
 #### Duplicare struttura e dati mantenendo indici e chiavi
 
 Per duplicare **esattamente una tabella**, inclusi indici e chiavi primarie/esterne, bisogna usare due istruzioni separate:
