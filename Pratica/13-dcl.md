@@ -4,6 +4,42 @@
 
 Il DCL (Data Control Language) permette di **gestire il controllo degli accessi e i permessi** per gli utenti del DBMS.
 
+In questa sezione vengono illustrate le **istruzioni fondamentali** per creare un **utente applicativo** MySQL, ovvero un utente dedicato all’accesso a uno specifico database da parte di un’applicazione.
+
+L’utente applicativo potrà:
+- accedere **solo al database assegnato**
+- operare esclusivamente sugli oggetti presenti in tale database  
+  (tabelle, viste, indici, ecc.)
+
+Non avrà visibilità né permessi sugli altri database del sistema.
+
+---
+
+### Perché usare un utente applicativo
+
+Questa configurazione rappresenta una **buona pratica standard** nell’utilizzo dei database, poiché:
+- applica il **principio dei privilegi minimi**
+- riduce il rischio di accessi o modifiche accidentali ad altri database
+- migliora la **sicurezza** e l’**isolamento** dei dati
+
+---
+
+### Informazioni necessarie
+
+Per configurare correttamente l’accesso sono necessari:
+
+- **Nome del database**  
+  a cui l’utente è autorizzato ad accedere
+
+- **Nome dell’utente**  
+  che verrà utilizzato dall’applicazione
+
+- **Password associata all’utente**  
+  utilizzata per l’autenticazione
+
+- **Host (macchina di origine)**  
+  da cui l’utente è autorizzato a connettersi al DBMS
+
 ---
 
 ### Istruzione `CREATE USER`

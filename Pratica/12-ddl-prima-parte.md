@@ -1,47 +1,13 @@
 ## DDL  
 *Data Definition Language – Parte 1*
 
-In questa sezione vengono illustrate le **istruzioni fondamentali** per creare un **utente applicativo** MySQL, ovvero un utente dedicato all’accesso a uno specifico database da parte di un’applicazione.
-
-L’utente applicativo potrà:
-- accedere **solo al database assegnato**
-- operare esclusivamente sugli oggetti presenti in tale database  
-  (tabelle, viste, indici, ecc.)
-
-Non avrà visibilità né permessi sugli altri database del sistema.
-
----
-
-### Perché usare un utente applicativo
-
-Questa configurazione rappresenta una **buona pratica standard** nell’utilizzo dei database, poiché:
-- applica il **principio dei privilegi minimi**
-- riduce il rischio di accessi o modifiche accidentali ad altri database
-- migliora la **sicurezza** e l’**isolamento** dei dati
-
----
-
-### Informazioni necessarie
-
-Per configurare correttamente l’accesso sono necessari:
-
-- **Nome del database**  
-  a cui l’utente è autorizzato ad accedere
-
-- **Nome dell’utente**  
-  che verrà utilizzato dall’applicazione
-
-- **Password associata all’utente**  
-  utilizzata per l’autenticazione
-
-- **Host (macchina di origine)**  
-  da cui l’utente è autorizzato a connettersi al DBMS
-
----
-
 ### Creare un database
 
-Una volta effettuato l'accesso possiamo eseguire l’istruzione CREATE DATABASE (CREATE SCHEMA) seguita dal nome del database da creare.
+Una volta effettuato l’accesso al DBMS come amministratore, è possibile creare il **database che verrà successivamente utilizzato dall’utente applicativo**.
+
+Il database viene creato **prima** della definizione dei permessi: l’assegnazione dei privilegi all’utente avverrà infatti tramite le istruzioni **DCL** (`GRANT`).
+
+Per creare un nuovo database si utilizza l’istruzione `CREATE DATABASE` (o in alternativa `CREATE SCHEMA`) seguita dal nome del database:
 
 ```sql
 CREATE DATABASE databaseName;
@@ -105,4 +71,4 @@ Se si usa l’istruzione opzionale IF EXISTS si evita di ricevere l’errore qua
 DROP DATABASE IF EXISTS databaseName;
 ```
 
-[Vai alla sezione successiva per la creazione dell'utente e l'assegnazione dei privilegi necessari.](13-dcl.md)
+> [Vai alla sezione successiva per la creazione dell'utente e l'assegnazione dei privilegi necessari.](13-dcl.md)
