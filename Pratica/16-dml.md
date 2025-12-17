@@ -145,7 +145,7 @@ Note importanti:
 
 ---
 
-### Duplicare tabelle e contenuti
+#### Duplicare tabelle e contenuti
 
 Se è necessario **copiare il contenuto di una tabella in un’altra tabella**, è possibile combinare `CREATE TABLE` con `LIKE` e `INSERT ... SELECT`.
 
@@ -173,3 +173,146 @@ SELECT * FROM studenti;
 Nota: in questo caso gli indici e le chiavi non vengono copiati.
 
 La tabella di destinazione conterrà i dati, ma la struttura (indici, vincoli) sarà diversa.
+
+---
+
+### Aggiornamento dei dati
+
+#### UPDATE
+
+L’istruzione `UPDATE` viene utilizzata per **modificare i record** in una tabella esistente.  
+Permette di aggiornare i valori di una o più colonne di uno o più record.
+
+La sintassi generale è:
+
+```sql
+UPDATE tableName
+SET field1 = value1, field2 = value2
+WHERE field3 = value3;
+```
+
+- Dopo UPDATE si indica la tabella interessata
+- Con SET si specificano le colonne da modificare e i valori da assegnare
+- Con WHERE (opzionale) si stabiliscono le condizioni per selezionare i record da aggiornare
+
+ATTENZIONE: se WHERE viene omesso, tutti i record della tabella saranno aggiornati per le colonne indicate.
+
+Per aggiornare più campi simultaneamente, separare le coppie colonna = valore con una virgola.
+
+Quando si inseriscono i dati in una tabella rammentate sempre come sono state definite le colonne per evitare errori di inserimento.
+
+Se si inserisce un valore troppo lungo, o non compreso dalla definizione della colonna, MySQL restituisce un errore(1) e non effettua alcuna modifica.
+
+```sql
+UPDATE studenti
+SET genere = 's'
+WHERE id = 1;
+```
+
+Se il campo genere è definito come:
+
+`ENUM('f','m','nb')`
+
+accetta quindi solo i valori f , m o nb.
+
+MySQL restituirà un errore, perché 's' non è un valore ammesso:
+
+```bash
+ERROR 1265 (01000): Data truncated for column 'genere' at row 1
+```
+
+In questo caso stiamo tentando di inserire un valore non ammesso.
+
+Questo comportamento dipende dalla modalità SQL in uso (@@sql_mode).
+Di default MySQL lavora in strict mode.
+
+#### SQL Mode: STRICT MODE
+
+Il server MySQL può funzionare in diverse modalità SQL, configurabili tramite la variabile di sistema sql_mode.
+
+- I DBA possono impostare la modalità globale per il server
+- Ogni applicazione può impostare la modalità della sessione per rispettare requisiti specifici
+
+Le modalità SQL influenzano:
+
+- la sintassi supportata
+- i controlli di convalida dei dati eseguiti da MySQL
+
+**Verificare la modalità SQL attuale**
+
+```sql
+SELECT @@SQL_MODE;
+```
+
+```bash
++-----------------------------------------------------+
+| @@SQL_MODE                                          |
++-----------------------------------------------------+
+| NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION |
++-----------------------------------------------------+
+```
+
+**Impostare la modalità SQL in STRICT MODE**
+
+Per attivare controlli più rigorosi sulla validità dei dati, ad esempio per forzare l’uso dei vincoli dei campi, si può impostare la modalità SQL all’inizio della sessione:
+
+```sql
+SET SQL_MODE = 'TRADITIONAL';
+```
+
+https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html
+
+---
+
+### Eliminazione dei record da una tabella
+
+#### DELETE
+
+L'istruzione `DELETE` viene utilizzata per **rimuovere record** da una tabella.
+
+È necessario utilizzare la parola chiave condizionale `WHERE` per specificare quali record eliminare; **se viene omesso, tutti i record della tabella verranno cancellati**.
+
+Sintassi di base:
+
+```sql
+DELETE
+FROM tableName
+WHERE field = value;
+```
+
+esempio:
+
+```sql
+DELETE
+FROM studenti
+WHERE genere = 'm';
+```
+
+ATTENZIONE: se WHERE viene omesso, **tutti i record della tabella saranno elimiati**.
+
+#### Eliminare tutti i record della tabella
+
+Per svuotare una tabella si usa l’istruzione `TRUNCATE`
+
+```sql
+TRUNCATE [TABLE] tableName;
+```
+
+- Questa operazione è molto veloce perché ricrea la tabella vuota, azzerando eventuali campi AUTO_INCREMENT.
+
+- `TRUNCATE` fa parte delle istruzioni DDL.
+
+Se si utilizza DELETE senza WHERE, tutti i record vengono eliminati uno per uno:
+
+```sql
+DELETE FROM tableName;
+```
+
+- Questo metodo è meno efficiente su tabelle grandi perché dipende dal numero di righe.
+- Inoltre, usando DELETE, il valore di eventuali campi AUTO_INCREMENT non viene azzerato.
+
+Per azzerare manualmente un campo AUTO_INCREMENT:
+
+```sql
+ALTER TABLE tableName AUTO_INCREMENT = 1;
+```
