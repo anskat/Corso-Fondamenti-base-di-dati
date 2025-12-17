@@ -192,3 +192,87 @@ FIRST;
 ```
 
 Nota: se il campo è una **chiave primaria**, **non includere datatype duplicato o AUTO_INCREMENT già definito**, altrimenti MySQL genererà un errore.
+
+---
+
+## Gestione della PRIMARY KEY
+
+### Aggiungere una PRIMARY KEY a una tabella esistente
+
+Se la tabella **non ha ancora una chiave primaria**, è possibile aggiungerla a uno o più campi già esistenti:
+
+```sql
+ALTER TABLE tableName
+ADD PRIMARY KEY (field1 [, field2, ...]);
+```
+
+> È possibile definire una chiave primaria composta specificando più campi.
+
+
+### Aggiungere una PRIMARY KEY creando un nuovo campo
+
+È possibile aggiungere un nuovo campo dedicato (tipicamente id) e impostarlo come chiave primaria:
+
+```sql
+ALTER TABLE tableName
+ADD id INT AUTO_INCREMENT PRIMARY KEY;
+```
+
+**Eliminare una PRIMARY KEY**
+
+Per eliminare la chiave primaria da una tabella:
+
+```sql
+ALTER TABLE tableName
+DROP PRIMARY KEY;
+```
+
+**Attenzione: PRIMARY KEY e AUTO_INCREMENT**
+
+Se la chiave primaria è associata a un campo con attributo AUTO_INCREMENT, **prima di eliminare la PRIMARY KEY è necessario rimuovere l’attributo** `AUTO_INCREMENT` dal campo.
+
+```sql
+ALTER TABLE tableName
+MODIFY id INT;
+```
+
+Solo dopo sarà possibile eliminare la chiave primaria:
+
+```sql
+ALTER TABLE tableName
+DROP PRIMARY KEY;
+```
+
+--- 
+
+## Duplicare tabelle
+
+Se è necessario duplicare una tabella, è possibile utilizzare l’istruzione `CREATE TABLE` combinata con la clausola `LIKE`.
+
+### Duplicare la struttura di una tabella
+
+```sql
+CREATE TABLE tableNameCopy LIKE tableName;
+```
+
+Questa istruzione **duplica solo la struttura della tabella**
+(campi, tipi di dato, indici), **ma non i dati** contenuti al suo interno.
+
+### Eliminare tabelle dal database MySQL
+
+L’operazione inversa alla creazione di una tabella è la sua eliminazione.
+
+Per eliminare una tabella si utilizza l’istruzione `DROP TABLE`:
+
+```sql
+DROP TABLE tableName;
+```
+
+Attenzione: l’eliminazione di una tabella è un’operazione irreversibile.
+Tutti i dati contenuti nella tabella verranno persi definitivamente.
+
+### Eliminare più tabelle contemporaneamente
+
+```sql
+DROP TABLE tableName, tableName2, tableName3;
+```
