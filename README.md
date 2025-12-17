@@ -1,4 +1,4 @@
-# Corso Fondamenti di base di dati
+# Corso Fondamenti di Base di Dati
 *approfondimento sui database relazionali, in particolare MySQL*
 
 ## Indice argomenti
