@@ -47,11 +47,11 @@ https://dev.mysql.com/doc/refman/8.4/en/create-table.html
 
 ---
 
-Esempio di creazione di una tabella denominata *studente*, con il campo `id` come chiave primaria.
+Esempio di creazione di una tabella denominata *studenti*, con il campo `id` come chiave primaria.
 
 
 ```sql
-CREATE TABLE IF NOT EXISTS studenti(    
+CREATE TABLE IF NOT EXISTS studenti(
     id INT AUTO_INCREMENT,
     nome VARCHAR(20),
     cognome VARCHAR(30) NOT NULL,
