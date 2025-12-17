@@ -58,30 +58,30 @@ Per dare all'utente permessi completi utilizzare la parola chiave
 GRANT ALL
 ```
 
-Specifica del database e delle tabelle
+**Specifica del database e delle tabelle**
 
-namedatabase.*
+- namedatabase.*
 → indica il database sul quale l’utente può eseguire le istruzioni consentite su tutte le tabelle
 
-namedatabase.tabella
+- namedatabase.tabella
 → indica una singola tabella
 
-*.*
+- *.*
 → assegna i permessi su tutti i database
 
-Specifica dell’utente
+**Specifica dell’utente**
 
-nameuser
+- nameuser
 Nome dell’utente al quale si vogliono assegnare i permessi.
 
-host
+- host
 Specifica da quali host (macchine) è ammessa la connessione:
 
-localhost → solo dalla macchina locale
+   - localhost → solo dalla macchina locale
 
-% → da qualsiasi host
+   - % → da qualsiasi host
 
-130.192.200.% → da tutti gli host della sottorete indicata
+   - 130.192.200.% → da tutti gli host della sottorete indicata
 
 Esempio:
 
