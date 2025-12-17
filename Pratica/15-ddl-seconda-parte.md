@@ -44,3 +44,27 @@ SHOW CHARACTER SET;
 **Documentazione ufficiale MySQL** 
 
 https://dev.mysql.com/doc/refman/8.4/en/create-table.html
+
+---
+
+Esempio di creazione di una tabella denominata studente, con il campo id come chiave primaria.
+
+
+```sql
+CREATE TABLE IF NOT EXISTS studenti(    
+    id INT AUTO_INCREMENT,
+    nome VARCHAR(20),
+    cognome VARCHAR(30) NOT NULL,
+    genere ENUM('m','f'),
+    indirizzo VARCHAR(100),
+    citta VARCHAR(30),
+    provincia CHAR(2) DEFAULT 'To',
+    regione VARCHAR(30) DEFAULT 'Piemonte',
+    email VARCHAR(100) NOT NULL UNIQUE,
+    data_nascita date,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY(id)
+);
+```
+
