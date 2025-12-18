@@ -22,7 +22,7 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 14. [Accesso DBMS (user)](Pratica/14-accesso-user.md)
 15. [DDL: 2 parte](Pratica/15-ddl-seconda-parte.md)
 16. [DML](Pratica/16-dml.md)
-17. Query Language
+17. [Query Language](Pratica/17-query-language.md)
 18. Integrità referenziale
 19. UNION, INTERSECT e EXCEPT
 20. JOIN
