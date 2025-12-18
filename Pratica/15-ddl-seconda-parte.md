@@ -282,6 +282,7 @@ DROP TABLE tableName, tableName2, tableName3;
 ### Colonne generate (virtuali e persistenti / memorizzate)
 
 Una **colonna generata** è una colonna il cui valore non può essere impostato manualmente tramite DML, ma viene calcolato automaticamente in base a un’espressione.
+
 Questa espressione potrebbe generare il valore in base ai valori di altre colonne nella tabella oppure potrebbe generare il valore chiamando funzioni incorporate o funzioni definite dall'utente (UDF).
 
 Esistono due tipi di colonne generate:
