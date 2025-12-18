@@ -2,7 +2,8 @@
 
 **Interrogazione dei dati**
 
-Le query indicate di seguito fanno riferimento alla tabella *studenti* il cui codice è presente nella sezione [DDL](../Pratica/15-ddl-seconda-parte.md),
+Le query indicate di seguito fanno riferimento alla tabella *studenti* il cui codice è presente nella sezione [DDL](../Pratica/15-ddl-seconda-parte.md);
+
 i record sono allegati come file .sql nella sezione [Database](../Database/studenti_record.sql)
 
 ### SELECT
