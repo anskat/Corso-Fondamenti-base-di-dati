@@ -486,4 +486,12 @@ SELECT titolo, prezzo, prezzo * 1.1 AS prezzo_aumentato
 FROM libro;
 ```
 
-Ogni riga del risultato mostrerà il calcolo applicato, utile per report o per generare campi derivati.
+Ogni riga del risultato mostrerà il valore calcolato al momento dell’esecuzione della query.
+
+Questo approccio è utile per *report*, *statistiche* o per *ottenere valori derivati temporanei*, **senza modificare la struttura della tabella**.
+
+In alternativa, è possibile definire colonne che memorizzano il risultato di un calcolo, evitando di ripetere l’espressione in ogni query e migliorando la leggibilità (e in alcuni casi le prestazioni).
+
+Queste colonne sono chiamate **colonne generate** (virtuali o memorizzate).
+
+[colonne viruali](/Pratica/15-ddl-seconda-parte.md#colonne-generate)

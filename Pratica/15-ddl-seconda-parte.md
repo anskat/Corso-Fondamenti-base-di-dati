@@ -279,7 +279,7 @@ DROP TABLE tableName, tableName2, tableName3;
 
 --- 
 
-### Colonne generate (virtuali e persistenti / memorizzate)
+### Colonne generate
 
 Una **colonna generata** è una colonna il cui valore non può essere impostato manualmente tramite DML, ma viene calcolato automaticamente in base a un’espressione.
 
