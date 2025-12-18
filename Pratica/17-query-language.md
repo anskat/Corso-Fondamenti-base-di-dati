@@ -494,4 +494,4 @@ In alternativa, è possibile definire colonne che memorizzano il risultato di un
 
 Queste colonne sono chiamate **colonne generate** (virtuali o memorizzate).
 
-Vedi la sezione: [colonne viruali](/Pratica/15-ddl-seconda-parte.md#colonne-generate)
+Vedi la sezione: [colonne generate](/Pratica/15-ddl-seconda-parte.md#colonne-generate)
