@@ -128,7 +128,7 @@ WHERE genere = 'm';
 
 ### Operatori
 
-Gli operatori vengono utilizzati nella clausola WHERE per filtrare le righe di una tabella in base a criteri specifici.
+Gli operatori vengono utilizzati nella clausola `WHERE` per filtrare le righe di una tabella in base a criteri specifici.
 
 Esistono diversi tipi di operatori, a seconda del tipo di confronto o condizione che si vuole applicare.
 
@@ -387,13 +387,15 @@ Ad esempio:
 
 - 'paol_' → stringhe di 5 caratteri che iniziano per paol
 
-Nota sulle prestazioni
 
-Le ricerche che iniziano con un carattere jolly ('%test') sono le meno performanti, perché impediscono l’uso degli indici.
+**Nota sulle prestazioni**
 
-È consigliabile non abusare dei caratteri jolly, soprattutto in tabelle di grandi dimensioni.
+- Le ricerche che iniziano con un carattere jolly ('%test') sono le meno performanti, perché impediscono l’uso degli indici.
 
-Sensibilità a maiuscole/minuscole
+- È consigliabile non abusare dei caratteri jolly, soprattutto in tabelle di grandi dimensioni.
+
+
+**Sensibilità a maiuscole/minuscole**
 
 Il comportamento di `LIKE` rispetto a maiuscole e minuscole dipende dalla collation del campo:
 
@@ -403,8 +405,8 @@ Il comportamento di `LIKE` rispetto a maiuscole e minuscole dipende dalla collat
 
 i criteri di ricerca che iniziano con caratteri jolly sono quelli con i tempi di elaborazione più lunghi.
 
-| Wildcard	         | Descrizione                                     |
-| ----               | ----                                            |
-| %	                 | sostituisce zero o più caratteri                |
-| _         	     | sostituisce un singolo carattere                |
+| Wildcard	         | Descrizione                                                |
+| ----               | ----                                                       |
+| %	                 | sostituisce zero o più caratteri                           |
+| _         	     | sostituisce un singolo carattere                           |
 | stringhe letterali più Wildcard | pattern di caratteri da trovare usando % e _  |
