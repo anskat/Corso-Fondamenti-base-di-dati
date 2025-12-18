@@ -415,13 +415,11 @@ i criteri di ricerca che iniziano con caratteri jolly sono quelli con i tempi di
 
 ---
 
-## Operatori avanzati
-
-### REGEXP_LIKE() / REGEXP / RLIKE
+**REGEXP_LIKE() / REGEXP / RLIKE**
 
 *REGEXP e RLIKE sono sinonimi di REGEXP_LIKE()*
 
-Un operatore più potente di LIKE è **REGEXP**, che consente di effettuare ricerche testuali complesse utilizzando espressioni regolari.
+Un operatore più potente di `LIKE` è `REGEXP`, che consente di effettuare ricerche testuali complesse utilizzando espressioni regolari.
 
 Esempi di utilizzo:
 
@@ -444,9 +442,10 @@ SELECT * FROM studenti WHERE nome REGEXP '^[a-m]'; -- dalla a alla m
 ```
 
 Per approfondimenti:
-[MySQL REGEXP operator](https://dev.mysql.com/doc/refman/8.0/en/regexp.html#operator_regexp)
-[MySQL REGEXP Documentation](https://dev.mysql.com/doc/refman/8.0/en/regexp.html#regexp-syntax)
 
+[MySQL REGEXP operator](https://dev.mysql.com/doc/refman/8.0/en/regexp.html#operator_regexp)
+
+[MySQL REGEXP Documentation](https://dev.mysql.com/doc/refman/8.0/en/regexp.html#regexp-syntax)
 
 **Operatori matematici**
 

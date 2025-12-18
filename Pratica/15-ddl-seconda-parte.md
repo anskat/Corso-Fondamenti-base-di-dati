@@ -276,3 +276,79 @@ Tutti i dati contenuti nella tabella verranno persi definitivamente.
 ```sql
 DROP TABLE tableName, tableName2, tableName3;
 ```
+
+--- 
+
+### Colonne generate (virtuali e persistenti / memorizzate)
+
+Una **colonna generata** è una colonna il cui valore non può essere impostato manualmente tramite DML, ma viene calcolato automaticamente in base a un’espressione.
+Questa espressione potrebbe generare il valore in base ai valori di altre colonne nella tabella oppure potrebbe generare il valore chiamando funzioni incorporate o funzioni definite dall'utente (UDF).
+
+Esistono due tipi di colonne generate:
+
+- PERSISTENT (STORED): il valore di questo tipo è effettivamente memorizzato nella tabella.
+- VIRTUAL: Il valore di questo tipo non viene memorizzato affatto. Il valore viene invece generato dinamicamente quando viene eseguita una query sulla tabella. Questo tipo è l'impostazione predefinita.
+
+Le colonne generate sono talvolta chiamate anche colonne calcolate o colonne virtuali.
+
+Le colonne generate sono utili per derivare dati senza doverli memorizzare manualmente, evitando ridondanza.
+
+#### Sintassi
+```sql
+column_name data_type  [GENERATED ALWAYS]  AS   ( <expression> )[VIRTUAL | STORED] [NOT NULL | NULL] [UNIQUE [KEY]] [PRIMARY KEY] [COMMENT <text>]
+```
+
+Esempio sulla tabella studente.
+Creiamo un campo generato al volo che contenga il nome e il cognome dello studente:
+
+```sql
+ALTER TABLE studenti ADD fullName varchar(255) AS (concat(nome,' ',cognome))
+AFTER cognome;
+```
+
+Esempio sulla tabella libro. Creiamo un campo generato al volo che calcoli il prezzo del libro compreso di IVA:
+
+```sql
+ALTER TABLE libri
+ADD prezzo_iva decimal(6,2) GENERATED ALWAYS AS (prezzo * 1.10) STORED
+AFTER prezzo;
+```
+
+[approfondimento](https://dev.mysql.com/doc/refman/8.0/en/create-table-generated-columns.html)
+
+**Limiti nella scrittura dell'espressione**
+
+- Sono consentiti valori letterali, funzioni integrate deterministiche e operatori.
+Una funzione è deterministica se, dati gli stessi dati nelle tabelle, più invocazioni producono lo stesso risultato, indipendentemente dall'utente connesso.
+
+Esempi di funzioni che non sono deterministiche e non soddisfano questa definizione: `CONNECTION_ID()`,  `CURRENT_USER()`,` NOW()`, `CURDATE()`…
+
+- Non sono consentite subquery.
+
+- Le colonne generate possono fare riferimento solo a colonne già definite nella tabella, comprese altre colonne generate definite precedentemente.
+
+- L'attributo `AUTO_INCREMENT` non può essere utilizzato in una definizione di colonna generata.
+
+- Non è possibile utilizzare una colonna `AUTO_INCREMENT` come colonna di base in una definizione di colonna generata.
+
+- Se la valutazione dell'espressione provoca il troncamento o fornisce un input errato a una funzione, l'istruzione CREATE TABLE termina con un errore e l'operazione DDL viene rifiutata.
+
+La maggior parte delle espressioni deterministiche legali che possono essere calcolate sono supportate nelle espressioni per le colonne generate.
+
+La maggior parte delle funzioni integrate è supportata nelle espressioni per le colonne generate.
+
+Tuttavia, alcune funzioni integrate non possono essere supportate per motivi tecnici.
+Ad esempio, se si tenta di utilizzare una funzione non supportata in un'espressione, viene generato un errore simile al seguente:
+
+```bash
+ERROR 1901 (HY000): Function or expression 'dayname()' cannot be used in the GENERATED ALWAYS AS clause of `v`
+```
+
+Vediamo un esempio:
+
+```sql
+ALTER TABLE studenti
+ADD eta TINYINT as (TIMESTAMPDIFF(YEAR,data_nascita,CURDATE())) virtual;
+```
+
+Non si può usare l’espressione, perché utilizza la funzione CURDATE() non deterministica.
