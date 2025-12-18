@@ -411,3 +411,80 @@ i criteri di ricerca che iniziano con caratteri jolly sono quelli con i tempi di
 | %	                 | sostituisce zero o più caratteri                           |
 | _         	     | sostituisce un singolo carattere                           |
 | stringhe letterali più Wildcard | pattern di caratteri da trovare usando % e _  |
+
+
+---
+
+## Operatori avanzati
+
+### REGEXP_LIKE() / REGEXP / RLIKE
+
+*REGEXP e RLIKE sono sinonimi di REGEXP_LIKE()*
+
+Un operatore più potente di LIKE è **REGEXP**, che consente di effettuare ricerche testuali complesse utilizzando espressioni regolari.
+
+Esempi di utilizzo:
+
+```sql
+SELECT * FROM studenti WHERE REGEXP_LIKE(nome,'ra'); 
+SELECT * FROM studenti WHERE nome REGEXP 'ra';
+SELECT * FROM studenti WHERE nome REGEXP '^mar';
+SELECT * FROM studenti WHERE nome REGEXP 'co$';
+SELECT * FROM studenti WHERE nome REGEXP 'mar|ara|ola';
+
+-- Combinazioni di simboli
+SELECT * FROM studenti WHERE nome REGEXP '^mar|ara|co$';
+SELECT * FROM studenti WHERE nome REGEXP '^(mar|ara)|co$';
+
+-- Pattern avanzati
+SELECT * FROM studenti WHERE nome REGEXP '[mcp]a';
+SELECT * FROM studenti WHERE nome REGEXP 'a[ero]';
+SELECT * FROM studenti WHERE nome REGEXP 'l[ao]$';
+SELECT * FROM studenti WHERE nome REGEXP '^[a-m]'; -- dalla a alla m
+```
+
+Per approfondimenti:
+[MySQL REGEXP operator](https://dev.mysql.com/doc/refman/8.0/en/regexp.html#operator_regexp)
+[MySQL REGEXP Documentation](https://dev.mysql.com/doc/refman/8.0/en/regexp.html#regexp-syntax)
+
+
+**Operatori matematici**
+
+MySQL supporta i classici operatori matematici tradizionali, cioè:
+
+- `+` (addizione)
+- `-` (sottrazione)
+- `*` (moltiplicazione)
+- `/` (divisione)
+- `%` (modulo - il resto della divisione tra due numeri)
+
+Questi operatori risultano molto utili quando, ad esempio, si devono svolgere dei calcoli all'interno di una SELECT.
+
+Per fare un esempio si supponga di voler restituire il valore dato dalla sottrazione di due campi:
+
+```sql
+SELECT (field1 - field2)
+FROM tableName
+[WHERE condition(s)];
+```
+
+```sql
+SELECT 6 / 2 ; -- 3
+SELECT 35 % 3 ; -- 2
+SELECT (35 / 3) * 2 ; -- 11.6667
+```
+
+---
+
+**Calcolo di campi al volo**
+
+È possibile creare campi calcolati direttamente nella `SELECT`, applicando operazioni matematiche sui valori esistenti.
+
+Esempio
+
+```sql
+SELECT titolo, prezzo, prezzo * 1.1 AS prezzo_aumentato
+FROM libro;
+```
+
+Ogni riga del risultato mostrerà il calcolo applicato, utile per report o per generare campi derivati.
