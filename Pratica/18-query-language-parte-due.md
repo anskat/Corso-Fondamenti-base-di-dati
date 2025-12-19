@@ -13,13 +13,13 @@ Useremo ora il [database corsi](../Database/corsi/corsi.sql), composto dalle seg
 - studenti
 - iscrizioni
 
-Queste tabelle sono collegate tra loro tramite relazioni, definite mediante chiavi primarie e chiavi esterne.
+Queste tabelle sono collegate tra loro tramite relazioni, definite mediante [chiavi primarie e chiavi esterne](../Teoria/05-modello-relazionale.md).
 
-Un primo esempio concettuale
+---
 
-Immaginiamo di voler ottenere l’elenco dei corsi con il relativo docente assegnato.
+Immaginiamo di voler ottenere l’*elenco dei corsi con il relativo docente assegnato*.
 
-Le informazioni richieste non si trovano in una sola tabella:
+Le informazioni richieste si trovano in due tabelle:
 
 - i dati del docente (nome, cognome, email) sono nella tabella *docenti*
 
@@ -67,4 +67,3 @@ Nei prossimi esempi vedremo come questo stesso risultato possa (e debba) essere 
 - meno soggette a errori
 
 - più aderenti allo standard SQL moderno
-
