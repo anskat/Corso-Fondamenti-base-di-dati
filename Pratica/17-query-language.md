@@ -36,7 +36,7 @@ SELECT fieldName, fieldName2, fieldName3 FROM tableName;
 
 #### MySQL supporta tre stili di commento:
 
-**Commento con #**
+**Commento con** `#`
 
 Tutto ciò che segue il simbolo `#` fino alla fine della riga viene ignorato:
 
@@ -44,9 +44,9 @@ Tutto ciò che segue il simbolo `#` fino alla fine della riga viene ignorato:
 SELECT 1 + 1; # Questo commento continua fino alla fine della riga
 ```
 
-**Commento con doppio trattino --**
+**Commento con doppio trattino** `--`
 
-Tutto ciò che segue -- fino alla fine della riga viene ignorato.
+Tutto ciò che segue `--` fino alla fine della riga viene ignorato.
 
 Attenzione: il secondo trattino deve essere seguito da almeno uno spazio bianco o un carattere di controllo (spazio, tab, nuova riga, ecc.):
 
