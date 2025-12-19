@@ -180,6 +180,38 @@ WHERE d.id IS NULL;
 
 ---
 
+#### Nota pratica sulle JOIN
+
+**Nell’esempio:**
+
+```sql
+SELECT titolo AS corso
+FROM docenti d
+RIGHT JOIN corsi c
+ON d.id = c.docente_id
+WHERE d.id IS NULL;
+```
+
+l’obiettivo è ottenere **tutti i corsi che non hanno un docente assegnato**.
+
+Tuttavia, se la colonna `docente_id` nella tabella *corsi* può assumere valori `NULL`, è possibile ottenere lo stesso risultato con una query molto più semplice:
+
+```sql
+SELECT titolo
+FROM corsi
+WHERE docente_id IS NULL;
+```
+
+Questo evita la `JOIN` e semplifica l’istruzione, risparmiando risorse e migliorando la leggibilità.
+
+Avvertenza: se nella struttura della tabella *corsi* il campo docente_id è definito `NOT NULL`, allora non esisteranno corsi senza docente.
+
+In tal caso, la query con `WHERE docente_id IS NULL` restituirebbe sempre zero righe, e la `JOIN` sarebbe inutile.
+
+A volte **conoscere bene il modello dei dati** permette di semplificare le query e risparmiare join inutili.
+
+---
+
 #### FULL OUTER JOIN
 
 In MySQL non sono implementate le `FULL OUTER JOIN`, ma è possibile simulare il risultato con l’ `UNION` di `LEFT` e `RIGHT JOIN`:
