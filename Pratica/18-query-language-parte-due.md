@@ -72,6 +72,8 @@ Nei prossimi esempi vedremo come questo stesso risultato possa (e debba) essere 
 
 - più aderenti allo standard SQL moderno
 
+---
+
 **Elenco degli studenti e dei corsi a cui sono iscritti**
 
 Immaginiamo di voler ottenere l’**elenco degli studenti con il relativo corso a cui risultano iscritti**.
@@ -83,8 +85,6 @@ Tra le tabelle studenti e corsi esiste una relazione **molti-a-molti**:
 - a ogni corso possono iscriversi più studenti
 
 Nel modello relazionale questo tipo di relazione **non può essere rappresentato direttamente** e viene gestito tramite una **tabella associativa**.
-
----
 
 **Tabelle coinvolte**
 
@@ -103,8 +103,6 @@ La tabella **iscrizioni** ha il compito di collegare logicamente studenti e cors
 - `corso_id`: chiave esterna che memorizza l’id del corso a cui lo studente è iscritto
 
 Questi campi rappresentano i **collegamenti logici** tra le tre tabelle e consentono di ricostruire l’informazione completa.
-
----
 
 Per ottenere l’elenco degli studenti con i corsi a cui sono iscritti, possiamo interrogare contemporaneamente le tre tabelle e collegarle tramite le rispettive chiavi:
 
@@ -129,7 +127,6 @@ In questa query:
 - vengono selezionati solo i record per i quali esiste una corrispondenza valida tra studenti, iscrizioni e corsi
 
 Il risultato è un insieme di righe che mostra **ogni studente associato ai corsi a cui è iscritto**.
-
 
 ---
 
