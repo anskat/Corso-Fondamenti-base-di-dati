@@ -39,7 +39,7 @@ Questo campo è il collegamento logico tra le due tabelle.
 
 **Interrogazione con più tabelle nel FROM**
 
-Possiamo interrogare entrambe le tabelle nello stesso momento scrivendo:
+*Elenco dei docenti e corsi assegnati*
 
 ```sql
 SELECT nome, cognome, email, titolo
