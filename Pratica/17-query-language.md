@@ -54,9 +54,9 @@ Attenzione: il secondo trattino deve essere seguito da almeno uno spazio bianco 
 SELECT 1 + 1; -- Questo commento continua fino alla fine della riga
 ```
 
-**Commento in stile C /* ... */**
+**Commento in stile C** `/* ... */` 
 
-Questo stile permette di scrivere commenti inlinea o su più linee:
+Questo stile permette di scrivere commenti in linea o su più linee:
 
 ```sql
 SELECT 1 /* questo è un commento in linea */ + 1;
