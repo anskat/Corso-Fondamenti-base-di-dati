@@ -304,6 +304,7 @@ Approfondimento: https://dev.mysql.com/doc/refman/8.0/en/problems-with-alias.htm
 
 Gli *alias per le tabelle* permettono di abbreviare i nomi delle tabelle, **rendendo le query più concise e leggibili**.
 
+```sql
 SELECT
     d.nome,
     d.cognome,
@@ -312,6 +313,7 @@ SELECT
 FROM docenti AS d, corsi AS c
 WHERE d.id = c.docente_id
 ORDER BY `Titolo Corso`;
+```
 
 - Una volta assegnato un alias a una tabella, in tutta la query deve essere usato solo l'alias, non il nome originale della tabella.
 
