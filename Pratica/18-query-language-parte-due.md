@@ -21,46 +21,50 @@ Immaginiamo di voler ottenere l’elenco dei corsi con il relativo docente asseg
 
 Le informazioni richieste non si trovano in una sola tabella:
 
-i dati del docente (nome, cognome, email) sono nella tabella docenti
+- i dati del docente (nome, cognome, email) sono nella tabella *docenti*
 
-il titolo del corso è nella tabella corsi
+- il titolo del corso è nella tabella *corsi*
 
 Tra le due tabelle esiste una relazione uno-a-molti:
 
-un docente può insegnare più corsi
+- un docente può insegnare più corsi
 
-ogni corso è insegnato da un solo docente
+- ogni corso è insegnato da un solo docente
 
 La tabella corsi contiene l’attributo docente_id, che rappresenta una chiave esterna e memorizza l’id del docente che insegna quel corso.
+
 Questo campo è il collegamento logico tra le due tabelle.
 
-Interrogazione con più tabelle nel FROM
+---
+
+**Interrogazione con più tabelle nel FROM**
 
 Possiamo interrogare entrambe le tabelle nello stesso momento scrivendo:
 
+```sql
 SELECT nome, cognome, email, titolo
 FROM docenti, corsi
 WHERE docenti.id = corsi.docente_id;
-
+```
 
 In questa query:
 
-nel FROM indichiamo entrambe le tabelle
+- nel `FROM` indichiamo entrambe le tabelle
 
-nella clausola WHERE specifichiamo la condizione di collegamento tra di esse
+- nella clausola `WHERE` specifichiamo la condizione di collegamento tra di esse
 
-la condizione docenti.id = corsi.docente_id seleziona solo le righe che hanno una corrispondenza valida
+- la condizione `docenti.id = corsi.docente_id` seleziona **solo le righe che hanno una corrispondenza valida**
 
 Il risultato sarà un insieme di record che contiene solo i corsi per i quali esiste un docente associato, con le informazioni provenienti da entrambe le tabelle.
 
-Perché questo passaggio è importante
 
-Questo tipo di interrogazione introduce il concetto fondamentale di join logico tra tabelle, anche se espresso tramite la clausola WHERE.
+Questo tipo di interrogazione introduce **il concetto fondamentale di join logico tra tabelle**, anche se espresso tramite la clausola `WHERE`.
 
 Nei prossimi esempi vedremo come questo stesso risultato possa (e debba) essere ottenuto utilizzando la sintassi esplicita JOIN, che rende le query:
 
-più leggibili
+- più leggibili
 
-meno soggette a errori
+- meno soggette a errori
 
-più aderenti allo standard SQL moderno
+- più aderenti allo standard SQL moderno
+
