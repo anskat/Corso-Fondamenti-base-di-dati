@@ -265,3 +265,81 @@ Questo insieme di esempi mostra come:
 - l’unione di più tabelle consenta di ricostruire informazioni distribuite nel database
 
 - gli operatori nella clausola `WHERE` permettano di filtrare i risultati in modo preciso e flessibile
+
+---
+
+### Alias
+
+Gli alias sono utilizzati per rinominare temporaneamente una tabella o una colonna **nel risultato della query**.
+
+Si usa l’istruzione AS quando si crea un alias(1).
+
+- Alias per le colonne:
+
+è possibile utilizzare l'alias con GROUP BY, ORDER BY o HAVING per riferirsi alla colonna (vedremo in seguito l'uso di GROUP BY e HAVING).
+
+```sql
+SELECT data_nascita AS `Data di nascita`
+FROM studente;
+```
+
+```sql
+SELECT (campo1 - campo2) AS risultato
+FROM nome_tabella
+[WHERE condizione];
+```
+
+nota: `AS` si può anche omettere in MySQL;
+
+```sql
+SELECT data_nascita `Data di nascita`
+FROM studente;
+```
+
+1) se il nome alias è un nome composto (es: `Data di nascita`) o ha lettera accentata (es: `Età`) usate i *backtick* ` (apice retroverso) per avvolgere il testo così da non avere risultati inattesi.
+
+Approfondimento: https://dev.mysql.com/doc/refman/8.0/en/problems-with-alias.html
+
+- Alias per le tabelle
+
+Gli *alias per le tabelle* permettono di abbreviare i nomi delle tabelle, **rendendo le query più concise e leggibili**.
+
+SELECT
+    d.nome,
+    d.cognome,
+    d.email,
+    c.titolo AS `Titolo Corso`
+FROM docenti AS d, corsi AS c
+WHERE d.id = c.docente_id
+ORDER BY `Titolo Corso`;
+
+- Una volta assegnato un alias a una tabella, in tutta la query deve essere usato solo l'alias, non il nome originale della tabella.
+
+- Per migliorare la leggibilità, è consigliato sempre specificare l’alias della tabella davanti ai nomi delle colonne, anche quando non ci sono ambiguità.
+
+- Nel caso di colonne con lo stesso nome in più tabelle, l’uso dell’alias scelto (se non definito uso del nome originario della tabella) è obbligatorio per evitare errori e specificare chiaramente da quale tabella proviene il dato.
+
+**Vediamo la query che estrae l’elenco completo delle informazioni sui corsi con l’uso degli alias.**
+
+Le informazioni richieste si trovano in quattro tabelle:
+
+- studenti
+- docenti
+- corsi
+- iscrizioni
+
+Vediamo la query:
+
+```sql
+SELECT
+    s.nome AS `Nome studente`,
+    s.cognome AS `Cognome studente`,
+    s.email AS `Contatto studente`,
+    c.titolo AS `Iscritto a`,
+    d.cognome AS `Cognome docente`,
+    d.nome AS `Nome docente`
+FROM studenti AS s, corsi AS c, iscrizioni AS i, docenti AS d
+WHERE s.id = i.studente_id
+AND c.id = i.corso_id
+AND d.id = c.docente_id; 
+```
