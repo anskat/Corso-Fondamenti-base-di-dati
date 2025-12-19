@@ -37,6 +37,7 @@ SELECT fieldName, fieldName2, fieldName3 FROM tableName;
 #### MySQL supporta tre stili di commento:
 
 **Commento con #**
+
 Tutto ciò che segue il simbolo # fino alla fine della riga viene ignorato:
 
 SELECT 1 + 1; # Questo commento continua fino alla fine della riga
