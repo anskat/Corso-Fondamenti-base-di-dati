@@ -112,4 +112,4 @@ INNER JOIN iscrizioni i ON s.id = i.studente_id
 INNER JOIN corsi c ON c.id = i.corso_id;
 ```
 
-![diagramma di Venn]
+![diagramma di Venn](/assets/images/diagramma-venn.png)
