@@ -264,4 +264,4 @@ Questo insieme di esempi mostra come:
 
 - l’unione di più tabelle consenta di ricostruire informazioni distribuite nel database
 
-- gli operatori nella clausola WHERE permettano di filtrare i risultati in modo preciso e flessibile
+- gli operatori nella clausola `WHERE` permettano di filtrare i risultati in modo preciso e flessibile
