@@ -26,7 +26,7 @@ WHERE docenti.id = corsi.docente_id;
 
 La query restituisce solo le righe per le quali esiste corrispondenza tra le tabelle. Se una riga non soddisfa la condizione, non verrà mostrata.
 
-### Unire righe di tabelle: sintassi JOIN
+### Unire righe di tabelle:
 
 Le `JOIN` permettono di combinare righe di due o più tabelle basandosi su chiavi comuni o altre condizioni.
 
@@ -48,6 +48,8 @@ Verranno estratti solo i valori che hanno corrispondenza.
 
 ---
 
+#### INNER JOIN
+
 Sintassi generale:
 
 ```sql
@@ -63,7 +65,7 @@ Un `JOIN` tra **n** tabelle implica almeno **n-1 condizioni di join** per colleg
 
 **Esempio: tra 3 tabelle a, b, c**
 
-*Sintassi con WHERE*:
+*Sintassi con* `WHERE`:
 
 ```sql
 SELECT * FROM a, b, c
@@ -109,3 +111,5 @@ FROM studenti s
 INNER JOIN iscrizioni i ON s.id = i.studente_id
 INNER JOIN corsi c ON c.id = i.corso_id;
 ```
+
+![diagramma di Venn](/assets/images/diagramma-venn.png)
