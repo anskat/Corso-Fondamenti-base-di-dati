@@ -77,24 +77,39 @@ Consideriamo le possibili generazioni di appartenenza degli studenti:
 Scriviamo una query che ci mostri per ogni studente la generazione di appartenenza e con l'operatore `UNION` creiamo un unico result set:
 
 ```sql
-SELECT cognome, data_nascita, 'X' Generazione
+SELECT cognome, data_nascita, 'X' AS Generazione
 FROM studenti
 WHERE data_nascita <= '1980-12-31'
 
 UNION ALL
 
-SELECT cognome, data_nascita, 'Millenials' Generazione
+SELECT cognome, data_nascita, 'Millenials'
 FROM studenti
 WHERE data_nascita BETWEEN '1981-01-01' AND '1996-12-31'
 
 UNION ALL
 
-SELECT cognome, data_nascita, 'Z' Generazione
+SELECT cognome, data_nascita, 'Z'
 FROM studenti
 WHERE data_nascita >= '1997-01-01'
 
 ORDER BY data_nascita;
 ```
+
+L’intestazione di ciascuna colonna nel result set finale viene presa dalla prima query.
+
+Se nella prima query viene usato un *alias*, questo diventa il nome della colonna per tutto il result set.
+
+Se nella prima query non viene usato un alias, l’intestazione sarà generica (tipicamente il nome del campo o un nome derivato dall’espressione).
+
+Gli *alias* nelle query successive non influenzano l’intestazione finale; contano solo i valori.
+
+- L’alias `Generazione` nella prima `SELECT` definisce l’intestazione della terza colonna per tutto il result set.
+
+- Le righe delle `SELECT` successive ereditano questo nome di colonna senza bisogno di ridefinire l’alias.
+
+Regola pratica: mettere sempre l'alias nella prima query quando si usa un valore calcolato o costante, così l’intestazione del result set sarà chiara e consistente.
+
 ---
 
 INTERSECT
