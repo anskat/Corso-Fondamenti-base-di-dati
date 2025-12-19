@@ -274,7 +274,7 @@ Gli alias sono utilizzati per rinominare temporaneamente una tabella o una colon
 
 Si usa l’istruzione `AS` quando si crea un alias(1).
 
-- Alias per le colonne:
+#### Alias per le colonne:
 
 è possibile utilizzare l'alias con GROUP BY, HAVING o  ORDER BY per riferirsi alla colonna (vedremo in seguito l'uso di GROUP BY e HAVING).
 
@@ -300,7 +300,7 @@ FROM studente;
 
 Approfondimento: https://dev.mysql.com/doc/refman/8.0/en/problems-with-alias.html
 
-- Alias per le tabelle
+#### Alias per le tabelle
 
 Gli *alias per le tabelle* permettono di abbreviare i nomi delle tabelle, **rendendo le query più concise e leggibili**.
 
