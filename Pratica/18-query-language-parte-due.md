@@ -272,11 +272,11 @@ Questo insieme di esempi mostra come:
 
 Gli alias sono utilizzati per rinominare temporaneamente una tabella o una colonna **nel risultato della query**.
 
-Si usa l’istruzione AS quando si crea un alias(1).
+Si usa l’istruzione `AS` quando si crea un alias(1).
 
 - Alias per le colonne:
 
-è possibile utilizzare l'alias con GROUP BY, ORDER BY o HAVING per riferirsi alla colonna (vedremo in seguito l'uso di GROUP BY e HAVING).
+è possibile utilizzare l'alias con GROUP BY, HAVING o  ORDER BY per riferirsi alla colonna (vedremo in seguito l'uso di GROUP BY e HAVING).
 
 ```sql
 SELECT data_nascita AS `Data di nascita`
