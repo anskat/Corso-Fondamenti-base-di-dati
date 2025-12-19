@@ -112,36 +112,49 @@ Regola pratica: mettere sempre l'alias nella prima query quando si usa un valore
 
 ---
 
-INTERSECT
+### INTERSECT
 La query restituisce solo i valori comuni alle due tabelle:
 
+```sql
 SELECT nome, cognome FROM amici
 INTERSECT
 SELECT nome, cognome FROM parenti;
+```
 
-EXCEPT
+---
+
+### EXCEPT
 La query restituisce i valori della prima tabella che non sono presenti nella seconda:
 
+```sql
 SELECT nome, cognome FROM amici
 EXCEPT
 SELECT nome, cognome FROM parenti;
+```
 
-Per impostazione predefinita, INTERSECT e EXCEPT eliminano le righe duplicate dal risultato anche se non si utilizza esplicitamente DISTINCT.
-Se si utilizza INTERSECT ALL o EXCEPT ALL, le righe duplicate, se presenti, vengono mostrate.
-INTERSECT ALL e EXCEPT ALL si eseguono più velocemente di INTERSECT DISTINCT e EXCEPT DISTINCT.
+Per impostazione predefinita, `INTERSECT` e `EXCEPT` eliminano le righe duplicate dal risultato anche se non si utilizza esplicitamente `DISTINCT`.
 
-Nota: anche per INTERSECT e EXCEPT è consigliabile usare ORDER BY alla fine per ordinare il result set complessivo, perché ordinare singole query prima della combinazione potrebbe essere ignorato o inutile.
+Se si utilizza `INTERSECT ALL` o `EXCEPT ALL`, le righe duplicate, se presenti, vengono mostrate.
 
-Sintassi alternativa con TABLE:
+`INTERSECT ALL` e `EXCEPT ALL` si eseguono più velocemente di `INTERSECT [DISTINCT]` e `EXCEPT [DISTINCT]`.
 
+Nota: anche per `INTERSECT` e `EXCEPT` è consigliabile usare `ORDER BY` alla fine per ordinare il result set complessivo, perché ordinare singole query prima della combinazione potrebbe essere ignorato o inutile.
+
+---
+
+**Sintassi alternativa con TABLE**:
+
+```sql
 TABLE europa
 UNION ALL
 SELECT id, stato, capitale FROM africa
 UNION ALL
 TABLE americhe
 ORDER BY stato;
+```
 
 (Al posto della SELECT si può usare anche l'istruzione TABLE o un mix di TABLE e SELECT.)
 
 Per la sintassi completa vedere la documentazione:
+
 https://dev.mysql.com/doc/refman/8.4/en/set-operations.html
