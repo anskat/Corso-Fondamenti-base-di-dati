@@ -153,7 +153,7 @@ TABLE americhe
 ORDER BY stato;
 ```
 
-(Al posto della SELECT si può usare anche l'istruzione TABLE o un mix di TABLE e SELECT.)
+(Al posto della `SELECT` si può usare anche l'istruzione `TABLE` o un mix di `TABLE` e `SELECT`.)
 
 Per la sintassi completa vedere la documentazione:
 
