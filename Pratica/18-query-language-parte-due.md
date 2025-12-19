@@ -25,13 +25,13 @@ Le informazioni richieste si trovano in due tabelle:
 
 - il titolo del corso è nella tabella *corsi*
 
-Tra le due tabelle esiste una relazione uno-a-molti:
+Tra le due tabelle esiste una relazione **uno-a-molti**:
 
 - un docente può insegnare più corsi
 
 - ogni corso è insegnato da un solo docente
 
-La tabella corsi contiene l’attributo docente_id, che rappresenta una chiave esterna e memorizza l’id del docente che insegna quel corso.
+La tabella *corsi* contiene l’attributo *docente_id*, che rappresenta una chiave esterna e memorizza l’id del docente che insegna quel corso.
 
 Questo campo è il collegamento logico tra le due tabelle.
 
@@ -64,7 +64,7 @@ Il risultato sarà un insieme di record che contiene solo i corsi per i quali es
 
 Questo tipo di interrogazione introduce **il concetto fondamentale di join logico tra tabelle**, anche se espresso tramite la clausola `WHERE`.
 
-Nei prossimi esempi vedremo come questo stesso risultato possa (e debba) essere ottenuto utilizzando la sintassi esplicita JOIN, che rende le query:
+Nelle prossime lezioni vedremo come questo stesso risultato possa (e debba) essere ottenuto utilizzando la sintassi esplicita `JOIN`, che rende le query:
 
 - più leggibili
 
