@@ -38,9 +38,11 @@ SELECT fieldName, fieldName2, fieldName3 FROM tableName;
 
 **Commento con #**
 
-Tutto ciò che segue il simbolo # fino alla fine della riga viene ignorato:
+Tutto ciò che segue il simbolo `#` fino alla fine della riga viene ignorato:
 
+```sql
 SELECT 1 + 1; # Questo commento continua fino alla fine della riga
+```
 
 **Commento con doppio trattino --**
 
