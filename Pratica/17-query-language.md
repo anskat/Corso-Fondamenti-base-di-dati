@@ -32,6 +32,39 @@ SELECT fieldName, fieldName2, fieldName3 FROM tableName;
 
 ---
 
+**Costanti e valori letterali in una SELECT**
+
+Oltre ai campi di una tabella, in una `SELECT` è possibile includere **valori costanti o letterali**.
+
+Questi valori saranno ripetuti in tutte le righe del risultato.
+
+Sintassi generale:
+
+```sql
+SELECT campo1, campo2, 'valore_fisso'
+FROM tabella;
+```
+
+Esempio:
+
+```sql
+SELECT nome, cognome, 'parente'
+FROM parenti;
+```
+
+```sql
+SELECT nome, cognome, 'amico'
+FROM amici;
+```
+
+I valori `'parente'` e `'amico'` sono *costanti* che compariranno in tutte le righe del result set.
+
+Questo approccio è utile, ad esempio, quando si combinano più tabelle con `UNION`, per distinguere l’origine dei record o per etichettare le righe.
+
+[Istruzione `UNION`](/Pratica/19-combinare-risultati.md)
+
+---
+
 ### Commenti nel codice
 
 #### MySQL supporta tre stili di commento:

@@ -24,20 +24,20 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 16. [DML](Pratica/16-dml.md)
 17. [Query Language](Pratica/17-query-language.md)
 18. [Query Language: 2 parte](Pratica/18-query-language-parte-due.md)
-18. Integrità referenziale
-19. UNION, INTERSECT e EXCEPT
+19. [Combinare risultati: UNION, INTERSECT e EXCEPT](Pratica/19-combinare-risultati.md)
 20. JOIN
-20. Funzioni
-21. Raggruppamenti
-22. Windows Function
-23. Viste
-24. Sub Query
-25. Backup/Restoring
-26. Indici - approfondimento
-27. Ottimizzazione Query
-28. Transaction
-29. Programmazione SQL - introduzione
-30. Triggers
-31. Stored Function
-32. Stored Procedures
-33. Events
+21. Integrità referenziale
+22. Funzioni
+23. Raggruppamenti
+24. Windows Function
+25. Viste
+26. Sub Query
+27. Backup/Restoring
+28. Indici - approfondimento
+29. Ottimizzazione Query
+30. Transaction
+31. Programmazione SQL - introduzione
+32. Triggers
+33. Stored Function
+34. Stored Procedures
+35. Events
