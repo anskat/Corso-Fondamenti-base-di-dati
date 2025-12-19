@@ -6,7 +6,7 @@ Fino ad ora abbiamo eseguito interrogazioni su una singola tabella, utilizzando 
 
 Questo approccio è utile per comprendere le basi del linguaggio SQL, ma non sfrutta ancora il vero punto di forza dei database relazionali: la possibilità di mettere in relazione più tabelle tra loro.
 
-Useremo ora il database corsi, composto dalle seguenti tabelle:
+Useremo ora il [database corsi](../Database/corsi/corsi.sql), composto dalle seguenti tabelle:
 
 - corsi
 - docenti
