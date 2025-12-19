@@ -90,11 +90,11 @@ Nel modello relazionale questo tipo di relazione **non può essere rappresentato
 
 Le informazioni richieste sono distribuite su **tre tabelle**:
 
-- i dati dello studente (nome, cognome, email) sono contenuti nella tabella studenti
+- i dati dello studente (nome, cognome, email) sono contenuti nella tabella *studenti*
 
-- il titolo del corso è contenuto nella tabella corsi
+- il titolo del corso è contenuto nella tabella *corsi*
 
-- le iscrizioni degli studenti ai corsi sono memorizzate nella tabella associativa iscrizioni
+- le iscrizioni degli studenti ai corsi sono memorizzate nella tabella associativa *iscrizioni*
 
 La tabella **iscrizioni** ha il compito di collegare logicamente studenti e corsi e contiene i seguenti attributi:
 
@@ -120,11 +120,11 @@ AND corsi.id = iscrizioni.corso_id;
 
 In questa query:
 
-- nel FROM indichiamo tutte le tabelle coinvolte
+- nel `FROM` indichiamo tutte le tabelle coinvolte
 
-- nella clausola WHERE specifichiamo le condizioni che mettono in relazione le tabelle
+- nella clausola `WHERE` specifichiamo le condizioni che mettono in relazione le tabelle
 
-- vengono selezionati solo i record per i quali esiste una corrispondenza valida tra studenti, iscrizioni e corsi
+- **vengono selezionati solo i record per i quali esiste una corrispondenza valida** tra studenti, iscrizioni e corsi
 
 Il risultato è un insieme di righe che mostra **ogni studente associato ai corsi a cui è iscritto**.
 
@@ -160,7 +160,7 @@ Le informazioni richieste sono distribuite su quattro tabelle del database corsi
 
 Queste relazioni permettono di ricostruire l’informazione completa combinando i dati provenienti da tutte le tabelle coinvolte.
 
-Per ottenere il risultato desiderato, possiamo interrogare contemporaneamente le quattro tabelle e specificare le condizioni di collegamento nella clausola WHERE:
+Per ottenere il risultato desiderato, possiamo interrogare contemporaneamente le quattro tabelle e specificare le condizioni di collegamento nella clausola `WHERE`:
 
 ```sql
 SELECT
@@ -225,7 +225,7 @@ In questo caso:
 
 Possiamo rendere la query più selettiva aggiungendo operatori logici e di confronto.
 
-Ad esempio, estrarre gli studenti iscritti a uno specifico corso provenienti da una determinata provincia:
+Ad esempio, **estrarre gli studenti iscritti a uno specifico corso provenienti da una determinata provincia**:
 
 ```sql
 SELECT
