@@ -32,6 +32,44 @@ SELECT fieldName, fieldName2, fieldName3 FROM tableName;
 
 ---
 
+### Commenti nel codice
+
+#### MySQL supporta tre stili di commento:
+
+**Commento con #**
+Tutto ciò che segue il simbolo # fino alla fine della riga viene ignorato:
+
+SELECT 1 + 1; # Questo commento continua fino alla fine della riga
+
+**Commento con doppio trattino --**
+
+Tutto ciò che segue -- fino alla fine della riga viene ignorato.
+
+Attenzione: il secondo trattino deve essere seguito da almeno uno spazio bianco o un carattere di controllo (spazio, tab, nuova riga, ecc.):
+
+```sql
+SELECT 1 + 1; -- Questo commento continua fino alla fine della riga
+```
+
+**Commento in stile C /* ... */**
+
+Questo stile permette di scrivere commenti inlinea o su più linee:
+
+```sql
+SELECT 1 /* questo è un commento in linea */ + 1;
+```
+
+```sql
+SELECT 1 +
+/*
+questo è un commento
+su più linee
+*/
+1;
+```
+
+---
+
 ### ORDER BY
 
 Consente di ordinare i risultati di una query.
