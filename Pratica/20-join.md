@@ -372,3 +372,149 @@ In questo caso:
 - La clausola `WHERE c.id IS NULL` seleziona solo i docenti senza corrispondenza nella tabella corsi.
 
 - La `DELETE` agisce solo sui record della tabella docenti specificata prima della clausola `FROM`.
+
+---
+
+### Non EQUI-JOIN
+
+Una non equi-join è un tipo di JOIN che utilizza una condizione diversa dall’uguaglianza (ad esempio <, <=, >, >=, !=, BETWEEN) per combinare righe provenienti da due tabelle.
+
+Vediamo un esempio utilizzando le tabelle: *studenti* e *generazioni*.
+
+La tabella *generazioni* è da creare e popolare:
+
+```sql
+CREATE TABLE IF NOT EXISTS generazioni(
+    id TINYINT NOT NULL PRIMARY KEY,
+    generazione VARCHAR(30) NOT NULL,
+    dal DATE,
+    al DATE
+)
+```
+
+```sql
+INSERT INTO generazioni(id, generazione, dal, al)
+VALUES
+(1,'Boomers','1946-01-01','1964-12-31'),
+(2,'Generazione X','1965-01-01','1980-12-31'),
+(3,'Millennial','1981-01-01','1996-12-31'),
+(4,'Generazione Z','1997-01-01','2012-12-31');
+```
+
+definisce gli intervalli di anni che identificano una specifica generazione
+
+- Boomers (dal 1946-01-01 al 1964-12-31)
+
+- Generazione X (dal 1965-01-01 al 1980-12-31)
+
+- Millennial (dal 1981-01-01 al 1996-12-31)
+
+- Generazione Z (dal 1997-01-01 al 2012-12-31)
+
+Questa tabella è un esempio di *tabella di lookup*.
+
+Una *tabella di lookup* è una tabella che contiene valori di riferimento utilizzati per:
+
+- classificare o categorizzare dati presenti in altre tabelle;
+
+- ridurre la ridondanza dei dati (normalizzazione);
+
+- centralizzare e standardizzare valori ricorrenti;
+
+- rendere le query più chiare e manutenibili.
+
+Vogliamo associare ogni studente alla propria generazione in base alla data di nascita.
+
+Poiché il collegamento non avviene tramite uguaglianza tra due campi, ma tramite un intervallo di valori, è necessario utilizzare una non equi-join.
+
+Di seguito due esempi equivalenti che utilizzano operatori diversi (il primo è generalmente più leggibile):
+
+```sql
+SELECT s.cognome, s.nome, s.data_nascita, g.generazione
+FROM studenti s
+JOIN generazioni g
+ON s.data_nascita BETWEEN g.dal AND g.al
+ORDER BY s.data_nascita;
+```
+
+```sql
+SELECT s.cognome, s.nome, s.data_nascita, g.generazione
+FROM studenti s
+JOIN generazioni g
+ON s.data_nascita >= g.anno_inizio
+AND s.data_nascita <= g.anno_fine
+ORDER BY s.data_nascita;
+```
+
+Altro esempio utilizzando il database dei corsi.
+
+Vogliamo estrarre l’elenco degli studenti iscritti a partire da una certa data.
+
+```sql
+SELECT nome, cognome, data_isc
+FROM studenti s
+JOIN iscrizioni i
+ON i.studente_id = s.id
+AND i.data_isc >= '2025-03-01';
+-- WHERE i.data_isc >= '2025-03-01';
+```
+
+La query utilizza una `INNER JOIN` per collegare le tabelle *studenti* e *iscrizioni* sulla base della relazione tra le chiavi.
+
+`AND` filtra il risultato finale selezionando solo gli studenti la cui data di iscrizione è successiva alla data indicata.
+
+Nel caso delle INNER JOIN, le condizioni di filtro possono essere scritte sia nella clausola `ON` sia nella clausola `WHERE` senza modificare il risultato finale.
+
+**MySQL internamente ottimizza la query**, quindi non c’è differenza significativa in termini di performance rispetto al mettere la condizione nel `WHERE`.
+
+La differenza diventa rilevante solo con le `OUTER JOIN`, dove spostare una condizione da `ON` a `WHERE` può cambiare il numero di righe restituite.
+
+**Esempio**:
+
+Vogliamo elencare tutti gli studenti, includendo anche quelli che non si sono iscritti ad alcun corso, ma mostrando solo le iscrizioni a partire dal 1° marzo 2025.
+
+**Condizione nella clausola** `ON`:
+
+```sql
+SELECT s.nome, s.cognome, i.data_isc
+FROM studenti s
+LEFT JOIN iscrizioni i
+ON s.id = i.studente_id
+AND i.data_isc >= '2025-03-01';
+```
+
+*In questo caso*:
+
+- vengono restituiti tutti gli studenti;
+
+- per gli studenti senza iscrizioni, i campi della tabella iscrizioni saranno `NULL`;
+
+- per gli studenti iscritti prima del 1° marzo 2025, l’iscrizione non viene associata, ma lo studente compare comunque nel risultato.
+
+**Condizione nella clausola** `WHERE`:
+
+```sql
+SELECT s.nome, s.cognome, i.data_isc
+FROM studenti s
+LEFT JOIN iscrizioni i
+ON s.id = i.studente_id
+WHERE i.data_isc >= '2025-03-01';
+```
+
+*In questo caso*:
+
+- il filtro nel WHERE elimina tutte le righe in cui data_isc è NULL;
+
+- di fatto la LEFT JOIN si comporta come una INNER JOIN;
+
+- gli studenti senza iscrizioni vengono esclusi dal risultato.
+
+Conclusione:
+
+nelle `OUTER JOIN`, le condizioni che riguardano la tabella “esterna” devono essere valutate attentamente;
+
+una condizione nel `WHERE` può annullare l’effetto della `LEFT` o `RIGHT JOIN`;
+
+quando si vuole preservare le righe senza corrispondenza, le condizioni vanno inserite nella clausola `ON`.
+
+> Le *non equi-join* sono utili ogni volta che la relazione tra le tabelle non è basata su uguaglianza diretta, ma su **intervalli**, **range**, o altre condizioni logiche.
