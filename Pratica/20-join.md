@@ -463,7 +463,7 @@ La query utilizza una `INNER JOIN` per collegare le tabelle *studenti* e *iscriz
 
 `AND` filtra il risultato finale selezionando solo gli studenti la cui data di iscrizione è successiva alla data indicata.
 
-Nel caso delle INNER JOIN, le condizioni di filtro possono essere scritte sia nella clausola `ON` sia nella clausola `WHERE` senza modificare il risultato finale.
+Nel caso delle `INNER JOIN`, le condizioni di filtro possono essere scritte sia nella clausola `ON` sia nella clausola `WHERE` senza modificare il risultato finale.
 
 **MySQL internamente ottimizza la query**, quindi non c’è differenza significativa in termini di performance rispetto al mettere la condizione nel `WHERE`.
 
@@ -503,9 +503,9 @@ WHERE i.data_isc >= '2025-03-01';
 
 *In questo caso*:
 
-- il filtro nel WHERE elimina tutte le righe in cui data_isc è NULL;
+- il filtro nel WHERE elimina tutte le righe in cui *data_isc* è `NULL`;
 
-- di fatto la LEFT JOIN si comporta come una INNER JOIN;
+- di fatto la `LEFT JOIN` si comporta come una `INNER JOIN`;
 
 - gli studenti senza iscrizioni vengono esclusi dal risultato.
 
