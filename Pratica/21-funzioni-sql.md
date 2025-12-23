@@ -518,125 +518,152 @@ SELECT STR_TO_DATE(CONCAT_WS(',', "05", "10", "1969"), '%d,%m,%Y');
 
 ---
 
-Calcoli con date e orari
+### Calcoli con date e orari
 
-Per sommare un periodo di tempo a una data o a un orario si possono usare le funzioni ADDDATE() e ADDTIME().
+#### Per sommare un periodo di tempo a una data o a un orario si possono usare le funzioni `ADDDATE()` e `ADDTIME()`.
 
+```sql
 SELECT ADDDATE('2017-03-01', INTERVAL 5 DAY); -- 2017-03-06
 SELECT ADDDATE('2017-03-01', 5);              -- 2017-03-06
-
+```
 
 Quando si usa ADDDATE(data, numero), il numero viene interpretato come giorni.
 
 Per specificare mesi, anni o altri intervalli temporali, è necessario usare INTERVAL:
 
+```sql
 SELECT ADDDATE('2017-03-01', INTERVAL 5 YEAR); -- 2022-03-01
-
+```
 
 ADDTIME() funziona in modo analogo per ore, minuti e secondi:
 
+```sql
 SELECT ADDTIME('17:25','05:05');       -- 22:30:00
 SELECT ADDTIME('17:25','00:05:05');    -- 17:30:05
+```
 
+**Sottrazione**
 
-Sottrazione
+#### SUBDATE() / DATE_SUB() per sottrarre giorni da una data:
 
-SUBDATE() / DATE_SUB() per sottrarre giorni da una data:
-
+```sql
 SELECT SUBDATE('2015-03-01', INTERVAL 5 DAY); -- 2015-02-24
+```
 
+`SUBTIME()` per sottrarre ore/minuti/secondi:
 
-SUBTIME() per sottrarre ore/minuti/secondi:
-
+```sql
 SELECT SUBTIME(CURTIME(),'03:03');
+```
 
-
-DATEDIFF()
+#### DATEDIFF()
 
 Calcola il numero di giorni tra due date.
 
+```sql
 SELECT DATEDIFF('2017-03-01','2017-02-10');  -- 19
 SELECT DATEDIFF('2017-01-01','2017-02-10');  -- -40
 SELECT DATEDIFF(CURDATE(),'2020-04-10');
-
+```
 
 Per calcolare giorni trascorsi da una data in tabella:
 
+```sql
 SELECT DATEDIFF(CURDATE(), data) 
 FROM nome_tabella
-WHERE condizioni;
+-- WHERE condizioni;
+```
 
-
-TIMESTAMPADD(unità, intervallo, espr_datetime)
+#### TIMESTAMPADD(unità, intervallo, espr_datetime)
 
 Aggiunge un intervallo di tempo a una data o datetime.
+
 Unità possibili: MICROSECOND, SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR.
 
+```sql
 SELECT TIMESTAMPADD(MINUTE, 1, '2003-01-02 00:01:00');
 SELECT TIMESTAMPADD(WEEK, 1, '2003-01-02');
+```
 
-
-TIMESTAMPDIFF(unità, espr1, espr2)
+#### TIMESTAMPDIFF(unità, espr1, espr2)
 
 Calcola la differenza tra due date/datetime: espr2 - espr1.
+
 Il risultato è un intero e l’unità di misura è quella specificata.
 
+```sql
 SELECT TIMESTAMPDIFF(MONTH, '2003-02-01','2003-05-01'); -- 3
 SELECT TIMESTAMPDIFF(YEAR, '2002-05-01','2001-01-01');  -- -1
 SELECT TIMESTAMPDIFF(MINUTE, '2003-02-01','2003-05-01 12:05:55');
+```
 
+**Calcolare l'età a prtira dalla data di nasicta**
 
-Calcolare età
-
-SELECT nome, cognome, TIMESTAMPDIFF(YEAR, data_nascita, CURDATE()) AS Età
+```sql
+SELECT
+  nome,
+  cognome,
+  TIMESTAMPDIFF(YEAR, data_nascita, CURDATE()) AS Età
 FROM studenti;
-
+```
 
 Esempi di aggiornamento o inserimento con calcolo dell’età:
 
+```sql
 UPDATE studenti
 SET eta = TIMESTAMPDIFF(YEAR, data_nascita, CURDATE());
 
 INSERT INTO studenti(nome, cognome, genere, data_nascita, email, eta)
 VALUES ('Paperina', 'Duck', 'f', '1999-01-01', 'paperina_d@gmail.com',
         TIMESTAMPDIFF(YEAR, data_nascita, CURDATE()));
+```
 
+**Giorni al compleanno**
 
-Nota: l’età può sempre essere calcolata in base alla data di nascita, quindi il campo eta non è strettamente necessario.
-
-Giorni al compleanno
-
-SELECT nome, cognome, DAYOFYEAR(CURDATE())-DAYOFYEAR(data_nascita) AS Giorni
+```sql
+SELECT
+  nome,
+  cognome,
+  DAYOFYEAR(CURDATE())-DAYOFYEAR(data_nascita) AS Giorni
 FROM studenti
 ORDER BY Giorni;
+```
 
+**Per selezionare solo chi compie gli anni nel prossimo mese**:
 
-Per selezionare solo chi compie gli anni nel prossimo mese:
-
+```sql
 SELECT nome, cognome, data_nascita, DAYOFYEAR(CURDATE())-DAYOFYEAR(data_nascita) AS Giorni
 FROM studenti
 WHERE (DAYOFYEAR(CURDATE())-DAYOFYEAR(data_nascita)) BETWEEN -31 AND 0;
+```
 
+> Nota: in `WHERE` non si può usare l’alias *Giorni*.
 
-Nota: in WHERE non si può usare l’alias Giorni.
-
-SELECT nome, cognome, (DAYOFYEAR(CURDATE())-DAYOFYEAR(data_nascita)) AS Giorni
+```sql
+SELECT
+  nome,
+  cognome,
+  (DAYOFYEAR(CURDATE())-DAYOFYEAR(data_nascita)) AS Giorni
 FROM studenti
 WHERE (DAYOFYEAR(CURDATE())-DAYOFYEAR(data_nascita)) BETWEEN -31 AND 0
 ORDER BY Giorni;
+```
 
+**HAVING vs WHERE**
 
-HAVING vs WHERE
+- `WHERE` filtra i dati sulle tabelle originali.
 
-WHERE filtra i dati sulle tabelle originali.
+- `HAVING` filtra i dati sui risultati della query, incluso l’uso di aggregati e alias.
 
-HAVING filtra i dati sui risultati della query, incluso l’uso di aggregati e alias.
-
-SELECT nome, cognome, (DAYOFYEAR(CURDATE())-DAYOFYEAR(data_nascita)) AS Giorni
+```sql
+SELECT
+  nome,
+  cognome,
+  (DAYOFYEAR(CURDATE())-DAYOFYEAR(data_nascita)) AS Giorni
 FROM studenti
 HAVING Giorni BETWEEN -31 AND 0
 ORDER BY Giorni;
-
+```
 
 HAVING è particolarmente utile per filtrare su valori aggregati o calcolati all’interno della query.
 
@@ -647,14 +674,15 @@ HAVING è particolarmente utile per filtrare su valori aggregati o calcolati all
 MySQL supporta il tipo di dato JSON, che permette di memorizzare oggetti strutturati e array direttamente in una colonna.
 Un campo JSON può contenere:
 
-oggetti { "chiave": "valore" }
+- oggetti { "chiave": "valore" }
 
-array [val1, val2, ...]
+- array [val1, val2, ...]
 
-valori scalari (stringhe, numeri, booleani, null)
+- valori scalari (stringhe, numeri, booleani, null)
 
 Esempio di inserimento di un oggetto JSON in una colonna specifiche:
 
+```sql
 INSERT INTO articoli(descrizione, specifiche)
 VALUES(
     'TV SAMSUNG 32" SMART TV',
@@ -666,23 +694,29 @@ VALUES(
         "uscite": ["HDMI", "USB"]
     }'
 );
+```
 
 Funzioni principali
+
 1. JSON_OBJECT()
 
 Crea un oggetto JSON da coppie chiave/valore.
+
 Errore se il numero di argomenti è dispari o una chiave è NULL.
 
+```sql
 INSERT INTO articoli(descrizione, specifiche)
 VALUES(
     'TV SONY 32" SMART TV',
     JSON_OBJECT("marca","SONY","pesoKg",6.5,"schermo","LED","pollici",32,"uscite","HDMI")
 );
+```
 
 2. JSON_ARRAY()
 
 Crea un array JSON dai valori forniti, di tipi misti (stringhe, numeri, booleani, null).
 
+```sql
 INSERT INTO articoli(descrizione, specifiche)
 VALUES(
     'TV PHILIPS 55" SMART TV',
@@ -694,6 +728,7 @@ VALUES(
         "uscite", JSON_ARRAY('HDMI','RCA','USB','COAXIAL','SCART')
     )
 );
+```
 
 3. JSON_EXTRACT()
 
