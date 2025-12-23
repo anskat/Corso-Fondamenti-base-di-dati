@@ -813,56 +813,65 @@ Documentazione ufficiale JSON functions: https://dev.mysql.com/doc/refman/8.0/en
 
 ---
 
-Funzioni di controllo di flusso (Control Flow Functions)
+### Funzioni di controllo di flusso (Control Flow Functions)
 
 Le funzioni di controllo di flusso permettono di restituire valori diversi in base al risultato di una condizione.
 
 1. IF(expr1, expr2, expr3)
 
-expr1: condizione da valutare
+- expr1: condizione da valutare
 
-expr2: valore restituito se expr1 è vera
+- expr2: valore restituito se expr1 è vera
 
-expr3: valore restituito se expr1 è falsa
+- expr3: valore restituito se expr1 è falsa
 
 Esempi base:
 
+```sql
 SELECT IF(1 > 2, 0, 1);   -- restituisce 1
 SELECT IF(1 < 2, 'yes', 'no'); -- restituisce 'yes'
-
+```
 
 Applicazione su tabella studenti:
 
+```sql
 SELECT cognome,
        IF(provincia = 'to', 'sede', 'fuori sede') AS sede
 FROM studenti
 ORDER BY sede DESC, cognome;
-
+```
 
 Gli studenti con provincia 'to' sono considerati “in sede”, gli altri “fuori sede”.
 
-Approfondimento: MySQL Control Flow Functions
+[Documentazione ufficiale](https://dev.mysql.com/doc/refman/8.4/en/flow-control-functions.html)
 
 2. CASE
-Sintassi 1: CASE su un valore
+
+*Sintassi 1: CASE su un valore*
+
+```sql
 CASE value
   WHEN compare_value THEN result
   [WHEN compare_value THEN result ...]
   [ELSE result]
 END
+```
 
-Sintassi 2: CASE su condizioni
+*Sintassi 2: CASE su condizioni*
+
+```sql
 CASE
   WHEN condition THEN result
   [WHEN condition THEN result ...]
   [ELSE result]
 END
+```
 
+Esempi:
 
-Esempi pratici:
+*Traduzione provincia in nome completo*:
 
-Traduzione provincia in nome completo:
-
+```sql
 SELECT provincia,
        CASE provincia
          WHEN 'to' THEN 'Torino'
@@ -873,10 +882,11 @@ SELECT provincia,
          ELSE 'Vercelli'
        END AS `Provincia completa`
 FROM studenti;
+```
 
+*Classificazione prezzi libri*:
 
-Classificazione prezzi libri:
-
+```sql
 SELECT titolo,
        prezzo,
        CASE
@@ -885,20 +895,22 @@ SELECT titolo,
          WHEN prezzo > 10 THEN 'caro'
        END AS valutazione
 FROM libri;
+```
 
+*Determinazione genere*:
 
-Determinazione genere:
-
+```sql
 SELECT cognome,
        CASE
          WHEN genere = 'f' THEN 'Donna'
          ELSE 'Uomo'
        END AS Genere
 FROM studenti;
+```
 
+*Assegnazione generazione basata sulla data di nascita*:
 
-Assegnazione generazione basata sulla data di nascita:
-
+```sql
 SELECT cognome,
        data_nascita AS `Data di nascita`,
        CASE
@@ -909,6 +921,6 @@ SELECT cognome,
        END AS Generazione
 FROM studenti
 ORDER BY Generazione;
+```
 
-
-Permette di categorizzare gli studenti senza usare UNION o query multiple.
+Permette di categorizzare gli studenti senza usare `UNION` o query multiple.
