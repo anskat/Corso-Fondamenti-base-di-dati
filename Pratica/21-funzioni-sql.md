@@ -732,28 +732,36 @@ VALUES(
 
 3. JSON_EXTRACT()
 
-Estrae valori da un documento JSON in base a un percorso (path).
+- Estrae valori da un documento JSON in base a un percorso (path).
 
-Restituisce NULL se il percorso non esiste o JSON non valido.
+- Restituisce NULL se il percorso non esiste o JSON non valido.
 
-Se più valori corrispondono, vengono restituiti in un array.
+- Se più valori corrispondono, vengono restituiti in un array.
 
-SELECT JSON_EXTRACT(specifiche,'$.uscite') FROM articoli;
+```sql
+SELECT JSON_EXTRACT(specifiche,'$.uscite')
+FROM articoli;
+```
 
 -- Alias più breve con ->
-SELECT specifiche -> '$.uscite' FROM articoli;
+```sql
+SELECT specifiche -> '$.uscite'
+FROM articoli;
+```
 
+**Esempio con array annidati**:
 
-Esempio con array annidati:
-
+```sql
 SELECT JSON_EXTRACT('[10, 20, [30, 40]]', '$[2][1]'); -- 40
 SELECT JSON_EXTRACT(specifiche,'$.uscite[2]') FROM articoli;
 SELECT specifiche -> '$.uscite[2]' FROM articoli;
+```
 
 4. JSON_SET()
 
 Sostituisce valori esistenti o aggiunge valori mancanti.
 
+```sql
 UPDATE articoli
 SET specifiche = JSON_SET(specifiche,
     '$.marca','LG',
@@ -761,37 +769,46 @@ SET specifiche = JSON_SET(specifiche,
     '$.ingressi', JSON_ARRAY('ETHERNET','USB')
 )
 WHERE id = 1;
+```
 
 5. JSON_INSERT()
 
 Inserisce valori solo se il path non esiste. Non sovrascrive valori esistenti.
 
+```sql
 UPDATE articoli
 SET specifiche = JSON_INSERT(specifiche,'$.uscite[3]','RGB')
 WHERE id = 1;
+```
 
 6. JSON_REPLACE()
 
 Sostituisce solo valori esistenti, non aggiunge nuovi campi.
 
+```sql
 UPDATE articoli
 SET specifiche = JSON_REPLACE(specifiche,'$.marca','SAMSUNG')
 WHERE id = 1;
+```
 
+```sql
 UPDATE articoli
 SET specifiche = JSON_REPLACE(specifiche,'$.uscite[1]','HDMI2')
 WHERE id = 1;
+```
 
 7. JSON_REMOVE()
 
 Rimuove proprietà o elementi da un JSON. Se il path non esiste, non produce errore.
 
+```sql
 UPDATE articoli
 SET specifiche = JSON_REMOVE(specifiche,'$.uscite[1]')
 WHERE id = 1;
-
+```
 
 Introduzione a JSON: https://www.json.org/json-it.html
+
 Documentazione ufficiale JSON functions: https://dev.mysql.com/doc/refman/8.0/en/json-function-reference.html
 
 ---
