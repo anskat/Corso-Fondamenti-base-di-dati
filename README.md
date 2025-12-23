@@ -26,8 +26,8 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 18. [Query Language: 2 parte](Pratica/18-query-language-parte-due.md)
 19. [Combinare risultati: UNION, INTERSECT e EXCEPT](Pratica/19-combinare-risultati.md)
 20. [JOIN](Pratica/20-join.md)
-21. Integrità referenziale
-22. Funzioni
+21. [Funzioni](Pratica/21-funzioni-sql.md)
+22. Integrità referenziale
 23. Raggruppamenti
 24. Windows Function
 25. Viste
