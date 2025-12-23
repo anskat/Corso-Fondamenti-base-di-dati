@@ -233,14 +233,20 @@ SUBSTRING(str FROM pos FOR len)
 
 Se non si specifica *len*, vengono restituiti tutti i caratteri a partire dalla posizione indicata.
 
-Esempio:
+Esempio su valore letterale:
+
+```sql
+SELECT SUBSTRING('Alessandro', 2, 3);
+-- les
+```
+Esempio su colonna della tabella *studenti*:
 
 ```sql
 SELECT nome, SUBSTRING(nome, 2, 3)
 FROM studenti;
 ```
 
-Nota implicita corretta: l’indice delle stringhe in SQL parte da 1, non da 0.
+Nota: l’indice delle stringhe in SQL parte da 1, non da 0.
 
 #### LEFT() e RIGHT()
 
