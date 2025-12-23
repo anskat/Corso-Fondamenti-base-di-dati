@@ -355,11 +355,11 @@ Documentazione MySQL 8.4 – [Funzioni informative](https://dev.mysql.com/doc/re
 
 Per ottenere informazioni temporali attuali in MySQL si possono usare le seguenti funzioni:
 
- - NOW() → restituisce data e ora correnti (tipo DATETIME). Sinonimi: CURRENT_TIMESTAMP, CURRENT_TIMESTAMP().
+ - `NOW()` → restituisce data e ora correnti (tipo DATETIME). Sinonimi: `CURRENT_TIMESTAMP`, `CURRENT_TIMESTAMP()`.
 
- - CURDATE() → restituisce la data corrente (tipo DATE). Sinonimi: CURRENT_DATE, CURRENT_DATE().
+ - `CURDATE()` → restituisce la data corrente (tipo DATE). Sinonimi: `CURRENT_DATE`, `CURRENT_DATE()`.
 
- - CURTIME() → restituisce l’orario corrente (tipo TIME). Sinonimi: CURRENT_TIME, CURRENT_TIME().
+ - `CURTIME()` → restituisce l’orario corrente (tipo TIME). Sinonimi: `CURRENT_TIME`, `CURRENT_TIME()`.
 
 Una volta ottenute le informazioni di data/ora, possiamo estrarre singoli elementi tramite funzioni dedicate:
 
@@ -425,9 +425,11 @@ SELECT MONTHNAME(CURDATE());
 
 Per avere i nomi in lingua bisogna impostare la lingua italiana (potreste non avere i privilegi):
 
+```sql
 SET lc_time_names = 'it_IT';
+```
 
-(https://dev.mysql.com/doc/refman/8.4/en/locale-support.html)
+[Documentazione ufficiale](https://dev.mysql.com/doc/refman/8.4/en/locale-support.html)
 
 Per conoscere la lingua utilizzata:
 
@@ -435,7 +437,7 @@ Per conoscere la lingua utilizzata:
 SELECT @@lc_time_names;
 ```
 
-> Nota: DAYOFWEEK() restituisce sempre un numero secondo lo standard MySQL, indipendentemente dalla lingua impostata.
+> Nota: `DAYOFWEEK()` restituisce sempre un numero secondo lo standard MySQL, indipendentemente dalla lingua impostata.
 I nomi dei giorni e dei mesi invece dipendono dalla variabile *lc_time_names*.
 
 ---
