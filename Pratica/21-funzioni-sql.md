@@ -908,6 +908,12 @@ SELECT cognome,
 FROM users;
 ```
 
+```sql
+SELECT cognome,
+       IF(stato = 1, 'attivo', 'inattivo') AS Stato
+FROM users;
+```
+
 *Assegnazione generazione basata sulla data di nascita*:
 
 ```sql
