@@ -897,15 +897,15 @@ SELECT titolo,
 FROM libri;
 ```
 
-*Determinazione genere*:
+*Validazione stato*:
 
 ```sql
 SELECT cognome,
        CASE
-         WHEN genere = 'f' THEN 'Donna'
-         ELSE 'Uomo'
-       END AS Genere
-FROM studenti;
+         WHEN stato = 1 THEN 'attivo'
+         ELSE 'inattivo'
+       END AS Stato
+FROM users;
 ```
 
 *Assegnazione generazione basata sulla data di nascita*:
