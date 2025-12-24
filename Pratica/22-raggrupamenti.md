@@ -93,7 +93,7 @@ Le potenzialità di GROUP BY emergono quando viene utilizzato insieme a funzioni
 **Per contare il numero di studenti raggruppati per genere**:
 
 ```sql
-SELECT genere, COUNT(*) AS numero
+SELECT genere, COUNT(*) AS `numero`
 FROM studenti
 GROUP BY genere;
 ```
@@ -101,12 +101,12 @@ GROUP BY genere;
 **Per contare il numero di corsi raggruppati per docente**:
 
 ```sql
-SELECT cognome, nome, COUNT(*) AS quanti
+SELECT cognome, nome, COUNT(*) AS `quanti`
 FROM docenti d
 JOIN corsi c
 ON c.docente_id = d.id
 GROUP BY d.id
-ORDER BY quanti DESC;
+ORDER BY `quanti` DESC;
 ```
 
 **Per conoscere l’età media degli studenti raggruppati per genere**:
@@ -114,7 +114,7 @@ ORDER BY quanti DESC;
 ```sql
 SELECT
     genere,
-    FLOOR(AVG(TIMESTAMPDIFF(YEAR, data_nascita, CURDATE()))) AS età media
+    FLOOR(AVG(TIMESTAMPDIFF(YEAR, data_nascita, CURDATE()))) AS `età media`
 FROM studenti
 GROUP BY genere;
 ```
@@ -125,12 +125,12 @@ GROUP BY genere;
 SELECT
     cognome,
     nome,
-    SUM(prezzo) AS valore
+    SUM(prezzo) AS `valore`
 FROM docenti d
 JOIN corsi c
 ON d.id = c.docente_id
 GROUP BY d.id
-ORDER BY valore;
+ORDER BY `valore`;
 ```
 
 Per conoscere, per ciascuno studente:
@@ -147,11 +147,11 @@ Per conoscere, per ciascuno studente:
 SELECT
     cognome,
     nome,
-    ROUND(AVG(i.prezzo), 2) AS Spesa media,
+    ROUND(AVG(i.prezzo), 2) AS `Spesa media`,
     COUNT(*) AS Iscrizioni,
-    SUM(i.prezzo) AS Totale speso,
-    MIN(i.prezzo) AS Minimo speso,
-    MAX(i.prezzo) AS Massimo speso
+    SUM(i.prezzo) AS `Totale speso`,
+    MIN(i.prezzo) AS `Minimo speso`,
+    MAX(i.prezzo) AS `Massimo speso`
 FROM studenti s
 JOIN iscrizioni i
 ON s.id = i.studente_id
@@ -168,31 +168,31 @@ GROUP BY s.id;
 SELECT
     cognome,
     nome,
-    COUNT(*) AS quanti
+    COUNT(*) AS `quanti`
 FROM docenti d
 JOIN corsi c
 ON c.docente_id = d.id
 GROUP BY d.id
-HAVING quanti > 1
-ORDER BY quanti DESC;
+HAVING `quanti` > 1
+ORDER BY `quanti` DESC;
 ```
 > Nota: MySQL consente l’uso degli alias in HAVING
 
 ```sql
-SELECT cognome, COUNT(cognome) AS numero
+SELECT cognome, COUNT(cognome) AS `numero`
 FROM studenti
 GROUP BY cognome
-HAVING numero > 1
+HAVING `numero` > 1
 ORDER BY cognome;
 ```
 
 Mediante questa query filtriamo il result set mostrando solo i cognomi che compaiono più di una volta nella tabella.
 
 ```sql
-SELECT provincia, genere, COUNT(*) AS numero
+SELECT provincia, genere, COUNT(*) AS ``numero``
 FROM studenti
 GROUP BY provincia, genere
-HAVING numero > 1
+HAVING `numero` > 1
 ORDER BY provincia, genere;
 ```
 
@@ -201,11 +201,11 @@ Mediante questa query raggruppiamo gli studenti per provincia e genere, contando
 la clausola `HAVING` filtra ulteriormente i gruppi considerando solo quelli con più di un elemento.
 
 ```sql
-SELECT provincia, genere, COUNT(cognome) AS numero
+SELECT provincia, genere, COUNT(cognome) AS `numero`
 FROM studenti
 WHERE provincia != 'to'
 GROUP BY provincia, genere
-HAVING numero > 1
+HAVING `numero` > 1
 ORDER BY provincia;
 ```
 
@@ -218,10 +218,10 @@ SELECT
     provincia,
     genere,
     FLOOR(AVG(TIMESTAMPDIFF(YEAR, data_nascita, CURDATE()))) AS `età media`,
-    COUNT(*) AS numero
+    COUNT(*) AS `numero`
 FROM studenti
 GROUP BY provincia, genere
-HAVING numero > 1
+HAVING `numero` > 1
 ORDER BY provincia, genere;
 ```
 ---
@@ -231,7 +231,7 @@ ORDER BY provincia, genere;
 ```sql
 SELECT
     provincia,
-    COUNT(*) AS numero
+    COUNT(*) AS `numero`
 FROM studenti
 GROUP BY provincia WITH ROLLUP;
 ```
@@ -241,7 +241,10 @@ Questa query conta gli studenti divisi per provincia.
 Con l’aggiunta di `WITH ROLLUP` viene prodotta una riga aggiuntiva con il totale complessivo.
 
 ```sql
-SELECT provincia, genere, COUNT(*) AS numero
+SELECT
+    provincia,
+    genere,
+    COUNT(*) AS `numero`
 FROM studenti
 GROUP BY provincia, genere WITH ROLLUP;
 ```
@@ -257,7 +260,7 @@ Per distinguere le righe di dettaglio da quelle di totale possiamo usare la funz
 ```sql
 SELECT
     provincia,
-    COUNT(*) AS numero,
+    COUNT(*) AS `numero`,
     GROUPING(provincia)
 FROM studenti
 GROUP BY provincia WITH ROLLUP;
@@ -269,7 +272,7 @@ Possiamo quindi usare la funzione `IF()` per assegnare un’etichetta leggibile 
 
 ```sql
 SELECT
-    IF(GROUPING(provincia), 'tutte le province', provincia) AS provincia,
+    IF(GROUPING(provincia), 'tutte le province', provincia) AS `Provincia`,
     COUNT(*) AS numero
 FROM studenti
 GROUP BY provincia WITH ROLLUP;
@@ -279,7 +282,7 @@ GROUP BY provincia WITH ROLLUP;
 SELECT
     provincia,
     genere,
-    COUNT(*) AS numero,
+    COUNT(*) AS `numero`,
     GROUPING(provincia),
     GROUPING(genere)
 FROM studenti
@@ -290,7 +293,7 @@ GROUP BY provincia, genere WITH ROLLUP;
 SELECT
     IF(GROUPING(provincia), 'tutte', provincia) AS provincia,
     IF(GROUPING(genere), 'totale generi', genere) AS genere,
-    COUNT(*) AS numero
+    COUNT(*) AS `numero`
 FROM studenti
 GROUP BY provincia, genere WITH ROLLUP;
 ```
