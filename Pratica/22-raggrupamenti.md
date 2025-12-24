@@ -217,7 +217,7 @@ ORDER BY provincia;
 SELECT
     provincia,
     genere,
-    FLOOR(AVG(TIMESTAMPDIFF(YEAR, data_nascita, CURDATE()))) AS età media,
+    FLOOR(AVG(TIMESTAMPDIFF(YEAR, data_nascita, CURDATE()))) AS `età media`,
     COUNT(*) AS numero
 FROM studenti
 GROUP BY provincia, genere
