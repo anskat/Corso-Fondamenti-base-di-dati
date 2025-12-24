@@ -30,11 +30,11 @@ La query restituisce solo le righe per le quali esiste corrispondenza tra le tab
 
 Le `JOIN` permettono di combinare righe di due o più tabelle basandosi su chiavi comuni o altre condizioni.
 
-`INNER JOIN`: restituisce solo le righe che hanno corrispondenza in tutte le tabelle coinvolte.
+- `INNER JOIN`: restituisce solo le righe che hanno corrispondenza in tutte le tabelle coinvolte.
 
-`LEFT` / `RIGHT JOIN`: restituisce tutte le righe di una tabella anche se non ci sono corrispondenze nella tabella collegata.
+- `LEFT` / `RIGHT JOIN`: restituisce tutte le righe di una tabella anche se non ci sono corrispondenze nella tabella collegata.
 
-`CROSS JOIN` / `SELF JOIN` / Non-equi JOIN: altri modi di combinare righe.
+- `CROSS JOIN` / `SELF JOIN` / Non-equi JOIN: altri modi di combinare righe.
 
 Le `JOIN` operano riga per riga, a differenza di `UNION` che lavora su interi set di risultati.
 
@@ -135,7 +135,11 @@ Usiamo `LEFT JOIN` per estrarre anche i record dalla tabella di sinistra (docent
 Elenco docenti **considerando anche quelli a cui non è stato associato un corso**:
 
 ```sql
-SELECT cognome, nome, email, titolo AS corso
+SELECT
+    cognome,
+    nome,
+    email,
+    titolo AS corso
 FROM docenti d
 LEFT JOIN corsi c
 ON d.id = c.docente_id;
@@ -146,7 +150,11 @@ Usando `RIGHT JOIN` otteniamo anche i record della tabella di destra(corsi) che 
 Elenco corsi **considerando anche quelli senza docente**:
 
 ```sql
-SELECT titolo AS corso, cognome, nome, email
+SELECT
+    titolo AS corso,
+    cognome,
+    nome,
+    email
 FROM docenti d
 RIGHT JOIN corsi c
 ON d.id = c.docente_id;
@@ -159,7 +167,10 @@ Tra questi selezioniamo solo quelli per cui il valore della chiave esterna della
 **Solo docenti senza corso**:
 
 ```sql
-SELECT cognome, nome, email
+SELECT
+    cognome,
+    nome,
+    email
 FROM docenti d
 LEFT JOIN corsi c
 ON d.id = c.docente_id
@@ -217,14 +228,22 @@ A volte **conoscere bene il modello dei dati** permette di semplificare le query
 In MySQL non sono implementate le `FULL OUTER JOIN`, ma è possibile simulare il risultato con l’ `UNION` di `LEFT` e `RIGHT JOIN`:
 
 ```sql
-SELECT cognome, nome, email, titolo AS corso
+SELECT
+    cognome,
+    nome,
+    email,
+    titolo AS corso
 FROM docenti d
 LEFT JOIN corsi c
 ON d.id = c.docente_id
 
 UNION
 
-SELECT cognome, nome, email, titolo AS corso
+SELECT
+    cognome,
+    nome,
+    email,
+    titolo AS corso
 FROM docenti d
 RIGHT JOIN corsi c
 ON d.id = c.docente_id
@@ -235,7 +254,11 @@ ORDER BY corso;
 **solo gli esclusi**
 
 ```sql
-SELECT cognome, nome, email, titolo AS corso
+SELECT
+    cognome,
+    nome,
+    email,
+    titolo AS corso
 FROM docenti d
 LEFT JOIN corsi c
 ON d.id = c.docente_id
@@ -243,7 +266,11 @@ WHERE c.id IS NULL
 
 UNION
 
-SELECT cognome, nome, email, titolo AS corso
+SELECT
+    cognome,
+    nome,
+    email,
+    titolo AS corso
 FROM docenti d
 RIGHT JOIN corsi c
 ON d.id = c.docente_id
@@ -267,7 +294,11 @@ Immaginiamo di avere una tabella *impiegato* con gli attributi
 Per ottenere l’elenco degli impiegati con i rispettivi responsabili possiamo usare una **SELF JOIN**, uniamo la tabella impiegati con se stessa grazie al meccanismo degli alias.
 
 ```sql
-SELECT i.cognome, i.nome, i.ruolo, r.cognome Responsabile
+SELECT
+    i.cognome,
+    i.nome,
+    i.ruolo,
+    r.cognome Responsabile
 FROM impiegati i
 INNER JOIN impiegati r  
 ON i.id_responsabile = r.id
@@ -277,7 +308,11 @@ ORDER BY ruolo;
 Con `LEFT JOIN` per includere anche gli impiegati senza responsabile:
 
 ```sql
-SELECT i.cognome, i.nome, i.ruolo, r.cognome Responsabile
+SELECT
+    i.cognome,
+    i.nome,
+    i.ruolo,
+    r.cognome Responsabile
 FROM impiegati i
 LEFT JOIN impiegati r  
 ON i.id_responsabile = r.id
@@ -291,13 +326,17 @@ ORDER BY ruolo;
 Se le colonne chiave(primaria ed esterna) hanno lo stesso nome in entrambe le tabelle (es. docente_id) possiamo usare `USING`:
 
 ```sql
-SELECT cognome, nome, email, titolo AS corso
+SELECT
+    cognome,
+    nome,
+    email,
+    titolo AS corso
 FROM docenti
 JOIN corsi
 USING (docente_id);
 ```
 
-USING è una scorciatoia che specifica le colonne comuni.
+`USING` è una scorciatoia che specifica le colonne comuni.
 
 1) La clausola nomina un elenco di colonne che devono esistere in entrambe le tabelle.
 
@@ -310,7 +349,9 @@ La `CROSS JOIN` restituisce il prodotto cartesiano di due tabelle: ogni riga del
 *Esempio con tabelle prodotti e colori*:
 
 ```sql
-SELECT prodotto, colore
+SELECT 
+    prodotto,
+    colore
 FROM prodotti
 CROSS JOIN colori;
 ```
@@ -320,7 +361,9 @@ il risultato avrà **n × m righe**.
 È possibile ottenere lo stesso risultato scrivendo:
 
 ```sql
-SELECT prodotto, colore
+SELECT
+    prodotto,
+    colore
 FROM prodotti
 INNER JOIN colori;
 ```
@@ -430,7 +473,11 @@ Poiché il collegamento non avviene tramite uguaglianza tra due campi, ma tramit
 Di seguito due esempi equivalenti che utilizzano operatori diversi (il primo è generalmente più leggibile):
 
 ```sql
-SELECT s.cognome, s.nome, s.data_nascita, g.generazione
+SELECT
+    s.cognome,
+    s.nome,
+    s.data_nascita,
+    g.generazione
 FROM studenti s
 JOIN generazioni g
 ON s.data_nascita BETWEEN g.dal AND g.al
@@ -438,7 +485,11 @@ ORDER BY s.data_nascita;
 ```
 
 ```sql
-SELECT s.cognome, s.nome, s.data_nascita, g.generazione
+SELECT
+    s.cognome,
+    s.nome,
+    s.data_nascita,
+    g.generazione
 FROM studenti s
 JOIN generazioni g
 ON s.data_nascita >= g.anno_inizio
@@ -451,7 +502,10 @@ Altro esempio utilizzando il database dei corsi.
 Vogliamo estrarre l’elenco degli studenti iscritti a partire da una certa data.
 
 ```sql
-SELECT nome, cognome, data_isc
+SELECT
+    nome,
+    cognome,
+    data_isc
 FROM studenti s
 JOIN iscrizioni i
 ON i.studente_id = s.id
@@ -476,7 +530,10 @@ Vogliamo elencare tutti gli studenti, includendo anche quelli che non si sono is
 **Condizione nella clausola** `ON`:
 
 ```sql
-SELECT s.nome, s.cognome, i.data_isc
+SELECT
+    s.nome,
+    s.cognome,
+    i.data_isc
 FROM studenti s
 LEFT JOIN iscrizioni i
 ON s.id = i.studente_id
@@ -494,7 +551,10 @@ AND i.data_isc >= '2025-03-01';
 **Condizione nella clausola** `WHERE`:
 
 ```sql
-SELECT s.nome, s.cognome, i.data_isc
+SELECT
+    s.nome,
+    s.cognome,
+    i.data_isc
 FROM studenti s
 LEFT JOIN iscrizioni i
 ON s.id = i.studente_id
