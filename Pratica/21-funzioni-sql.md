@@ -11,6 +11,18 @@ Le funzioni SQL servono per:
 
 Le funzioni possono essere usate all’interno di una `SELECT`, spesso in combinazione con `WHERE`, `JOIN` e `GROUP BY`.
 
+- [Funzioni di aggregazione](#funzioni-di-aggregazione)
+- [Funzioni matematiche](#funzioni-matematiche)
+- [Funzioni sulle stringhe](#funzioni-sulle-stringhe)
+- [Uso di funzioni combinate](#uso-di-funzioni-combinate)
+- [Funzioni informative](#funzioni-informative)
+- [Funzioni di data e ora](#funzioni-data-e-ora)
+- [Formattare date e orari](#formattare-date-e-orari)
+- [Calcoli con date e orari](#calcoli-con-date-e-orari)
+- [Funzioni JSON in MySQL](#funzioni-json-in-mysql)
+- [Funzioni di controllo di flusso](#funzioni-di-controllo-di-flusso-control-flow-functions)
+
+
 ---
 
 ### Funzioni di aggregazione
@@ -170,7 +182,7 @@ FROM libri;
 
 ### Funzioni sulle stringhe: 
 
-### LENGTH() e CHAR_LENGTH()
+#### LENGTH() e CHAR_LENGTH()
 
 `CHAR_LENGTH()` restituisce il numero di caratteri (visibili), inclusi gli spazi.
 
@@ -293,7 +305,7 @@ FROM studenti;
 
 ---
 
-#### Uso di funzioni combinate
+### Uso di funzioni combinate
 
 È possibile combinare più funzioni in una singola query per ottenere calcoli più complessi.
 
@@ -665,7 +677,7 @@ HAVING Giorni BETWEEN -31 AND 0
 ORDER BY Giorni;
 ```
 
-HAVING è particolarmente utile per filtrare su valori aggregati o calcolati all’interno della query.
+`HAVING` è particolarmente utile per filtrare su valori aggregati o calcolati all’interno della query.
 
 ---
 
