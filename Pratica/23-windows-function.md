@@ -64,37 +64,28 @@ L'istruzione `OVER()` ha tre possibili elementi:
 
 <table>
   <tr>
-    <td width="60%">
+    <td width="65%">
       <ul>
         <li>
           <strong>ROWS</strong>: specifica un numero fisso di righe da includere nel frame,
-          a partire dalla riga corrente.
-        </li>
-        <li>
-          Esempio:
-          <code>ROWS 3 PRECEDING</code> include le tre righe precedenti alla riga corrente.
-        </li>
-        <li>
-          Esempio:
-          <code>ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING</code> include la riga corrente
+          a partire dalla riga corrente.<br>
+          Esempio:<code>ROWS 3 PRECEDING</code> include le tre righe precedenti alla riga corrente.<br>
+          Esempio: <code>ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING</code> include la riga corrente
           e le due righe adiacenti.
         </li>
       </ul>
       <ul>
         <li>
           <strong>RANGE</strong>: specifica un intervallo di valori da includere nel frame,
-          invece di un numero fisso di righe.
-        </li>
-        <li>
+          invece di un numero fisso di righe.<br>
           È utile quando i dati sono ordinati per valori continui
-          (date, numeri, timestamp).
-        </li>
-        <li>
+          (date, numeri, timestamp).<br>
           Esempio:
           <code>RANGE BETWEEN INTERVAL 1 DAY PRECEDING AND CURRENT ROW</code>
           include tutte le righe con data entro un giorno dalla riga corrente.
         </li>
       </ul>
+      <p>Per quanto riguarda frame_start e frame_between, sono parte della sintassi per specificare il frame unit.</p>
       <ul>
         <li>
           <strong>frame_start</strong>: specifica l’inizio del frame.
@@ -102,6 +93,9 @@ L'istruzione `OVER()` ha tre possibili elementi:
         <li>
           <strong>frame_between</strong>: specifica l’intervallo del frame.
         </li>
+        </ul>
+        <p>Questi possono essere utilizzati per definire il frame unit in modo più dettagliato rispetto a quanto fatto utilizzando solo ROWS o RANGE.</p>
+        <ul>
         <li>
           Esempio:
           <code>ROWS BETWEEN 3 PRECEDING AND CURRENT ROW</code>.
@@ -112,7 +106,7 @@ L'istruzione `OVER()` ha tre possibili elementi:
         </li>
       </ul>
     </td>
-    <td width="40%">
+    <td width="35%">
       <img src="../assets/images/window-function.png" width="300">
     </td>
   </tr>
