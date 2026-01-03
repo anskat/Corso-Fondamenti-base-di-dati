@@ -64,7 +64,7 @@ L'istruzione `OVER()` ha tre possibili elementi:
 
 <table>
   <tr>
-    <td width="60%">
+    <td width="75%">
       <ul>
         <li>
           <strong>ROWS</strong>: specifica un numero fisso di righe da includere nel frame,
@@ -106,8 +106,8 @@ L'istruzione `OVER()` ha tre possibili elementi:
         </li>
       </ul>
     </td>
-    <td width="30%">
-      <img src="../assets/images/window-function.png" width="300">
+    <td width="25%">
+      <img src="../assets/images/window-function.png">
     </td>
   </tr>
 </table>
