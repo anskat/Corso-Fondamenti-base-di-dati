@@ -28,7 +28,7 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 20. [JOIN](Pratica/20-join.md)
 21. [Funzioni](Pratica/21-funzioni-sql.md)
 22. [Raggruppamenti](Pratica/22-raggrupamenti.md)
-23. Windows Function
+23. [Windows Function](Pratica/23-windows-function.md)
 24. Viste
 25. Sub Query
 26. Backup/Restoring
