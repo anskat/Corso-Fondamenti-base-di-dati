@@ -87,7 +87,7 @@ Note:
 
 ---
 
-#### Privilegi da utente: esempio: app_java
+#### Privilegi da utente, esempio: *app_java*
 
 L'operazione di backup (dump) di un DB MySQL, normalmente, si esegue attraverso il comando mysqldump prima di collegarsi al db.
 
