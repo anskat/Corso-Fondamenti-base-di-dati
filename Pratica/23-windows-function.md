@@ -64,11 +64,7 @@ L'istruzione `OVER()` ha tre possibili elementi:
 
 <table>
   <tr>
-    <td width="35%">
-      <img src="../assets/images/window-function.png" width="300">
-    </td>
-    <td width="65%">
-
+    <td width="60%">
       <ul>
         <li>
           <strong>ROWS</strong>: specifica un numero fisso di righe da includere nel frame,
@@ -84,7 +80,6 @@ L'istruzione `OVER()` ha tre possibili elementi:
           e le due righe adiacenti.
         </li>
       </ul>
-
       <ul>
         <li>
           <strong>RANGE</strong>: specifica un intervallo di valori da includere nel frame,
@@ -100,7 +95,6 @@ L'istruzione `OVER()` ha tre possibili elementi:
           include tutte le righe con data entro un giorno dalla riga corrente.
         </li>
       </ul>
-
       <ul>
         <li>
           <strong>frame_start</strong>: specifica l’inizio del frame.
@@ -117,11 +111,12 @@ L'istruzione `OVER()` ha tre possibili elementi:
           <code>RANGE BETWEEN INTERVAL 1 DAY PRECEDING AND CURRENT ROW</code>.
         </li>
       </ul>
-
+    </td>
+    <td width="40%">
+      <img src="../assets/images/window-function.png" width="300">
     </td>
   </tr>
 </table>
-
 
 il **frame unit** specifica quali righe devono essere incluse nel calcolo della funzione per ogni riga corrente. Le opzioni principali per il frame unit sono:
 
