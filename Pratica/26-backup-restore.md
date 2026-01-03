@@ -139,9 +139,9 @@ mysqldump -u user 1 -p --no-tablespaces -t mio_db > nomefile.estensione 2
 
 Una volta premuto invio possiamo verificare se il file è stato creato correttamente nella directory indicata.
 
-1 nome dell’utente
+1. nome dell’utente
 
-2 percorso del file in cui scrivere le istruzioni sql (es: C:/Users/anskat_PC/Desktop/), se si specifica solo il nome del file, il file viene copiato nella directory corrente
+2. percorso del file in cui scrivere le istruzioni sql (es: C:/Users/anskat_PC/Desktop/), se si specifica solo il nome del file, il file viene copiato nella directory corrente
 
 ---
 
