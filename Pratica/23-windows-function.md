@@ -62,9 +62,9 @@ L'istruzione `OVER()` ha tre possibili elementi:
 ### [frame_definition]: frame_unit {<frame_start>|<frame_between>}
 
 
-<table>
+<table style="border:0">
   <tr>
-    <td width="65%">
+    <td width="60%">
       <ul>
         <li>
           <strong>ROWS</strong>: specifica un numero fisso di righe da includere nel frame,
@@ -98,15 +98,15 @@ L'istruzione `OVER()` ha tre possibili elementi:
         <ul>
         <li>
           Esempio:
-          <code>ROWS BETWEEN 3 PRECEDING AND CURRENT ROW</code>.
+          <code>ROWS BETWEEN 3 PRECEDING AND CURRENT ROW</code> definisce un frame unit che include le tre righe precedenti alla riga corrente e la riga corrente stessa.
         </li>
         <li>
           Esempio:
-          <code>RANGE BETWEEN INTERVAL 1 DAY PRECEDING AND CURRENT ROW</code>.
+          <code>RANGE BETWEEN INTERVAL 1 DAY PRECEDING AND CURRENT ROW</code> definisce un frame unit che include tutte le righe con date entro un giorno prima o uguale alla data della riga corrente.
         </li>
       </ul>
     </td>
-    <td width="35%">
+    <td width="30%">
       <img src="../assets/images/window-function.png" width="300">
     </td>
   </tr>
