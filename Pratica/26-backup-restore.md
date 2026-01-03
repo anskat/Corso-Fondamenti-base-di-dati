@@ -81,9 +81,9 @@ L'opzione `--databases` scrive l’istruzione: `CREATE DATABASE IF NOT EXIST` e 
 
 Note:
 
-1 = nome dell’utente, in questo caso l'utente con privilegi massimi
+1) nome dell’utente, in questo caso l'utente con privilegi massimi
 
-2 = percorso del file in cui scrivere le istruzioni sql (es: C:/Users/anskat_PC/Desktop/), se si specifica solo il nome del file, il file viene copiato nella directory corrente (nel caso di xampp c:\xampp)
+2) percorso del file in cui scrivere le istruzioni sql (es: C:/Users/anskat_PC/Desktop/), se si specifica solo il nome del file, il file viene copiato nella directory corrente (nel caso di xampp c:\xampp)
 
 ---
 
