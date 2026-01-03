@@ -30,7 +30,7 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 22. [Raggruppamenti](Pratica/22-raggrupamenti.md)
 23. [Windows Function](Pratica/23-windows-function.md)
 24. [Viste](Pratica/24-view.md)
-25. Sub Query
+25. [Sub Query](Pratica/25-subquery.md)
 26. [Dump(backup)/Restoring](Pratica/26-backup-restore.md)
 27. Integrità referenziale
 28. Indici - approfondimento
