@@ -29,7 +29,7 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 21. [Funzioni](Pratica/21-funzioni-sql.md)
 22. [Raggruppamenti](Pratica/22-raggrupamenti.md)
 23. [Windows Function](Pratica/23-windows-function.md)
-24. Viste
+24. [Viste](Pratica/24-view.md)
 25. Sub Query
 26. Backup/Restoring
 27. Integrità referenziale
