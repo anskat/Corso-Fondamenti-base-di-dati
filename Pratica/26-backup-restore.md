@@ -60,19 +60,19 @@ L'operazione di backup (dump) di un DB MySQL, normalmente, si esegue attraverso 
 Nella sua versione base la sintassi è la seguente:
 
 ```bash
-mysqldump -u root 1 -p nome_database > nomefile.sql 2
+mysqldump -u root(1) -p nome_database > nomefile.sql(2)
 ```
 
 In questo caso stiamo esportando un database (nome_database);
 
 ```bash
-mysqldump -u root 1 -p --databases db_1 db_2 db_3 > nomefile.sql 2
+mysqldump -u root(1) -p --databases db_1 db_2 db_3 > nomefile.sql(2)
 ```
 
 In questo caso stiamo esportando tre database: db_1, db_2, db_3;
 
 ```bash
-mysqldump -u root -p --all-databases > nomefile.sql 2
+mysqldump -u root -p --all-databases > nomefile.sql(2)
 ```
 
 In questo caso stiamo esportando tutti i database, utenti e privilegi;
@@ -94,7 +94,7 @@ L'operazione di backup (dump) di un DB MySQL, normalmente, si esegue attraverso 
 Nella sua versione base la sintassi è la seguente:
 
 ```bash
-mysqldump -u user 1 -p 2 --no-tablespaces 3 mio_db > mio_db.sql 4
+mysqldump -u user(1) -p(2) --no-tablespaces 3 mio_db > mio_db.sql(4)
 ```
 
 1) nome dell’utente
@@ -116,25 +116,25 @@ L'opzione `--no-tablespaces` evita gli errori legati ai permessi sui metadati av
 - **Esportazione solo di una tabella**: *nome_tabella*;
 
 ```bash
-mysqldump -u user1 -p --no-tablespaces mio_db nome_tabella > nomefile.sql2
+mysqldump -u user(1) -p --no-tablespaces mio_db nome_tabella > nomefile.sql(2)
 ```
 
 - **Esportazione di più tabelle**: *nome_tabella01* *nome_tabella02* *nome_tabella03*
 
 ```bash
-mysqldump -u user1 -p --no-tablespaces mio_db nome_tabella01 nome_tabella02 nome_tabella03 > nomefile.sql2
+mysqldump -u user(1) -p --no-tablespaces mio_db nome_tabella01 nome_tabella02 nome_tabella03 > nomefile.sql(2)
 ```
 
 **Esportazione della sola struttura del database** (definizione delle tabelle)
 
 ```bash
-mysqldump -u user1 -p --no-tablespaces -d mio_db > nomefile.estensione2
+mysqldump -u user(1) -p --no-tablespaces -d mio_db > nomefile.estensione(2)
 ```
 
 **Esportazione dei soli dati del database** (contenuti)
 
 ```bash
-mysqldump -u user 1 -p --no-tablespaces -t mio_db > nomefile.estensione 2
+mysqldump -u user(1) -p --no-tablespaces -t mio_db > nomefile.estensione(2)
 ```
 
 Una volta premuto invio possiamo verificare se il file è stato creato correttamente nella directory indicata.
