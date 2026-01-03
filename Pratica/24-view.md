@@ -109,6 +109,8 @@ FROM nome_tabella
 WHERE condizioni;
 ```
 
+---
+
 ### Rinominare una VIEW
 
 Per rinominare la view, modificarne solo il nome, potete scrivere:
