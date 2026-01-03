@@ -31,6 +31,7 @@ Vantaggi (sintesi)
 - Limitano accesso ai dati
 
 ---
+### Creare la VIEW
 
 **Sintassi**
 
@@ -60,7 +61,35 @@ Creare una vista equivale a salvare una query con un nome, che può poi essere r
     - deriva da più tabelle in join;
     - può contenere funzioni di aggregazione;
 
-**Modificare una view**
+#### VISTA semplice
+
+```sql
+CREATE VIEW studenti_contatto AS
+SELECT id, nome, cognome, email
+FROM studenti;
+```
+
+#### VISTA complessa
+
+```sql
+CREATE VIEW iscritti AS
+SELECT cognome, nome, email, titolo AS corso, i.prezzo, data_isc
+FROM studenti s
+JOIN iscrizioni i ON s.id = i.studente_id
+JOIN corsi c ON c.id = i.corso_id;
+```
+
+È possibile definire un `ORDER BY` all’interno di una **VIEW**, ma questo ordinamento non è garantito quando si seleziona dalla vista tramite una query esterna, che può avere un proprio `ORDER BY`.
+
+Per assicurare un ordine specifico, applicare sempre `ORDER BY` nella `SELECT` esterna che richiama la vista.
+
+NOTA: MySQL ignora ORDER BY all’interno della definizione di una vista, salvo che sia usato insieme a LIMIT.
+
+---
+
+### Modificare una view
+
+**Sintassi**
 
 `CREATE OR REPLACE VIEW` sovrascrive la vista se esiste ricreandola da capo.
 
@@ -80,61 +109,15 @@ FROM nome_tabella
 WHERE condizioni;
 ```
 
+### Rinominare una VIEW
+
 Per rinominare la view, modificarne solo il nome, potete scrivere:
+
+**Sintassi**
 
 ```sql
 RENAME TABLE nome_vista TO nuovo_nome_vista;
 ```
-
----
-
-### Viste aggiornabili e non aggiornabili
-
-Una **VIEW** si dice aggiornabile quando consente di modificare i dati nella tabella sottostante.
-
-Per essere aggiornabile la Vista deve possedere un rapporto uno ad uno con la tabella sottostante, quindi la SELECT che genera la View… :
-
-- NON può utilizzare `DISTINCT`;
-
-- NON può far ricorso a funzioni di aggregazione `SUM()`, `MIN()`, `MAX()` …;
-
-- NON può utilizzare `GROUP BY` / `HAVING`;
-
-- NON può contenere `UNION`;
-
-- NON può contenere *sottoquery nella SELECT*
-
-In MySQL, una vista con `JOIN` è aggiornabile solo se:
-
-- l’UPDATE riguarda una sola tabella;
-
-- la tabella aggiornata non è sul lato “molti”;
-
-- non ci sono ambiguità nella chiave primaria;
-
-### VISTA semplice
-
-```sql
-CREATE VIEW studenti_contatto AS
-SELECT id, nome, cognome, email
-FROM studenti;
-```
-
-### VISTA complessa
-
-```sql
-CREATE VIEW iscritti AS
-SELECT cognome, nome, email, titolo AS corso, i.prezzo, data_isc
-FROM studenti s
-JOIN iscrizioni i ON s.id = i.studente_id
-JOIN corsi c ON c.id = i.corso_id;
-```
-
-È possibile definire un `ORDER BY` all’interno di una **VIEW**, ma questo ordinamento non è garantito quando si seleziona dalla vista tramite una query esterna, che può avere un proprio `ORDER BY`.
-
-Per assicurare un ordine specifico, applicare sempre `ORDER BY` nella `SELECT` esterna che richiama la vista.
-
-NOTA: MySQL ignora ORDER BY all’interno della definizione di una vista, salvo che sia usato insieme a LIMIT.
 
 ---
 
@@ -182,6 +165,32 @@ DROP VIEW nome_vista [,nome vista];
 ```sql
 SHOW CREATE VIEW nome_vista;
 ```
+
+---
+
+### Viste aggiornabili e non aggiornabili
+
+Una **VIEW** si dice aggiornabile quando consente di modificare i dati nella tabella sottostante.
+
+Per essere aggiornabile la Vista deve possedere un rapporto uno ad uno con la tabella sottostante, quindi la SELECT che genera la View… :
+
+- NON può utilizzare `DISTINCT`;
+
+- NON può far ricorso a funzioni di aggregazione `SUM()`, `MIN()`, `MAX()` …;
+
+- NON può utilizzare `GROUP BY` / `HAVING`;
+
+- NON può contenere `UNION`;
+
+- NON può contenere *sottoquery nella SELECT*
+
+In MySQL, una vista con `JOIN` è aggiornabile solo se:
+
+- l’UPDATE riguarda una sola tabella;
+
+- la tabella aggiornata non è sul lato “molti”;
+
+- non ci sono ambiguità nella chiave primaria;
 
 ---
 
