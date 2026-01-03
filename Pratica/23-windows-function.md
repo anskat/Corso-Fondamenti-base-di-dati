@@ -64,37 +64,64 @@ L'istruzione `OVER()` ha tre possibili elementi:
 
 <table>
   <tr>
-    <td>
+    <td width="35%">
       <img src="../assets/images/window-function.png" width="300">
     </td>
-    <td>
-      <ul>
+    <td width="65%">
 
-        <li> - ROWS: Specifica un numero fisso di righe da includere nel frame, a partire dalla riga corrente.</li>
-        <li> - Es: `ROWS 3 PRECEDING` includerà le tre righe precedenti alla riga corrente,</li>
-        <li> - ES: `ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING` includerà la riga corrente e le due righe adiacenti (precedente e successiva).</li>
+      <ul>
+        <li>
+          <strong>ROWS</strong>: specifica un numero fisso di righe da includere nel frame,
+          a partire dalla riga corrente.
+        </li>
+        <li>
+          Esempio:
+          <code>ROWS 3 PRECEDING</code> include le tre righe precedenti alla riga corrente.
+        </li>
+        <li>
+          Esempio:
+          <code>ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING</code> include la riga corrente
+          e le due righe adiacenti.
+        </li>
       </ul>
+
       <ul>
-            - RANGE: Specifica un intervallo di valori da includere nel frame, invece di un numero fisso di righe
-            Questo può essere utile quando si lavora con dati ordinati in base a un certo criterio, come le date o i valori numerici.
-            - Es: `RANGE BETWEEN INTERVAL 1 DAY PRECEDING AND CURRENT ROW` includerà tutte le righe con date che sono entro un giorno prima o uguale alla data della riga corrente.
+        <li>
+          <strong>RANGE</strong>: specifica un intervallo di valori da includere nel frame,
+          invece di un numero fisso di righe.
+        </li>
+        <li>
+          È utile quando i dati sono ordinati per valori continui
+          (date, numeri, timestamp).
+        </li>
+        <li>
+          Esempio:
+          <code>RANGE BETWEEN INTERVAL 1 DAY PRECEDING AND CURRENT ROW</code>
+          include tutte le righe con data entro un giorno dalla riga corrente.
+        </li>
+      </ul>
 
-            Per quanto riguarda frame_start e frame_between, sono parte della sintassi per specificare il frame unit.
-
-            - **frame_start**: specifica l'inizio del frame
-
-            - **frame_between**: specifica l'intervallo del frame.
-
-            Questi possono essere utilizzati per definire il frame unit in modo più dettagliato rispetto a quanto fatto utilizzando solo **ROWS** o **RANGE**.
-
-            - Es: `ROWS BETWEEN 3 PRECEDING AND CURRENT ROW` definisce un frame unit che include le tre righe precedenti alla riga corrente e la riga corrente stessa.
-            - Es: `RANGE BETWEEN INTERVAL 1 DAY PRECEDING AND CURRENT ROW` definisce un frame unit che include tutte le righe con date entro un giorno prima o uguale alla data della riga corrente.
-        </ul>
-
+      <ul>
+        <li>
+          <strong>frame_start</strong>: specifica l’inizio del frame.
+        </li>
+        <li>
+          <strong>frame_between</strong>: specifica l’intervallo del frame.
+        </li>
+        <li>
+          Esempio:
+          <code>ROWS BETWEEN 3 PRECEDING AND CURRENT ROW</code>.
+        </li>
+        <li>
+          Esempio:
+          <code>RANGE BETWEEN INTERVAL 1 DAY PRECEDING AND CURRENT ROW</code>.
+        </li>
+      </ul>
 
     </td>
   </tr>
 </table>
+
 
 il **frame unit** specifica quali righe devono essere incluse nel calcolo della funzione per ogni riga corrente. Le opzioni principali per il frame unit sono:
 
