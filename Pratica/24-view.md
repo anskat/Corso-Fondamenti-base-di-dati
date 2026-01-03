@@ -88,7 +88,7 @@ RENAME TABLE nome_vista TO nuovo_nome_vista;
 
 ---
 
-**Viste aggiornabili e non aggiornabili**
+### Viste aggiornabili e non aggiornabili
 
 Una **VIEW** si dice aggiornabile quando consente di modificare i dati nella tabella sottostante.
 
@@ -136,6 +136,8 @@ Per assicurare un ordine specifico, applicare sempre `ORDER BY` nella `SELECT` e
 
 NOTA: MySQL ignora ORDER BY all’interno della definizione di una vista, salvo che sia usato insieme a LIMIT.
 
+---
+
 ### Interrogare una view
 
 Accedere ad una vista è semplicissimo: funzionando quest'ultima esattamente come una comune tabella, sarà sufficiente effettuare una `SELECT`.
@@ -159,6 +161,8 @@ WHERE table_schema = 'nome_db'
 ORDER BY table_name;
 ```
 
+---
+
 ### Eliminare una view
 
 ```sql
@@ -171,11 +175,14 @@ DROP VIEW nome_vista [,nome vista];
 
 - viste o altre applicazioni basate sulla vista cancellata diventano invalide;
 
+---
+
 ### Mostrare il codice della view
 
 ```sql
 SHOW CREATE VIEW nome_vista;
 ```
+
 ---
 
 ### Vantaggi delle VIEW
@@ -206,6 +213,8 @@ SELECT * FROM iscritti; -- e aggiungere eventuali filtri con il WHERE, o GROUP B
 
 Nota: Semplifica molto le interrogazioni frequenti ed evita ripetizioni.
 
+---
+
 #### Riducono l’impatto dei cambiamenti
 
 Immagina di voler rinominare una colonna (c.titolo → c.nome_corso) e cambiare il nome di una tabella (es. Corsi → CatalogoCorsi): o uno dei due casi.
@@ -225,6 +234,8 @@ FROM CatalogoCorsi;
 E tutte le query che puntano a *VistaCorsi* continueranno a funzionare anche se la tabella cambia.
 
 NOTA: Le viste fanno da “strato di astrazione” e isolano il codice dai cambiamenti nella struttura sottostante.
+
+---
 
 #### Limitano l'accesso ai dati
 
