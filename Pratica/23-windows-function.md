@@ -32,6 +32,7 @@ La maggior parte delle funzioni aggregate possono essere utilizzate anche come f
 | RANK() |	Rango della riga corrente all'interno della sua partizione, con spazi vuoti. |
 | ROW_NUMBER() |	Numero della riga corrente all'interno della sua partizione. |
 
+---
 
 ### Sintassi:
 
@@ -59,9 +60,9 @@ L'istruzione `OVER()` ha tre possibili elementi:
 
 **Le parentesi di apertura e chiusura**, che compaiono dopo la clausola `OVER()`, **sono obbligatorie**, anche senza espressione.
 
-### [frame_definition]: frame_unit {<frame_start>|<frame_between>}
+#### [frame_definition]: frame_unit {<frame_start>|<frame_between>}
 
-<table border="0" cellpadding="10">
+<table>
   <tr>
     <td width="60%">
       <ul>
