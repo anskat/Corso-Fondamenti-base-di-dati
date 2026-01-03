@@ -61,12 +61,7 @@ L'istruzione `OVER()` ha tre possibili elementi:
 
 ### [frame_definition]: frame_unit {<frame_start>|<frame_between>}
 
-<style>
-.markdown-body table th, .markdown-body table td {
-    border:0
-}
-</style>
-<table>
+<table border="0" cellpadding="10">
   <tr>
     <td width="60%">
       <ul>
