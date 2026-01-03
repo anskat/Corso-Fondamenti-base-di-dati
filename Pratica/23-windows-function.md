@@ -16,6 +16,8 @@ La maggior parte delle funzioni aggregate possono essere utilizzate anche come f
 
 `SUM()`, `AVG()`, `COUNT()`, `MAX()`, `MIN()`.
 
+---
+
 ### Tabella WINDOWS FUNCTION
 
 | Function	| Descrizione |
