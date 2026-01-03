@@ -87,7 +87,7 @@ Note:
 
 ---
 
-#### Privilegi da utente, esempio: *app_java*
+#### Privilegi da utente
 
 L'operazione di backup (dump) di un DB MySQL, normalmente, si esegue attraverso il comando mysqldump prima di collegarsi al db.
 
@@ -103,11 +103,11 @@ mysqldump -u user(1) -p(2) --no-tablespaces 3 mio_db > mio_db.sql(4)
 
 3) https://anothercoffee.net/how-to-fix-the-mysqldump-access-denied-process-privilege-error/
 
-l’opzione `--no-tablespaces` prima di `-u user` è obbligatoria a partire da mysql 5.7.31 e 8.0.21
+    l’opzione `--no-tablespaces` prima di `-u user` è obbligatoria a partire da mysql 5.7.31 e 8.0.21
 
-https://dev.mysql.com/doc/refman/5.6/en/innodb-system-tablespace.html
+    https://dev.mysql.com/doc/refman/5.6/en/innodb-system-tablespace.html
 
-L'opzione `--no-tablespaces` evita gli errori legati ai permessi sui metadati avanzati, perché i tablespace sono configurazioni di storage avanzate che, se non usate esplicitamente, non influenzano i dati esportati.
+    L'opzione `--no-tablespaces` evita gli errori legati ai permessi sui metadati avanzati, perché i tablespace sono configurazioni di storage avanzate che, se non usate esplicitamente, non influenzano i dati esportati.
 
 4) percorso del file in cui scrivere il dump sql (es: C:/Users/anskat_PC/Desktop/), se si specifica solo il nome del file, il file viene copiato nella directory corrente.
 
