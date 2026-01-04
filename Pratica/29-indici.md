@@ -122,11 +122,14 @@ Il B+tree riduce i confronti necessari.
 Con 8 valori nell'esempio, servono solo 3 passaggi (livelli).
 
 In un indice reale con milioni di valori, i livelli sono tipicamente 4-5, rendendo le ricerche istantanee.
+
+<pre>
                        [25, 50]
                    /      |       \
            [10, 20]   [30, 40]   [60, 70]
             /   |     /    |      /    \
       [1, 5] [15]  [27] [35]   [55] [65, 75]
+</pre>
 
 ---
 
@@ -161,11 +164,14 @@ ANALYZE TABLE studenti;  -- Forza l’aggiornamento immediato
 ```
 
 Restituisce:
+
+```bash
 +------------------+---------+----------+----------+
 | Table            | Op      | Msg_type | Msg_text |
 +------------------+---------+----------+----------+
 | corsi.studenti   | analyze | status   | OK       |
 +------------------+---------+----------+----------+
+```
 
 Quando Eseguire `ANALYZE TABLE`?
 
@@ -210,11 +216,13 @@ WHERE provincia = "To";
 
 Eseguita la query con `EXPLAIN`, mysql restituisce il piano di esecuzione risultante:
 
+```bash
 +----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
 | id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |
 +----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
 |  1 | SIMPLE      | cliente | NULL       | ALL  | NULL          | NULL | NULL    | NULL |    7 |    14.29 | Using where |
 +----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------------+
+```
 
 Osservate la colonna *type*, la colonna *key*, la colonna *rows* e la colonna *Extra*:
 
@@ -228,11 +236,13 @@ CREATE INDEX k_prov ON clienti(provincia);
 
 Eseguite nuovamente la query con `EXPLAIN`:
 
+```bash
 +----+-------------+---------+------------+------+---------------+--------+---------+-------+------+----------+-----------------------+
 | id | select_type | table   | partitions | type | possible_keys | key    | key_len | ref   | rows | filtered | Extra                 |
 +----+-------------+---------+------------+------+---------------+--------+---------+-------+------+----------+-----------------------+
 |  1 | SIMPLE      | cliente | NULL       | ref  | k_prov        | k_prov | 8       | const |    3 |   100.00 | Using index condition |
 +----+-------------+---------+------------+------+---------------+--------+---------+-------+------+----------+-----------------------+
+```
 
 Come si può notare, type = ref indica che l'accesso è basato su una colonna indicizzata con valore costante, che è stato usato l’indice creato e le righe lette in totale sono 3.
 
@@ -254,11 +264,13 @@ FROM cliente
 WHERE provincia = "To" and credito > 100;
 ```
 
+```bash
 +----+-------------+---------+------------+------+---------------+--------+---------+-------+------+----------+------------------------------------+
 | id | select_type | table   | partitions | type | possible_keys | key    | key_len | ref   | rows | filtered | Extra                              |
 +----+-------------+---------+------------+------+---------------+--------+---------+-------+------+----------+------------------------------------+
 |  1 | SIMPLE      | cliente | NULL       | ref  | k_prov        | k_prov | 8       | const |    3 |    33.33 | Using index condition; Using where |
 +----+-------------+---------+------------+------+---------------+--------+---------+-------+------+----------+------------------------------------+
+```
 
 Ma il valore di filtered è basso, si può quindi ottimizzare ulteriormente?
 
@@ -277,11 +289,13 @@ FROM cliente
 WHERE provincia = "To" AND credito > 100;
 ```
 
+```bash
 +----+-------------+---------+------------+-------+-----------------------+----------------+---------+------+------+----------+-----------------------+
 | id | select_type | table   | partitions | type  | possible_keys         | key            | key_len | ref  | rows | filtered | Extra                 |
 +----+-------------+---------+------------+-------+-----------------------+----------------+---------+------+------+----------+-----------------------+
 |  1 | SIMPLE      | cliente | NULL       | range | k_prov,k_prov_credito | k_prov_credito | 13      | NULL |    1 |   100.00 | Using index condition |
 +----+-------------+---------+------------+-------+-----------------------+----------------+---------+------+------+----------+-----------------------+
+```
 
 Quando si deve decidere l’ordine degli attributi nella creazione dell’indice **bisogna considerare le query che verranno utilizzate** e **la cardinalità (numero di valori distinti in una colonna) degli attributi scelti**:
 
