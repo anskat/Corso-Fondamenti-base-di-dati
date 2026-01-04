@@ -26,13 +26,13 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 18. [Query Language: 2 parte](Pratica/18-query-language-parte-due.md)
 19. [Combinare risultati: UNION, INTERSECT e EXCEPT](Pratica/19-combinare-risultati.md)
 20. [JOIN](Pratica/20-join.md)
-21. [Funzioni](Pratica/21-funzioni-sql.md)
-22. [Raggruppamenti](Pratica/22-raggrupamenti.md)
-23. [Windows Function](Pratica/23-windows-function.md)
-24. [Viste](Pratica/24-view.md)
-25. [Sub Query](Pratica/25-subquery.md)
-26. [Dump(backup)/Restoring](Pratica/26-backup-restore.md)
-27. Integrità referenziale
+21. [Integrità referenziale](Pratica/21-integrita-referenziale.md)
+22. [Funzioni](Pratica/21-funzioni-sql.md)
+23. [Raggruppamenti](Pratica/22-raggrupamenti.md)
+24. [Windows Function](Pratica/23-windows-function.md)
+25. [Viste](Pratica/24-view.md)
+26. [Sub Query](Pratica/25-subquery.md)
+27. [Dump(backup)/Restoring](Pratica/26-backup-restore.md)
 28. Indici - approfondimento
 29. Ottimizzazione Query
 30. Transaction
