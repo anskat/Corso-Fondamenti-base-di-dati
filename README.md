@@ -34,7 +34,7 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 26. [Viste](Pratica/24-view.md)
 27. [Sub Query](Pratica/25-subquery.md)
 28. [Dump(backup)/Restoring](Pratica/26-backup-restore.md)
-29. Indici - approfondimento
+29. [Indici - approfondimento](Pratica/29-indici.md)
 30. Ottimizzazione Query
 31. Transaction
 32. Programmazione SQL - introduzione
