@@ -80,8 +80,7 @@ ORDER BY cognome;
 ```sql
 SELECT nome, cognome, stipendio
 FROM impiegati
-WHERE stipendio >
-(SELECT stipendio FROM impiegati WHERE id = 6)
+WHERE stipendio > (SELECT stipendio FROM impiegati WHERE id = 6)
 ORDER BY stipendio;
 ```
 
