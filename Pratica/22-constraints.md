@@ -36,7 +36,7 @@ A partire da *MySQL 8.0.16* vengono applicati i CHECK.
 
 Prima di MySQL 8.0.16 le espressioni di vincolo erano accettate nella sintassi ma ignorate.
 
-In MYSQL puoi definire i vincoli in 2 modi diversi:
+#### In MYSQL puoi definire i vincoli in 2 modi diversi:
 
  [CONSTRAINT [constraint_name]] `CHECK (expression)` dato come parte di una definizione di colonna;
 
@@ -91,12 +91,12 @@ Aggiunta CHECK su tabella esistente con nome definito dal motore ([nome_tabella]
 
 ```sql
 ALTER TABLE studenti
-ADD check(eta >= 18);
+ADD CHECK(eta >= 18);
 ```
 
 ```sql
 ALTER TABLE libri
-ADD check(prezzo > 0);
+ADD CHECK(prezzo > 0);
 ```
 
 ---
@@ -110,10 +110,10 @@ SHOW CREATE TABLE nome_tabella
 ```
 
 ```sql
-SHOW CREATE TABLE corsi;
+SHOW CREATE TABLE libri2;
 ```
 
-Visualizzare elenco CONSTRAINT CHECK di una tabella interrogando information_schema:
+Visualizzare elenco CONSTRAINT CHECK di una tabella interrogando *information_schema*:
 
 ```sql
 SELECT * 
@@ -122,7 +122,7 @@ WHERE CONSTRAINT_TYPE = 'CHECK'
   AND TABLE_NAME = 'libri';
 ```
 
-Visualizzare elenco CONSTRAINT CHECK con definizione del vincolo di un database interrogando information_schema:
+Visualizzare elenco CONSTRAINT CHECK con definizione del vincolo di un database interrogando *information_schema*:
 
 ```sql
 SELECT cc.CONSTRAINT_NAME, cc.CHECK_CLAUSE, tc.TABLE_NAME
@@ -133,10 +133,7 @@ WHERE tc.CONSTRAINT_TYPE = 'CHECK'
   AND tc.CONSTRAINT_SCHEMA = 'nome_database';
 ```
 
-Attenzione!
-
+> Attenzione!
 I vincoli CHECK:
-
 - non sostituiscono la validazione applicativa, ma rappresentano l’ultima linea di difesa del database;
-
 - garantiscono che dati non validi non possano esistere, indipendentemente dall’applicazione che li inserisce.
