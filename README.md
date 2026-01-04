@@ -27,17 +27,18 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 19. [Combinare risultati: UNION, INTERSECT e EXCEPT](Pratica/19-combinare-risultati.md)
 20. [JOIN](Pratica/20-join.md)
 21. [Integrità referenziale](Pratica/21-integrita-referenziale.md)
-22. [Funzioni](Pratica/21-funzioni-sql.md)
-23. [Raggruppamenti](Pratica/22-raggrupamenti.md)
-24. [Windows Function](Pratica/23-windows-function.md)
-25. [Viste](Pratica/24-view.md)
-26. [Sub Query](Pratica/25-subquery.md)
-27. [Dump(backup)/Restoring](Pratica/26-backup-restore.md)
-28. Indici - approfondimento
-29. Ottimizzazione Query
-30. Transaction
-31. Programmazione SQL - introduzione
-32. Triggers
-33. Stored Function
-34. Stored Procedures
-35. Events
+22. [Constraints](Pratica/22-constraints.md)
+23. [Funzioni](Pratica/21-funzioni-sql.md)
+24. [Raggruppamenti](Pratica/22-raggrupamenti.md)
+25. [Windows Function](Pratica/23-windows-function.md)
+26. [Viste](Pratica/24-view.md)
+27. [Sub Query](Pratica/25-subquery.md)
+28. [Dump(backup)/Restoring](Pratica/26-backup-restore.md)
+29. Indici - approfondimento
+30. Ottimizzazione Query
+31. Transaction
+32. Programmazione SQL - introduzione
+33. Triggers
+34. Stored Function
+35. Stored Procedures
+36. Events
