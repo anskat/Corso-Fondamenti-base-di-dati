@@ -122,7 +122,7 @@ Nel caso specifico abbiamo stabilito che non si può eliminare un docente dalla 
 
 ```sql
 DELETE FROM corsi
-WHERE docente_id=1;
+WHERE docente_id = ;
 ```
 
 Ora posiamo eseguire la query precedente:
@@ -185,6 +185,8 @@ WHERE id = 1;
 - Questa query viene eseguita;
 
 - Contemporaneamente vengono aggiornate le righe con il campo `docente_id = 1` della tabella corsi, impostando il valore del campo *docente_id* a `NULL`
+
+---
 
 ### SELF-FOREIGN KEY
 
