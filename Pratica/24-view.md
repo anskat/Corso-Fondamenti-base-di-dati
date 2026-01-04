@@ -10,13 +10,13 @@ Non contiene dati propri, ma espone il risultato di una query definita su:
 
 **Vantaggi delle viste**
 
-- Limitano l’accesso ai dati sensibili: puoi mostrare solo alcune colonne o righe di una tabella.
+- **Limitano l’accesso ai dati sensibili**: puoi mostrare solo alcune colonne o righe di una tabella.
 
-- Mascherano la complessità del database: l’utente non deve conoscere i dettagli delle join o dei filtri.
+- **Mascherano la complessità del database**: l’utente non deve conoscere i dettagli delle join o dei filtri.
 
-- Riduzione dell’impatto dei cambiamenti: se cambia la struttura delle tabelle, puoi aggiornare solo la vista.
+- **Riduzione dell’impatto dei cambiamenti**: se cambia la struttura delle tabelle, puoi aggiornare solo la vista.
 
-- Semplificano le query: permettono di ottenere risultati complessi usando una SELECT semplice.
+- **Semplificano le query**: permettono di ottenere risultati complessi usando una SELECT semplice.
 
 Esempio: una vista può fornire i dati da più tabelle collegate, senza che l’utente sappia come scrivere il JOIN.
 
@@ -42,9 +42,7 @@ FROM nome_tabella
 WHERE condizioni;
 ```
 
-Crea una vista basata su una query.
-
-Se la vista esiste già, il comando produce un errore.
+Crea una vista basata su una query. Se la vista esiste già, il comando produce un errore.
 
 Le viste si comportano come tabelle virtuali, ma non memorizzano dati: ogni accesso esegue la query definita.
 
@@ -61,6 +59,8 @@ Creare una vista equivale a salvare una query con un nome, che può poi essere r
     - deriva da più tabelle in join;
     - può contenere funzioni di aggregazione;
 
+---
+
 #### VISTA semplice
 
 ```sql
@@ -75,15 +75,15 @@ FROM studenti;
 CREATE VIEW iscritti AS
 SELECT cognome, nome, email, titolo AS corso, i.prezzo, data_isc
 FROM studenti s
-JOIN iscrizioni i ON s.id = i.studente_id
-JOIN corsi c ON c.id = i.corso_id;
+INNER JOIN iscrizioni i ON s.id = i.studente_id
+INNER JOIN corsi c ON c.id = i.corso_id;
 ```
 
 È possibile definire un `ORDER BY` all’interno di una **VIEW**, ma questo ordinamento non è garantito quando si seleziona dalla vista tramite una query esterna, che può avere un proprio `ORDER BY`.
 
 Per assicurare un ordine specifico, applicare sempre `ORDER BY` nella `SELECT` esterna che richiama la vista.
 
-NOTA: MySQL ignora ORDER BY all’interno della definizione di una vista, salvo che sia usato insieme a LIMIT.
+> NOTA: MySQL ignora `ORDER BY` all’interno della definizione di una vista, salvo che sia usato insieme a `LIMIT`.
 
 ---
 
@@ -137,7 +137,7 @@ Per elencare le tabelle e verificare quali tra queste sono in realtà viste:
 SHOW FULL TABLES WHERE Table_type = 'VIEW';
 ```
 
-Potete interrogare anche information_schema (che è una vista) per ottenere l'elenco delle vostre tabelle con l'indicazione del tipo: base table o view:
+Potete interrogare anche *information_schema* (che è una vista) per ottenere l'elenco delle vostre tabelle con l'indicazione del tipo: *base table* o *view*:
 
 ```sql
 SELECT table_name, table_type
@@ -154,7 +154,7 @@ ORDER BY table_name;
 DROP VIEW nome_vista [,nome vista];
 ```
 
-- L’istruzione DROP rimuove la definizione della vista dal database;
+- L’istruzione `DROP` rimuove la definizione della vista dal database;
 
 - cancellando la vista non ci sono effetti sulla base table;
 
@@ -174,7 +174,7 @@ SHOW CREATE VIEW nome_vista;
 
 Una **VIEW** si dice aggiornabile quando consente di modificare i dati nella tabella sottostante.
 
-Per essere aggiornabile la Vista deve possedere un rapporto uno ad uno con la tabella sottostante, quindi la SELECT che genera la View… :
+Per essere aggiornabile la Vista deve possedere un rapporto uno ad uno con la tabella sottostante, quindi la `SELECT` che genera la View… :
 
 - NON può utilizzare `DISTINCT`;
 
@@ -222,7 +222,7 @@ Ora basta una query semplice:
 SELECT * FROM iscritti; -- e aggiungere eventuali filtri con il WHERE, o GROUP BY...
 ```
 
-Nota: Semplifica molto le interrogazioni frequenti ed evita ripetizioni.
+> Nota: semplifica molto le interrogazioni frequenti ed evita ripetizioni.
 
 ---
 
@@ -230,7 +230,7 @@ Nota: Semplifica molto le interrogazioni frequenti ed evita ripetizioni.
 
 Immagina di voler rinominare una colonna (c.titolo → c.nome_corso) e cambiare il nome di una tabella (es. Corsi → CatalogoCorsi): o uno dei due casi.
 
-Tutte le query esistenti che usano nella SELECT la colonna titolo e il nome tabella Corsi non funzionerebbero più, perché la struttura del database è cambiata.
+Tutte le query esistenti che usano nella `SELECT` la *colonna titolo* e il nome tabella *Corsi* non funzionerebbero più, perché la struttura del database è cambiata.
 
 Se le query sono scritte ovunque nel codice, dovrai modificare tutte le query manualmente.
 
@@ -242,9 +242,9 @@ SELECT id, nome_corso AS titolo, prezzo, docente_id
 FROM CatalogoCorsi;
 ```
 
-E tutte le query che puntano a *VistaCorsi* continueranno a funzionare anche se la tabella cambia.
+Tutte le query che puntano a *VistaCorsi* continueranno a funzionare anche se la tabella cambia.
 
-NOTA: Le viste fanno da “strato di astrazione” e isolano il codice dai cambiamenti nella struttura sottostante.
+> NOTA: le viste fanno da **strato di astrazione** e isolano il codice dai cambiamenti nella struttura sottostante.
 
 ---
 
@@ -307,7 +307,7 @@ ERROR 1369 (HY000): CHECK OPTION failed 'studente_v'
 
 Il `CHECK OPTION` è utile per garantire che gli utenti non possano 'uscire' dal perimetro della vista.
 
-È possibile eliminare il check option ridefinendo la vista con ALTER VIEW.
+È possibile eliminare il check option ridefinendo la vista con `ALTER VIEW`.
 
 ---
 
@@ -317,4 +317,4 @@ Con `WITH CHECK OPTION`, una vista diventa **self-consistent**: non puoi inserir
 
 MySQL la supporta pienamente.
 
-Anche altri RDBMS la implementano (PostgreSQL, SQL Server, Oracle hanno implementazioni simili, talvolta con sintassi diversa).
+Anche altri RDBMS la implementano (*PostgreSQL*, *SQL Server*, *Oracle* hanno implementazioni simili, talvolta con sintassi diversa).
