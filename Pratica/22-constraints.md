@@ -79,12 +79,12 @@ Aggiunta `CHECK` su tabella esistente con nome definito dall’utente:
 
 ```sql
 ALTER TABLE studenti
-ADD CONSTRAINT ck_eta check(eta >= 18);
+ADD CONSTRAINT ck_eta CHECK(eta >= 18);
 ```
 
 ```sql
 ALTER TABLE libri
-ADD CONSTRAINT ck_prezzo check(prezzo > 0);
+ADD CONSTRAINT ck_prezzo CHECK(prezzo > 0);
 ```
 
 Aggiunta CHECK su tabella esistente con nome definito dal motore ([nome_tabella]_chk_[numero sequenziale 1,2,…])
@@ -134,6 +134,6 @@ WHERE tc.CONSTRAINT_TYPE = 'CHECK'
 ```
 
 > Attenzione!
-I vincoli CHECK:
-- non sostituiscono la validazione applicativa, ma rappresentano l’ultima linea di difesa del database;
-- garantiscono che dati non validi non possano esistere, indipendentemente dall’applicazione che li inserisce.
+> I vincoli CHECK:
+> - non sostituiscono la validazione applicativa, ma rappresentano l’ultima linea di difesa del database;
+> - garantiscono che dati non validi non possano esistere, indipendentemente dall’applicazione che li inserisce.
