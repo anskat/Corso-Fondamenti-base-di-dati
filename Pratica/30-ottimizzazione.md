@@ -41,6 +41,10 @@ L’ordine seguente rappresenta **l’ordine logico** di elaborazione di una que
 
 ---
 
+![ottimizzazione](../assets/images/ottimizzazione.png)
+
+---
+
 ### Strategie di ottimizzazione basate sull'ordine di esecuzione
 
 #### Ottimizzazione di FROM e JOIN
