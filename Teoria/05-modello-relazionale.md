@@ -36,7 +36,7 @@ Disegnare una base dati per la gestione dell'acquisto di corsi offerti da una pi
 
 #### Diagramma Entity-Relationship
 
-![diagrammaE-R](/assets/images/diagrammaE-R.png)
+![diagrammaE-R](../assets/images/diagrammaE-R.png)
 
 ---
 
@@ -44,7 +44,7 @@ Disegnare una base dati per la gestione dell'acquisto di corsi offerti da una pi
 
 **Definizione**: traduce il modello concettuale in una struttura più dettagliata e aderente alle regole di un particolare tipo di database (es. relazionale).
 
-![diagrammaE-R](/assets/images/modello-logico.png)
+![diagrammaE-R](../assets/images/modello-logico.png)
 
 ---
 

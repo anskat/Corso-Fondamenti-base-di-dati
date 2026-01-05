@@ -56,7 +56,7 @@ Rappresenta **classi di oggetti** (fatti, cose, persone, ...) che hanno **propri
 
 - Identificata da un rettangolo
 
-![entità](/assets/images/entita.png)
+![entità](../assets/images/entita.png)
 
 ---
 
@@ -66,7 +66,7 @@ Rappresenta **classi di oggetti** (fatti, cose, persone, ...) che hanno **propri
 
 - identificata da un cerchio collegato all’entità
 
-![attributo](/assets/images/attributo.png)
+![attributo](../assets/images/attributo.png)
 
 ---
 
@@ -78,7 +78,7 @@ L’insieme di attributi che garantisce **l’univocità** delle istanze di un�
 
 - Identificata graficamente con un cerchio pieno, collegato all’entità e relativo nome attributo sottolineato
 
-![chiave](/assets/images/chiave.png)
+![chiave](../assets/images/chiave.png)
 
 **Caratteristiche**
 
@@ -100,11 +100,11 @@ Specifici dati, oggetti appartenenti ad un’entità.
 
 - Carlo Rossi, via Verdi è *un’istanza* dell’**entità** *STUDENTE* (**attributi**: *Nome*, *Cognome*, *Indirizzo*) 
 
-![istanza](/assets/images/istanza.png)
+![istanza](../assets/images/istanza.png)
 
 Possiamo considerare le entità come insiemi all’interno dei quali sono contenuti oggetti (le istanze) ciascuno con specifiche caratteristiche (valore degli attributi).
 
-![istanza-insieme](/assets/images/istanza-insieme.png)
+![istanza-insieme](../assets/images/istanza-insieme.png)
 
 ---
 
@@ -114,7 +114,7 @@ Collegamenti logici che uniscono due o più entità nella realtà descritta dal 
 
 - identificata da un rombo collegato alle due entità
 
-![relazione](/assets/images/relazione.png)
+![relazione](../assets/images/relazione.png)
 
 ---
 
@@ -124,7 +124,7 @@ Collegamenti logici che uniscono due o più entità nella realtà descritta dal 
 
 **Relazione 1,1 (uno a uno)**
 
-![relazione1-1](/assets/images/relazione1-1.png)
+![relazione1-1](../assets/images/relazione1-1.png)
 
 - Uno spettatore occupa un singolo posto
 - Ogni singolo posto può essere occupato solo da uno spettatore
@@ -133,14 +133,14 @@ Collegamenti logici che uniscono due o più entità nella realtà descritta dal 
 
 **Relazione 1,N (uno a molti)**
 
-![relazione1-N](/assets/images/relazione1-N.png)
+![relazione1-N](../assets/images/relazione1-N.png)
  
 - Ad ogni classe appartiene più di un alunno
 - Un alunno appartiene ad una singola classe
 
 **Relazione N,N (molti a molti)**
 
-![relazioneN-N](/assets/images/relazioneN-N.png)
+![relazioneN-N](../assets/images/relazioneN-N.png)
 
 - Uno studente frequenta più corsi
 - Ogni corso è frequentato da molti studenti
