@@ -35,8 +35,8 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 27. [Sub Query](Pratica/25-subquery.md)
 28. [Dump(backup)/Restoring](Pratica/26-backup-restore.md)
 29. [Indici - approfondimento](Pratica/29-indici.md)
-30. Ottimizzazione Query
-31. Transaction
+30. [Ottimizzazione Query](Pratica/30-ottimizzazione.md)
+31. [Transaction](Pratica/31-transaction.md)
 32. Programmazione SQL - introduzione
 33. Triggers
 34. Stored Function
