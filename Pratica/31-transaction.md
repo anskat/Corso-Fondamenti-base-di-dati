@@ -348,6 +348,8 @@ Si crea una lettura sporca della seconda transazione se la prima transazione fal
 
 **Il livello di isolamento** `READ COMMITTED` **risolve questo problema**;
 
+---
+
 **LETTURE RIPETUTE**
 
 ```sql
@@ -382,6 +384,8 @@ SELECT credito FROM clienti WHERE id = 1;
 La seconda lettura è inconsistente.
 
 **Il livello di isolamento** `REPEATABLE READ` **risolve questo problema**;
+
+---
 
 **LETTURE FANTASMA**
 
