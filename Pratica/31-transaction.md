@@ -229,6 +229,95 @@ Per usare efficacemente le transazioni bisogna inserirle in un programma in cui 
 
 ---
 
+### SELECT ... FOR UPDATE
+
+In alcuni scenari applicativi non è sufficiente proteggere i dati solo durante l’`UPDATE`.
+
+Spesso una transazione deve:
+
+- leggere un dato
+
+- prendere una decisione applicativa
+
+- aggiornare lo stesso dato
+
+Senza un meccanismo di blocco esplicito, **più transazioni possono leggere lo stesso valore iniziale**, prendere la stessa decisione e produrre risultati incoerenti.
+
+`SELECT ... FOR UPDATE` consente di **leggere una o più righe all’interno di una transazione bloccandole per le altre transazioni** fino al `COMMIT` o al `ROLLBACK`.
+
+Questo evita condizioni di race e garantisce che nessun’altra transazione possa modificare (o bloccare a sua volta) le stesse righe.
+
+> Nota: `SELECT ... FOR UPDATE` funziona solo all’interno di una transazione e solo con tabelle InnoDB.
+
+**Esempio**
+
+Supponiamo di dover aggiornare il credito di un cliente solo se il valore è sufficiente.
+
+```sql
+START TRANSACTION;
+
+SELECT credito
+FROM clienti
+WHERE id = 1
+FOR UPDATE;
+```
+
+La riga del cliente viene letta e **bloccata**.
+
+Se un’altra transazione tenta di leggere la stessa riga con `FOR UPDATE` o di modificarla, rimarrà in attesa fino alla conclusione della prima transazione.
+
+```sql
+UPDATE clienti
+SET credito = credito - 80
+WHERE id = 1;
+
+COMMIT;
+```
+
+In questo modo:
+
+- la decisione applicativa si basa su un dato coerente
+
+- nessun’altra transazione può interferire
+
+- la consistenza dei dati è garantita
+
+### FOR UPDATE vs LOCK IN SHARE MODE
+
+MySQL mette a disposizione anche `LOCK IN SHARE MODE`, che applica un blocco condiviso alle righe lette.
+
+- `FOR UPDATE`: blocco esclusivo, usato quando dopo la lettura è previsto un aggiornamento
+
+- `LOCK IN SHARE MODE`: blocco condiviso, consente altre letture ma blocca le scritture
+
+Nella maggior parte dei casi applicativi in cui è previsto un aggiornamento successivo, si utilizza `FOR UPDATE`.
+
+#### Relazione con i livelli di isolamento
+
+I livelli di isolamento definiscono **quanto una transazione è isolata dalle altre**, ma non sempre sono sufficienti per garantire la correttezza delle operazioni concorrenti.
+
+In molti scenari reali:
+
+- il livello `REPEATABLE READ` **non è sufficiente**
+- il livello `SERIALIZABLE` **è eccessivo** e riduce inutilmente la concorrenza
+
+`REPEATABLE READ` garantisce una vista coerente dei dati, ma **non impedisce che altre transazioni modifichino le righe lette**, se queste non vengono bloccate esplicitamente.
+
+`SERIALIZABLE` impedisce queste modifiche, ma lo fa isolando completamente le transazioni, con un forte impatto sulle prestazioni.
+
+`SELECT ... FOR UPDATE` rappresenta una **soluzione mirata**:
+
+- blocca solo le righe realmente coinvolte
+- solo per la durata necessaria
+- senza aumentare globalmente il livello di isolamento
+
+È quindi lo strumento ideale quando una transazione deve:
+- leggere un dato
+- prendere una decisione
+- e successivamente modificarlo
+
+---
+
 #### Esempi:
 
 **LETTURE SPORCHE**
