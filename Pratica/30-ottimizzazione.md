@@ -97,7 +97,7 @@ WHERE data_nascita BETWEEN '2000-01-01' AND '2000-12-31' -- Usa indice
 
 > Un indice può essere usato per `ORDER BY` solo se l’ordine richiesto è compatibile con l’indice (stesso ordine e stessa direzione).
 
-### “Ottimizzazione pratica: regole d’oro”
+### Ottimizzazione pratica: regole d’oro
 
 - Usa sempre `EXPLAIN` / `EXPLAIN ANALYZE`
 
