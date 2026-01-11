@@ -119,3 +119,33 @@ Per renderli significativi dobbiamo inserirli in un contesto strutturato, ad ese
 5. La sicurezza viene garantita anche grazie alle funzioni che i db client-server normalmente offrono. Tutte le tabelle di un
     sistema gestionale aziendale sono tra loro collegate, la mancanza della gestione delle relazioni può portare a grossi
     problemi circa l' **integrità dei dati**.
+
+---
+
+## Concetti genarli riguardo i Database
+
+| Concetto                               | Applicabilità       | Note                                                          |
+| -------------------------------------- | ------------------- | ---------------------------------------------------------------------------------- |
+| **Dati**                               | Tutti i DB          | Informazioni salvate (numeri, testi, immagini, vettori)                            |
+| **Database**                           | Tutti i DB          | Archivio organizzato di dati persistenti                                           |
+| **DBMS**                               | Tutti i DB          | Software che gestisce i dati                                                       |
+| **Utenti / Ruoli**                     | Tutti i DB          | Persone o applicazioni che accedono ai dati                                        |
+| **Operazioni principali**              | Tutti i DB          | Inserimento, aggiornamento, cancellazione, lettura                                 |
+| **Integrità dei dati**                 | Tutti i DB          | Dati coerenti, corretti e affidabili                                               |
+| **Sicurezza / autorizzazioni**         | Tutti i DB          | Chi può leggere o scrivere dati                                                    |
+| **Backup & Restore**                   | Tutti i DB          | Protezione dei dati da guasti o perdite                                            |
+| **Persistenza**                        | Tutti i DB          | I dati rimangono salvati anche dopo la chiusura                                    |
+| **Indipendenza dei dati**              | Tutti i DB          | Applicazioni e dati sono separati                                                  |
+| **Scalabilità**                        | Tutti i DB          | Capacità di crescere con dati o utenti                                             |
+| **Accesso concorrente / multi-utenza** | Tutti i DB          | Più utenti possono lavorare contemporaneamente                                     |
+| **Modello dei dati**                   | Tutti i DB          | Organizzazione concettuale dei dati (relazionale, documentale, grafi, vettoriale…) |
+
+
+## Concetti specifici riguardo particolari Database
+
+| Concetto                               | Applicabilità       | Note                                                          |
+| -------------------------------------- | ------------------- | ---------------------------------------------------------------------------------- |
+| **Normalizzazione**                    | Solo RDBMS          | Organizzazione tabelle per ridurre ridondanza e incongruenze                       |
+| **Query SQL**                          | Solo RDBMS / SQL DB | Linguaggio per interrogare e aggiornare dati                                       |
+| **Chiavi primarie / esterne**          | Solo RDBMS          | Identificano righe uniche e collegano tabelle                                      |
+| **Join**                               | Solo RDBMS          | Collegamento tra tabelle basato su chiavi                                          |
