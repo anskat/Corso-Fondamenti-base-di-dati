@@ -149,3 +149,32 @@ Per renderli significativi dobbiamo inserirli in un contesto strutturato, ad ese
 | **Query SQL**                          | Solo RDBMS / SQL DB | Linguaggio per interrogare e aggiornare dati                                       |
 | **Chiavi primarie / esterne**          | Solo RDBMS          | Identificano righe uniche e collegano tabelle                                      |
 | **Join**                               | Solo RDBMS          | Collegamento tra tabelle basato su chiavi                                          |
+
+---
+
+## ACID: le 4 proprietà fondamentali dei database relazionali
+
+**ACID** è un acronimo che definisce i principi di *affidabilità* e *integrità dei dati* in un database:
+
+- **Atomicity (Atomicità)**: ogni operazione di modifica dei dati è “tutto o niente”: o viene completata completamente, o non avviene per niente.
+
+- **Consistency (Coerenza)**: il database passa sempre da uno stato valido a un altro stato valido, rispettando regole e vincoli.
+
+- **Isolation (Isolamento)**: le operazioni concorrenti degli utenti non interferiscono tra loro; sembra che ogni transazione sia eseguita da sola.
+
+- **Durability (Durabilità)**: Una volta confermata, una modifica rimane salvata anche se il sistema si blocca subito dopo.
+
+### Rilevanza per diversi tipi di DB
+
+- RDBMS tradizionali: ACID è pienamente garantito.
+
+- NoSQL: non sempre tutte le proprietà ACID sono garantite.
+
+Molti DB NoSQL puntano su scalabilità e performance.
+
+Alcuni offrono ACID solo a livello di singolo documento (es. MongoDB).
+
+Altri sacrificano l’isolamento completo per ottenere prestazioni maggiori.
+
+> ACID definisce le regole che assicurano che le modifiche ai dati siano affidabili, coerenti e durature.
+Nei database relazionali è garantito sempre, mentre nei NoSQL si applica in modi diversi, spesso limitato a parti del database per motivi di performance e scalabilità.
