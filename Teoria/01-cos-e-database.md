@@ -10,6 +10,64 @@ I database (o più brevemente, DB) sono archivi dove le applicazioni memorizzano
 
 [^1]: In ambito informatico, la persistenza si riferisce alla capacità di un dato di essere conservato oltre la durata di esecuzione di un singolo programma, garantendo che i dati siano ancora disponibili in seguito.
 
+**Sintesi**
+
+**Un database è un insieme di dati**:
+
+- organizzati
+
+- strutturati
+
+- persistenti (salvati nel tempo)
+
+- vengono gestiti tramite un software chiamato DBMS.
+
+Un database è un archivio digitale intelligente, che permette di salvare, cercare e aggiornare informazioni in modo ordinato e sicuro.
+
+- Elenco clienti
+
+- Studenti e voti
+
+- Prodotti e prezzi
+
+- Ordini e fatture
+
+Senza database, i dati sarebbero sparsi, duplicati o difficili da gestire.
+
+**Componenti e Funzioni di un DBMS**
+
+*Componenti di un Database*
+
+Un sistema di basi di dati è composto da:
+
+- **Dati** → le informazioni vere e proprie
+
+- **Hardware** → computer e server
+
+- **Software (DBMS)** → programma che gestisce i dati
+
+- **Utenti** → persone o applicazioni che usano i dati
+
+- **Procedure** → regole su come usare e gestire il database
+
+**Funzioni principali di un DBMS**
+
+Il DBMS serve a:
+
+- Garantire indipendenza dei dati
+
+- Gestire sicurezza e autorizzazioni
+
+- Permettere l’accesso contemporaneo a più utenti
+
+- Assicurare integrità e coerenza dei dati
+
+- Eseguire backup e ripristino
+
+- Migliorare le prestazioni con l’ottimizzazione delle query
+
+Il DBMS protegge i dati e li rende facilmente utilizzabili.
+
 ---
 
 ## Dati e Informazione
