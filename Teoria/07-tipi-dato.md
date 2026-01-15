@@ -1,6 +1,34 @@
 ## Tipi di dato
 
-In una tabella per ciascuna colonna possiamo definire diversi tipi di dato (dominio):
+Un **tipo di dato** *definisce la natura delle informazioni memorizzate in un database*, indicando quali valori sono validi e come vengono interpretati e gestiti dal sistema, ad esempio *numeri*, *testi*, *date* o *strutture complesse*.
+
+- Numerici
+    - Interi (int, long)
+    - Decimali / floating point (float, double, decimal)
+- Testo / Stringhe
+    - Brevi (char, varchar)
+    - Lunghi (text, string, blob per dati binari testuali)
+- Data e ora
+    - Data (date)
+    - Ora (time)
+    - Timestamp / data completa (datetime, timestamp)
+- Booleano
+    - Vero / falso (bool, boolean)
+- Tipi complessi / strutturati
+    - Array / liste
+    - JSON / BSON
+    - Oggetti / documenti (tipico dei database document-oriented)
+    - Mappe chiave-valore (tipico dei key-value store)
+- Tipi speciali
+    - Geospaziali (coordinate, punti, poligoni)
+    - Serie temporali (valori con timestamp)
+    - Grafi / nodi (tipico dei graph database)
+
+Questo elenco è astratto e applicabile a RDBMS, NoSQL, TSDB e Graph.
+
+---
+
+In una tabella MySQL per ciascuna colonna possiamo definire diversi tipi di dato (dominio):
 
 - [Dati numerici: interi](#dati-numerici-interi)
 - [Tipi di numeri in virgola mobile](#tipi-di-numeri-in-virgola-mobile)

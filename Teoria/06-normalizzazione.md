@@ -2,6 +2,12 @@
 
 **Regole da rispettare nel definire le tabelle**
 
+La normalizzazione è il processo di organizzazione dei dati in un database relazionale per ridurre ridondanze e anomalie.
+
+Serve a garantire coerenza, integrità e facilità di manutenzione, suddividendo le informazioni in tabelle correlate tra loro tramite chiavi primarie ed esterne.
+
+---
+
 ### La prima forma normale (1NF)
 
 Si dice che una database è in 1NF (prima forma normale) se per ogni tabella/relazione contenuta nella base dati:
