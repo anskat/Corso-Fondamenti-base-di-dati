@@ -88,10 +88,6 @@ Per renderli significativi dobbiamo inserirli in un contesto strutturato, ad ese
 
 ## Database file-server, client-server
 
-| Database file-server | Database client-server |
-| :--- | :--- |
-| Sono semplici file, a cui possono facilmente accedere i programmi che li usano per inserire, visualizzare, modificare o cancellare i dati in essi contenuti.<br>• Il sistema accede fisicamente al file;<br>• Più il file è di grandi dimensioni maggiore il tempo di accesso;<br>• L'accesso contemporaneo da più utenti rallenta notevolmente il db;<br><br>**Esempi:** MS Access, FileMaker, ... | Rappresentano un servizio che mette a disposizione il software per interagire con i dati. Viene gestito e manutenuto dai DBA (Database Administrator).<br><br>**Esempi:**<br>• Microsoft SQL Server (RDBMS)<br>• Oracle (RDBMS)<br>• MySQL (RDBMS)<br>• DB2 (RDBMS)<br>• PostgreSQL (ORDBMS)<br>• MongoDB (NoSQL)<br>• Neo4j (NoSQL) |
-
 <table>
   <thead>
     <tr>
