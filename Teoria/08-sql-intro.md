@@ -12,6 +12,34 @@ E’ lo standard tra i sistemi relazionali: viene usato in tutti i prodotti DBMS
 - TCL (Transaction Control Language): istruzioni per gestire le transazioni nel database
 - Query Language: permette di porre interrogazioni al db
 
+---
+
+L'**SQL** è un **linguaggio standard** ma i diversi RDBMS usano dialetti propri.
+
+Lo standard ANSI SQL è come l'italiano grammaticale, mentre MySQL, Oracle e T-SQL sono come i dialetti regionali.
+
+Ci si capisce su quasi tutto, ma per le cose specifiche ognuno ha i suoi termini.
+
+1. Il "Cuore" Comune (Core SQL)
+
+L'80-90% delle istruzioni SQL di queste slide funzionano nei diversi RDBMS.
+
+- Le clausole `SELECT`, `FROM`, `WHERE`.
+- Gli operatori `JOIN` (`INNER`, `LEFT`, `RIGHT`).
+- I raggruppamenti `GROUP BY` e `HAVING`.
+- I comandi base DML (`INSERT`, `UPDATE`, `DELETE`).
+
+2. Perché esistono i dialetti?
+
+- **Ottimizzazione**: ogni produttore (*Oracle*, *Microsoft*, *la community di MySQL*) vuole che il proprio DB sia il più veloce o il più facile da usare.
+Per farlo, inventano scorciatoie (come `LIMIT` in *MySQL* o `TOP` in *SQL Server*).
+
+- **Funzionalità avanzate**: lo standard SQL evolve lentamente. Se un RDBMS vuole introdurre nuove funzionalità prima che lo standard sia approvato, deve creare una propria sintassi *dialettale* (vedi esempio funzioni JSON in MySQL).
+
+La logica del linguaggio SQL che vedremo con MySQL è una base universale.
+
+Se usate altro RDBMS (*PostgreSQL*, *Oracle*, *Microsoft SQL Server*...), consultate la documentazione ufficiale del dialetto di quel RDBMS per controllare come sono implementate le istruzioni specifiche.
+
 --- 
 
 #### DCL
