@@ -92,6 +92,42 @@ Per renderli significativi dobbiamo inserirli in un contesto strutturato, ad ese
 | :--- | :--- |
 | Sono semplici file, a cui possono facilmente accedere i programmi che li usano per inserire, visualizzare, modificare o cancellare i dati in essi contenuti.<br>• Il sistema accede fisicamente al file;<br>• Più il file è di grandi dimensioni maggiore il tempo di accesso;<br>• L'accesso contemporaneo da più utenti rallenta notevolmente il db;<br><br>**Esempi:** MS Access, FileMaker, ... | Rappresentano un servizio che mette a disposizione il software per interagire con i dati. Viene gestito e manutenuto dai DBA (Database Administrator).<br><br>**Esempi:**<br>• Microsoft SQL Server (RDBMS)<br>• Oracle (RDBMS)<br>• MySQL (RDBMS)<br>• DB2 (RDBMS)<br>• PostgreSQL (ORDBMS)<br>• MongoDB (NoSQL)<br>• Neo4j (NoSQL) |
 
+<table>
+  <thead>
+    <tr>
+      <th align="left">Database file-server</th>
+      <th align="left">Database client-server</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td valign="top">
+        Sono semplici file, a cui possono facilmente accedere i programmi che li usano per inserire, visualizzare, modificare o cancellare i dati in essi contenuti.
+        <ul>
+          <li>Il sistema accede fisicamente al file;</li>
+          <li>Più il file è di grandi dimensioni maggiore il tempo di accesso;</li>
+          <li>L'accesso contemporaneo da più utenti rallenta notevolmente il db;</li>
+        </ul>
+        <strong>Esempi:</strong> MS Access, FileMaker, ...
+      </td>
+      <td valign="top">
+        Rappresentano un servizio che mette a disposizione il software per interagire con i dati. Viene gestito e manutenuto dai DBA (Database Administrator).
+        <br><br>
+        <strong>Esempi:</strong>
+        <ul>
+          <li>Microsoft SQL Server (RDBMS)</li>
+          <li>Oracle (RDBMS)</li>
+          <li>MySQL (RDBMS)</li>
+          <li>DB2 (RDBMS)</li>
+          <li>PostgreSQL (ORDBMS)</li>
+          <li>MongoDB (NoSQL)</li>
+          <li>Neo4j (NoSQL)</li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ---
 
 ## Client-server
