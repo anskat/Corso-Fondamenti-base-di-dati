@@ -116,7 +116,7 @@ NoSQL non indica un singolo modello, ma una famiglia di database con caratterist
 
 - I nodi possono rappresentare utenti, pagine, post, commenti;gli archi definiscono connessioni come “segue”, “amico di”, “ha scritto”.
 
-- Nodi e archi possono avere attributi (es. nome, età, data, testo): Gli attributi dei nodi descrivono l’entità, quelli degli archi descrivono la relazione, come ad esempio quando è iniziata o il tipo di connessione
+- Nodi e archi possono avere attributi (es. nome, età, data, testo): gli attributi dei nodi descrivono l’entità, quelli degli archi descrivono la relazione, come ad esempio quando è iniziata o il tipo di connessione
 
 - Ideali per rappresentare relazioni complesse e interrogazioni su reti di connessioni.
 
