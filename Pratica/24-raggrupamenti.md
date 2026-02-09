@@ -98,7 +98,7 @@ FROM studenti
 GROUP BY genere;
 ```
 
-**Per contare il numero di corsi raggruppati per docente**:
+**Per determinare il carico didattico di ogni docente e conoscere il numero totale di corsi assegnati a ciascuno, possiamo scrivere**:
 
 ```sql
 SELECT cognome, nome, COUNT(*) AS `quanti`
