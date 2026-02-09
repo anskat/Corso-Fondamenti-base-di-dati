@@ -119,18 +119,15 @@ FROM studenti
 GROUP BY genere;
 ```
 
-**Per conoscere il valore complessivo dei corsi raggruppati per docente**:
+**Per calcolare il ricavo totale generato da ogni corso, possiamo utilizzare la seguente query**:
 
 ```sql
-SELECT
-    cognome,
-    nome,
-    SUM(prezzo) AS `valore`
-FROM docenti d
-JOIN corsi c
-ON d.id = c.docente_id
-GROUP BY d.id
-ORDER BY `valore`;
+SELECT titolo, SUM(i.prezzo) `valore corso`
+FROM corsi c
+JOIN iscrizioni i
+ON c.id = i.corso_id
+GROUP BY titolo
+ORDER BY `valore corso`;
 ```
 
 Per conoscere, per ciascuno studente:
