@@ -497,9 +497,11 @@ AND s.data_nascita <= g.anno_fine
 ORDER BY s.data_nascita;
 ```
 
-Altro esempio utilizzando il database dei corsi.
+> Le *non equi-join* sono utili ogni volta che la relazione tra le tabelle non è basata su uguaglianza diretta, ma su **intervalli**, **range**, o altre condizioni logiche.
 
-Vogliamo estrarre l’elenco degli studenti iscritti a partire da una certa data.
+Punto di attenzione: uso del WHERE nelle JOIN.
+
+Estrarre l’elenco degli studenti iscritti a partire da una certa data.
 
 ```sql
 SELECT
@@ -576,5 +578,3 @@ nelle `OUTER JOIN`, le condizioni che riguardano la tabella “esterna” devono
 una condizione nel `WHERE` può annullare l’effetto della `LEFT` o `RIGHT JOIN`;
 
 quando si vuole preservare le righe senza corrispondenza, le condizioni vanno inserite nella clausola `ON`.
-
-> Le *non equi-join* sono utili ogni volta che la relazione tra le tabelle non è basata su uguaglianza diretta, ma su **intervalli**, **range**, o altre condizioni logiche.
