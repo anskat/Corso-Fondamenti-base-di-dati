@@ -499,7 +499,9 @@ ORDER BY s.data_nascita;
 
 > Le *non equi-join* sono utili ogni volta che la relazione tra le tabelle non è basata su uguaglianza diretta, ma su **intervalli**, **range**, o altre condizioni logiche.
 
-Punto di attenzione: uso del WHERE nelle JOIN.
+---
+
+**Attenzione**: uso del `WHERE` nelle `JOIN`.
 
 Estrarre l’elenco degli studenti iscritti a partire da una certa data.
 
