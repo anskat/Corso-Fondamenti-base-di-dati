@@ -1,6 +1,6 @@
-## Window function
+## Window functions
 
-Le window function[^1] (disponibili a partire da MySQL 8) eseguono operazioni aggregate su un insieme di righe specificato, ma a differenza delle funzioni aggregate utilizzate con la clausola `GROUP BY`, producono un risultato per ogni riga della query.
+Le window functions[^1] (disponibili a partire da MySQL 8) eseguono operazioni aggregate su un insieme di righe specificato, ma a differenza delle funzioni aggregate utilizzate con la clausola `GROUP BY`, producono un risultato per ogni riga della query.
 
 - Ogni riga su cui viene valutata la funzione è definita riga corrente;
 
