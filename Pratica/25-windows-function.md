@@ -18,7 +18,7 @@ La maggior parte delle funzioni aggregate possono essere utilizzate anche come f
 
 ---
 
-### Tabella WINDOWS FUNCTION
+### Tabella WINDOW FUNCTIONS
 
 | Function	| Descrizione |
 | ---- | ---- |
