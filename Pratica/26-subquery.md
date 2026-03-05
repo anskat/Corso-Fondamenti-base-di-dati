@@ -221,10 +221,22 @@ ORDER BY `quanti` DESC;
 
 La subquery conta gli studenti raggruppati per ciascun corso, quindi la query principale seleziona tra questi i corsi con più iscritti.
 
-> Nota: qui è stata utilizzata la parola chiave `ALL` per questa subquery poiché l'ufficio selezionato dalla query deve avere uno stipendio medio superiore o uguale
-allo stipendio medio degli altri uffici.
+La query seguente seleziona i corsi che rendono di più:
 
-La seguente query seleziona l'ufficio i cui impiegati hanno il salario medio più alto.
+```sql
+SELECT titolo, SUM(i.prezzo) AS valore_totale
+FROM corsi c
+JOIN iscrizioni i
+ON c.id = i.corso_id
+GROUP BY c.id
+HAVING valore_totale >= ALL (
+    SELECT sum(i.prezzo)
+    FROM iscrizioni i
+    GROUP BY i.corso_id
+);
+```
+
+La query seguente seleziona l'ufficio i cui impiegati hanno il salario medio più alto.
 
 ```sql
 SELECT u.nome, AVG(stipendio) `Stipendio medio`
@@ -259,7 +271,7 @@ La subquery trova l'ID degli uffici che si trovano in 'piemonte', quindi la quer
 SELECT cognome, nome
 FROM impiegati
 WHERE ufficio_id = ANY
-(SELECT id FROM uffici WHERE regione = 'piemonte');
+(SELECT id FROM uffici WHERE regione = 'Piemonte');
 ```
 
 abbiamo utilizzato la parola chiave `ANY` in questa query perché è probabile che la subquery troverà più di un ufficio nella regione Piemonte.
@@ -272,7 +284,7 @@ Posso contare gli impiegati che lavorano in una data regione
 SELECT 'Piemonte', COUNT(*)
 FROM impiegati
 WHERE ufficio_id = ANY -- IN
-(SELECT id FROM uffici WHERE regione = 'piemonte');
+(SELECT id FROM uffici WHERE regione = 'Piemonte');
 ```
 
 Otteniamo la stessa cosa con la `JOIN`
@@ -281,7 +293,7 @@ Otteniamo la stessa cosa con la `JOIN`
 SELECT regione, COUNT(*)
 FROM impiegati JOIN uffici
 ON impiegati.ufficio_id = uffici.id
-AND regione = 'piemonte';
+AND regione = 'Piemonte';
 ```
 
 ---
@@ -669,6 +681,19 @@ ON c.id = o.cliente_id
 WHERE o.id IS NULL;
 ```
 
+**Esempio in UPDATE**
+Query per applicare uno sconto ai corsi che non hanno iscritti:
+
+```sql
+UPDATE corsi c
+SET prezzo = prezzo * .90
+WHERE NOT EXISTS (
+    SELECT corso_id
+    FROM iscrizioni i
+    WHERE c.id = i.corso_id
+);
+```
+
 ---
 
 #### Subquery nella clausola FROM
@@ -681,9 +706,9 @@ Consideriamo la vista *studenti_giovani* in cui mostriamo gli studenti che hanno
 
 ```sql
 CREATE OR REPLACE VIEW studenti_giovani AS
-SELECT cognome, nome, email, timestampdiff(YEAR, data_nascita, curdate()) `età`
+SELECT cognome, nome, email, TIMESTAMPDIFF(YEAR, data_nascita, curdate()) `età`
 FROM studenti
-WHERE timestampdiff(YEAR, data_nascita, curdate()) <= 30;
+WHERE TIMESTAMPDIFF(YEAR, data_nascita, curdate()) <= 30;
 ```
 
 Quando interroghiamo la vista la `SELECT` è la seguente:
@@ -802,3 +827,78 @@ e la passa alla query principale, sotto forma di tabella virtuale:
 `... FROM (SELECT...) AS tbl;`
 
 che ricava il numero massimo, il numero minimo e la media di articoli venduti.
+
+**Gli esempi seguenti utilizzano più subquery nidificate**
+
+- Prendiamo in considerazione la query che seleziona i corsi che rendono di più con l'operatore `ALL`
+
+```sql
+SELECT titolo, SUM(i.prezzo) AS valore_totale
+FROM corsi c
+JOIN iscrizioni i
+ON c.id = i.corso_id
+GROUP BY c.id
+HAVING valore_totale >= ALL (
+    SELECT sum(i.prezzo)
+    FROM iscrizioni i
+    GROUP BY i.corso_id
+);
+```
+
+La query può essere ottimizzata usando una subquery nella clausola `FROM`
+
+```sql
+SELECT titolo, SUM(i.prezzo) AS valore_totale
+FROM corsi c
+JOIN iscrizioni i
+ON c.id = i.corso_id
+GROUP by c.id
+HAVING valore_totale = (
+    SELECT MAX(c)
+    FROM (
+        SELECT SUM(prezzo) AS c
+        FROM iscrizioni
+        GROUP BY corso_id
+    ) t
+);
+```
+
+- Prendiamo in considerazione la query che seleziona i corsi con più iscritti con l'operatore `ALL`
+
+```sql
+SELECT c.titolo, COUNT(i.id) AS `Quanti_iscritti`
+FROM corsi c
+JOIN iscrizioni i ON c.id = i.corso_id
+GROUP BY c.id, c.titolo
+HAVING `Quanti_iscritti` >= ALL (
+        SELECT COUNT(studente_id)
+        FROM iscrizioni
+        GROUP BY corso_id
+    )
+ORDER BY `Quanti_iscritti` DESC;
+```
+
+La query può essere ottimizzata usando una subquery nella clausola `FROM`
+
+```sql
+SELECT c.titolo, COUNT(i.id) AS `Quanti_iscritti`
+FROM corsi c
+JOIN iscrizioni i 
+ON c.id = i.corso_id
+GROUP BY c.id, c.titolo
+HAVING `Quanti_iscritti` = (
+    SELECT MAX(c)
+    FROM (
+        SELECT COUNT(*) AS c
+        FROM iscrizioni
+        GROUP BY corso_id
+    ) t
+)
+ORDER BY `Quanti_iscritti` DESC;
+```
+
+> Nota: l'utilizzo di MAX() all'interno di una subquery nella clausola FROM è preferibile all'operatore ALL per due motivi principali:
+- riduzione dei confronti: l'operatore `ALL` costringe il database a confrontare ogni riga della query esterna con ogni singola riga prodotta dalla subquery.
+L'approccio con MAX() calcola il valore massimo una sola volta e lo trasforma in un singolo numero (scalare). La query esterna dovrà quindi fare un semplice confronto "uguale a X".
+- materializzazione: MySQL può salvare temporaneamente in memoria il risultato della subquery nella FROM.
+Questo evita di ricalcolare i totali per ogni riga, riducendo drasticamente i tempi di esecuzione su tabelle con migliaia di record.
