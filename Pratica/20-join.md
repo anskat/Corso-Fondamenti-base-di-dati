@@ -382,9 +382,9 @@ Vogliamo ridurre del 10% il prezzo dei corsi che non hanno studenti iscritti:
 
 ```sql
 UPDATE Corsi c
-LEFT JOIN Iscrizioni d ON c.id = iscrizioni.corso_id
+LEFT JOIN Iscrizioni i ON c.id = i.corso_id
 SET c.prezzo = c.prezzo * 0.90
-WHERE iscrizioni.corso_id IS NULL;
+WHERE i.corso_id IS NULL;
 ```
 
 In questo caso:
