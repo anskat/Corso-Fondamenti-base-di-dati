@@ -30,7 +30,7 @@ Per visualizzare gli argomenti mancanti usate le [slide complete](assets/slide/f
 22. [Constraints](Pratica/22-constraints.md)
 23. [Funzioni](Pratica/23-funzioni-sql.md)
 24. [Raggruppamenti](Pratica/24-raggrupamenti.md)
-25. [Window Functions](Pratica/25-windows-function.md)
+25. [Window Functions](Pratica/25-window-functions.md)
 26. [Sub Query](Pratica/26-subquery.md)
 27. [Viste](Pratica/27-view.md)
 28. [Dump(backup)/Restoring](Pratica/28-backup-restore.md)
