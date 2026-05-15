@@ -950,5 +950,5 @@ HAVING `Quanti_iscritti` = (
 
 > Nota sull'efficienza: LIMIT 1 vs MAX()
 
-Usando LIMIT 1 nella query interna stiamo isolando il valore massimo da usare come termine di paragone in modo più elegante ed efficiente rispetto all'uso di MAX().
-Mentre MAX() richiede spesso un ulteriore livello di nidificazione (specialmente quando si opera su dati già aggregati), ORDER BY ... LIMIT 1 risolve il problema in un unico passaggio, garantendo che la query principale mostri comunque tutti i record che pareggiano quel valore massimo.
+> Usando LIMIT 1 nella query interna stiamo isolando il valore massimo da usare come termine di paragone in modo più elegante ed efficiente rispetto all'uso di MAX().
+> Mentre MAX() richiede spesso un ulteriore livello di nidificazione (specialmente quando si opera su dati già aggregati), ORDER BY ... LIMIT 1 risolve il problema in un unico passaggio, garantendo che la query principale mostri comunque tutti i record che pareggiano quel valore massimo.
