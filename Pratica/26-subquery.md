@@ -167,6 +167,19 @@ WHERE id = (
 );
 ```
 
+Meglio
+
+```sql
+SELECT cognome, nome, email
+FROM clienti
+WHERE id = (
+    SELECT cliente_id
+    FROM ordini
+    ORDER BY id DESC
+    LIMIT 1
+);
+```
+
 ---
 
 #### Subquery con operatori di confronto.
@@ -863,6 +876,22 @@ HAVING valore_totale = (
 );
 ```
 
+Meglio ancora, senza usare la subquery nella clausola `FROM`:
+```sql
+SELECT titolo, SUM(i.prezzo) AS valore_totale
+FROM corsi c
+JOIN iscrizioni i
+ON c.id = i.corso_id
+GROUP by c.id
+HAVING valore_totale = (
+    SELECT SUM(prezzo) AS c
+        FROM iscrizioni
+        GROUP BY corso_id
+        ORDER BY c DESC 
+        LIMIT 1
+);
+```
+
 - Prendiamo in considerazione la query che seleziona i corsi con più iscritti con l'operatore `ALL`
 
 ```sql
@@ -893,8 +922,7 @@ HAVING `Quanti_iscritti` = (
         FROM iscrizioni
         GROUP BY corso_id
     ) t
-)
-ORDER BY `Quanti_iscritti` DESC;
+);
 ```
 
 > Nota: l'utilizzo di MAX() all'interno di una subquery nella clausola FROM è preferibile all'operatore ALL per due motivi principali:
@@ -902,3 +930,20 @@ ORDER BY `Quanti_iscritti` DESC;
 L'approccio con MAX() calcola il valore massimo una sola volta e lo trasforma in un singolo numero (scalare). La query esterna dovrà quindi fare un semplice confronto "uguale a X".
 - materializzazione: MySQL può salvare temporaneamente in memoria il risultato della subquery nella FROM.
 Questo evita di ricalcolare i totali per ogni riga, riducendo drasticamente i tempi di esecuzione su tabelle con migliaia di record.
+
+La query può essere ulteriormente OTTIMIZZATA:
+
+```sql
+SELECT c.titolo, COUNT(i.id) AS `Quanti_iscritti`
+FROM corsi c
+JOIN iscrizioni i 
+ON c.id = i.corso_id
+GROUP BY c.id, c.titolo
+HAVING `Quanti_iscritti` = (
+        SELECT COUNT(*) AS c
+        FROM iscrizioni
+        GROUP BY corso_id
+        ORDER BY c DESC
+        LIMIT 1
+);
+```

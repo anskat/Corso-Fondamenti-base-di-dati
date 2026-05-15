@@ -135,19 +135,31 @@ Per questi campi il *set di caratteri* e la *collation*, il confronto e l'ordina
 
 TEXT
 
-- dimensione massima fissa di 65535 caratteri (non è possibile limitare la dimensione massima)
-- prende 2 + c byte di spazio su disco, dove c è la lunghezza della stringa memorizzata.
-- indice: può essere indicizzato solo con un prefix index.
+- **Capacità massima**: limite fisso di 65.535 byte (circa 64 KB).
+- **Vincoli**: non è possibile limitare la dimensione massima in fase di definizione (non esiste TEXT(M)).
+- **Storage**: Occupa 2 + c byte di spazio (dove c è la lunghezza della stringa memorizzata).
+- **Indici**: può essere indicizzato solo tramite Prefix Index.
 
 VARCHAR (M)
 
-- dimensione massima variabile di byte M
-- M deve essere compreso tra 1 e 65535
-- prende 1 + c byte (per M ≤ 255) o 2 + c (per 256 ≤ M ≤ 65535) byte di spazio su disco dove c è la lunghezza della stringa memorizzata
-- può essere parte di un indice
+- **Capacità massima**: variabile in base a M (numero di caratteri), ma vincolata dal limite di riga di 65.535 byte totali della tabella.
+- **Flessibilità**: permette di limitare la dimensione massima (es. VARCHAR(100)).
+- **Storage**:
+    - 1 + c byte se M ≤ 255
+    - 2 + c byte se 256 ≤ M ≤ 65.535
+- **Indici**: può essere parte di un indice standard (pieno o parziale).
 
-Se è necessario memorizzare stringhe più lunghe di circa 64 KB, utilizzare MEDIUMTEXT o LONGTEXT.
+Se la stringa deve superare i 64 KB totali, è necessario passare a MEDIUMTEXT o LONGTEXT.
 VARCHAR non supporta la memorizzazione di valori così grandi.
+
+NOTA: Inline vs Off-page Storage
+**VARCHAR** cerca di memorizzare i dati "Inline" (direttamente dentro la riga della tabella).
+Questo rende l'accesso più veloce ma consuma subito il limite dei 65.535 byte della riga.
+
+**TEXT** memorizza i dati "Off-page".
+Nella riga della tabella viene salvato solo un piccolo puntatore (circa 9-12 byte), mentre il testo vero e proprio è scritto in un'area di memoria separata.
+Puoi avere decine di colonne TEXT in una tabella, ma solo pochissime colonne VARCHAR molto grandi prima di esaurire lo spazio della riga.
+
 
 **Tipi ENUM e SET**
 
