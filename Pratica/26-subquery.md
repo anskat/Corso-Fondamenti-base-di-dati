@@ -581,6 +581,8 @@ Una subquery nel `SELECT` è efficace e appropriata quando:
 - non serve filtrare o ordinare sul valore calcolato
 
 In questi casi la subquery nel SELECT è assolutamente corretta e spesso più comprensibile di una JOIN con GROUP BY.
+Ecco infatti la versione equivalente con JOIN, per confronto diretto con la query della slide precedente.
+
 
 ```sql
 SELECT
@@ -598,7 +600,6 @@ La subquery nel SELECT non è sbagliata. È una soluzione chiara e corretta. La 
 > Nota: Questa tecnica è oggi raramente usata in produzione perché:
 - è meno efficiente
 - è meno leggibile
-- è stata superata dalle window functions, che rappresentano la soluzione moderna e corretta.
 
 ---
 
