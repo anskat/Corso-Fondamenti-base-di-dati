@@ -268,7 +268,7 @@ La query su `KEY_COLUMN_USAGE` è utile per vedere quali colonne partecipano all
 
 #### Uso delle variabili di sistema per disabilitare temporaneamente i controlli
 
-FOREIGN_KEY_CHECKS è una variabile di sistema che ci9 sonsente di disabilitare temporaneamente i controlli sulle `FOREIGN KEY`:
+FOREIGN_KEY_CHECKS è una variabile di sistema che ci consente di disabilitare temporaneamente i controlli sulle `FOREIGN KEY`:
 
 ```sql
 SET FOREIGN_KEY_CHECKS = 0;
